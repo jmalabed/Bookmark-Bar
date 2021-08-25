@@ -28,7 +28,7 @@ app.get('/bar',(req,res)=>{
     if (err) {
       res.send(err)
     } else {
-      console.log('yo')
+      console.log(allTopics)
     res.render('index.ejs', {topics: allTopics})
     }
   })
