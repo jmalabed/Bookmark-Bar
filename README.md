@@ -1,12 +1,7 @@
 # project1
 
 # General Assembly Project 1: The Bookmark Bar
-## User Stories
-- When navigating to the index, a user will be able to navigate to the desired topic of their choice.
-- user utilizes wiki-page style navigation
-- user will be able to contribute and edit resources on topic page
-- A user will be able to add likes on helpful resources
-- A user will be able to update and delete resources from their respective lists
+
 
 
 
@@ -43,9 +38,12 @@ This project is completed with:
  - MongoDB
  - Mongoose
 
-## User Stories UPDATE
-
-- sample text
+## User Stories
+ - When navigating to the index, a user will be able to navigate to the desired topic of their choice.
+ - user utilizes wiki-page style navigation
+ - user will be able to contribute and edit resources on topic page
+ - A user will be able to add likes on helpful resources
+ - A user will be able to update and delete resources from their respective lists
 
 
 ## Link to Page UPDATE
