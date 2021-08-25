@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const topicSchema = new mongoose.Schema({
   url: {
-    type: String,
+    name: String,
     required: true
   },
   img: String,
