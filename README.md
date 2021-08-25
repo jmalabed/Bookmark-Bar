@@ -22,6 +22,7 @@
 -[User Stories](#user-stories)
 -[Link to Page](#link-to-page)
 -[Wireframe](#wireframe)
+-[Entity Relationship Diagram](#entity-relationship-diagram)
 -[Minimum Viable Product](#minimum-viable-product)
 -[Code Snippets](#code-snippets)
 -[Future Work](#future-work)
@@ -53,6 +54,10 @@ This project is completed with:
 ## Wireframe UPDATE
 
 ![Wireframe](url)
+
+## Entity Relationship Diagram
+
+![ERD](https://github.com/jmalabed/project1/blob/main/ERD%20Project%201.png)
 
 ## Minimum Viable Product UPDATE
 - Create

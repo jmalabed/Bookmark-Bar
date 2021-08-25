@@ -6,7 +6,7 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-mongoose.connect('mongodb://localhost:27017/resources',{useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/bookmarkbar',{useNewUrlParser: true});
 
 const db = mongoose.connection
 db.once('open',()=>{
