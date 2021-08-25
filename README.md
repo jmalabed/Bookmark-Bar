@@ -28,7 +28,7 @@
 -[Future Work](#future-work)
 -[Acknowledgements](#acknowledgements)
 
-![Screen Shot 2021-08-25 at 10 47 48 AM](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
+
 
 <!-- ## Scope
 
@@ -53,7 +53,8 @@ This project is completed with:
 
 ## Wireframe UPDATE
 
-![Wireframe](url)
+![Wireframe](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
+
 
 ## Entity Relationship Diagram
 
