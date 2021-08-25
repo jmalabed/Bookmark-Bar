@@ -21,7 +21,7 @@ db.once('open',()=>{
 
 // =============================
 //           TOPIC
-const topData = [
+const topicData = [
     {
       name: "JavaScript",
       img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
@@ -59,7 +59,29 @@ const resourceData = [
   }
 ]
 
+// =============================
+//         INSTANTIATE
+// =============================
+// ** RUN THIS CODE ONE TIME TO BUILD YOUR DATABASE IN MONGODB! **
+// Comment out after
+Topic.insertMany(topicData,(err,topics)=>{
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('added provided topic data', topics);
+    mongoose.connection.close();
+  }
+})
 
+
+Resource.insertMany(resourceData,(err,resources)=>{
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('added provided resource data', resources);
+    mongoose.connection.close();
+  }
+})
 
 // =============================
 //         MIDDLEWARE
