@@ -30,7 +30,7 @@
 
 
 
-<!-- ## Scope
+## Scope
 
 
 ### Technologies UPDATE
@@ -72,4 +72,4 @@ This project is completed with:
 ## Future Work
 
 
-## Acknowledgements -->
+## Acknowledgements
