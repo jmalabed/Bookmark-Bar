@@ -22,8 +22,16 @@ app.use(methodOverride("_method"))
 // =============================
 //         ROUTING
 // =============================
-app.get('/index',(req,res)=>{
-  res.send
+//index route
+app.get('/bar',(req,res)=>{
+  Topic.find({}, (err, allTopics) => {
+    if (err) {
+      res.send(err)
+    } else {
+      console.log('yo')
+    res.render('index.ejs', {topics: allTopics})
+    }
+  })
 })
 
 
