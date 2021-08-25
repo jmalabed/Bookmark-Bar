@@ -27,10 +27,10 @@
 -[Future Work](#future-work)
 -[Acknowledgements](#acknowledgements)
 
+![Screen Shot 2021-08-25 at 10 47 48 AM](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
+
 <!-- ## Scope
 
-
-(https://user-images.githubusercontent.com/87847753/130840418-89e0d852-7552-4e69-b06e-b6abc7cfff44.png)
 
 ### Technologies UPDATE
 
