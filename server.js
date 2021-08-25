@@ -6,6 +6,9 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const Resource = require('./models/resource.js')
+const Topic = require('./models/topics.js')
+
 mongoose.connect('mongodb://localhost:27017/bookmarkbar',{useNewUrlParser: true});
 
 const db = mongoose.connection
@@ -36,7 +39,7 @@ app.get('/index',(req,res)=>{
 
 
 
-
+app.use(express.static(__dirname + '/public'));
 // =============================
 //           LISTEN
 
