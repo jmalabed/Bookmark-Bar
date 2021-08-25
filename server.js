@@ -36,7 +36,7 @@ app.get('/index',(req,res)=>{
 
 
 
-
+app.use(express.static(__dirname + '/public'));
 // =============================
 //           LISTEN
 
