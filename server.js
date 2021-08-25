@@ -6,6 +6,8 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const Resource = require('./models/resource.js')
+
 mongoose.connect('mongodb://localhost:27017/bookmarkbar',{useNewUrlParser: true});
 
 const db = mongoose.connection
@@ -24,12 +26,11 @@ app.use(methodOverride("_method"))
 // =============================
 //index route
 app.get('/bar',(req,res)=>{
-  Topic.find({}, (err, allTopics) => {
+  Resource.find({}, (err, allTopics) => {
     if (err) {
       res.send(err)
     } else {
-      console.log(allTopics)
-    res.render('index.ejs', {topics: allTopics})
+    res.render('index.ejs', {resources: allTopics})
     }
   })
 })
@@ -45,6 +46,8 @@ app.get('/bar',(req,res)=>{
 
 
 
+
+app.use(express.static(__dirname + '/public'));
 // =============================
 //           LISTEN
 
