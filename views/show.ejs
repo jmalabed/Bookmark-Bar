@@ -12,7 +12,8 @@
     <div class='col'>
       <ul> <% resources.forEach(resource => { %>
         <li>
-          <a href='/bar/<%=resource._id%>'> <%= resource.name %></a>
+          <a href='<%=resource.url%>'> <%= resource.name %></a>
+          <p> <%= resource.description %> </p>
         </li>
       <% }) %>
       </ul>

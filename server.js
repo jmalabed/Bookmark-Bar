@@ -103,6 +103,10 @@ db.on( 'open' , ()=>{
 // =============================
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
+app.use((req, res, next) => {
+  console.log('run all routes')
+  next();
+})
 // =============================
 //         ROUTING
 // =============================
@@ -119,19 +123,47 @@ app.get('/bar',(req,res)=>{
   })
 })
 //show route
+// app.get('/bar/:id', (req,res)=>{
+//   Resource.find({}, (err, callback)=> {
+//     res.render('show.ejs', {resources:callback})
+//   })
+// })
+
+// app.get('/bar/:id', (req,res)=>{
+//   let topicId = ''
+//   if(req.body.topicId ==='JavaScript') {
+//     topicId = 'JavaScript'
+//   }
+//   Resource.find({}, topicId, (err, callback)=> {
+//     res.render('show.ejs', {resources:callback})
+//   })
+// })
+
+// app.get('/bar/:id', (req,res)=>{
+//   Resource.find({$and: [
+//     {topicId: 'JavaScript'}]}, (err, callback)=> {
+//     res.render('show.ejs', {resources:callback})
+//   })
+// })
+
 app.get('/bar/:id', (req,res)=>{
-  Resource.find({}, (err, callback)=> {
+  let id = req.body.topicId
+    if(id == 'JavaScript') {
+      console.log(id)
+  Resource.find({topicId:id}, (err, callback)=> {
     res.render('show.ejs', {resources:callback})
-  })
+  })}
 })
 
 
-
-
-
-
-
-
+// app.get('/bar/:id', (req,res)=>{
+//   if(req.body.topicId == 'JavaScript')
+//
+//   Resource.find({$and: [
+//     {topicId: 'JavaScript'}]}, (err, callback)=> {
+//     res.render('show.ejs', {resources:callback})
+//   })
+// })
 
 
 
