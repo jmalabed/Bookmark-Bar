@@ -9,11 +9,14 @@
     <title></title>
   </head>
   <body>
+    <h1><img src="<%=topic.img%>" alt=""> <%=topic.name%> </h1>
     <div class='col'>
       <ul> <% resources.forEach(resource => { %>
-        <li>
-          <a href='/bar/<%=resource._id%>'> <%= resource.name %></a>
-        </li>
+        <% if (topic.name === resource.topicId) { %>
+          <li>
+            <a href='/bar/<%=resource._id%>'> <%= resource.name %></a>
+          </li>
+        <% } %>
       <% }) %>
       </ul>
     </div>

@@ -69,13 +69,19 @@ app.get('/bar/new', (req,res)=> {
 
 //show route
 app.get('/bar/:id', (req,res)=>{
-  Resource.find({}, (err, callback)=> {
-    if (err) {
-      console.log(err);
-    } else {
-        res.render('show.ejs', {resources:callback})
-    }
+  id = req.params.id
+  Topic.findById(id,(err,foundTopic)=>{
+    Resource.find({}, (err, allResources)=> {
+      if (err) {
+        console.log(err);
+      } else {
+          res.render('show.ejs', {
+            resources:allResources,
+            topic:foundTopic
+          })
+      }
 
+    })
   })
 })
 
