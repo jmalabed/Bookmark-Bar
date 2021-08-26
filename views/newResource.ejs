@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link type='text/css' href="/style.css" rel="stylesheet"/>
+    <title>Create New Resource</title>
+  </head>
+  <body>
+    <h1>Create a New Resource</h1>
+    <form action="/bar/resource" method="post">
+      <p>Resource Name: <input type="text" name="name" value=""></p>
+      <p>Resource URL: <input type="text" name="img"></p>
+      <p><textarea name="description" rows="8" cols="80" placeholder="Small description of resource"></textarea></p>
+<!-- want to update the resource topicId to match the topic it is created from.-->
+      <input type="submit" value="CREATE NEW">
+    </form>
+  </body>
+</html>
