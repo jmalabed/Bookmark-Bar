@@ -1,0 +1,17 @@
+
+/* * {
+  text-align: center;
+} */
+/* body {
+  margin: auto;
+} */
+
+img {
+  width: 40%;
+}
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+}

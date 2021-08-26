@@ -127,7 +127,7 @@ app.get('/bar/:id', (req,res)=>{
         res.render('show.ejs', {
           resources:allResources,
           topic:foundTopic
-          })
+        })
       }
     })
   })
@@ -210,6 +210,19 @@ const id = req.params.id
   })
 })
 
+//update
+app.put('/bar/:id', (req,res)=>{
+const id = req.params.id
+const updatedResourceData = req.body
+
+  Resource.findByIdAndUpdate(id, updatedResourceData, {new: true}, (err,updatedResource) => {
+    if(err){
+      res.send(err)
+    } else {
+      res.redirect('/bar')
+    }
+  })
+})
 
 
 app.use(express.static(__dirname + '/public'));

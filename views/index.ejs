@@ -9,21 +9,17 @@
     <title>Index</title>
   </head>
   <body>
-    <div class='container'>
+    <div class='container-fluid'>
       <div class='row'>
-        <div class='col'>
-          <ul> <% topics.forEach(topic => { %>
-            <li>
-               <a href='/bar/<%=topic._id%>'> <img src="<%=topic.img%>"> <%= topic.name %></a>
+
+            <% topics.forEach(topic => { %>
+
+               <a href='/bar/<%=topic._id%>'> <img src="<%=topic.img%>" style ='width:200px; height:200px'> <%= topic.name %></a>
               <form action="/bar/<%=topic._id%>?_method=DELETE" method="post">
                 <input type="submit" value="DELETE">
               </form>
-            </li>
+            </div>
           <% }) %>
-          </ul>
-        </div>
-      </div>
-    </div>
     <a href='/bar/new'>create</a>
   </body>
 </html>
