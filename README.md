@@ -10,8 +10,7 @@ This project utilizes MongoDB, Mongoose, EJS, Express.js, and Node.js in order t
  - [Scope](#Scope)
  - [User Stories](#user-stories)
  - [Link to Page](#link-to-page)
- - [Sitemap](#sitemap)
- - [Entity Relationship Diagram](#entity-relationship-diagram)
+ - [Site Graphics](#site-graphics)
  - [Minimum Viable Product](#minimum-viable-product)
  - [Code Snippets](#code-snippets)
  - [Future Work](#future-work)
@@ -22,7 +21,7 @@ This project utilizes MongoDB, Mongoose, EJS, Express.js, and Node.js in order t
 ## Scope
 
 
-### Technologies UPDATE
+### Technologies
 
 This project is completed with:
  - HTML
@@ -31,32 +30,34 @@ This project is completed with:
  - Express.js
  - MongoDB
  - Mongoose
+ - Node.js
 
 ## User Stories
+### Main Objectives
  - When navigating to the index, a user will be able to navigate to the desired topic of their choice.
  - user utilizes wiki-page style navigation
  - user will be able to contribute and edit resources on topic page
- - A user will be able to add likes to highlight on helpful resources
+ - A user will be able to add likes to highlight helpful resources
  - A user will be able to update and delete resources from their respective lists
 ### Stretch
  - Individual user profile to contain resources
- - add comments
- - About us page
- - Blog
+ - A user will be able to add comments to resources to note anything particular.
+ - A separate about us page will be created to give background on the contributors.
+ - A user will be able to find context behind resources through a descriptive blog post in which the code from the particular resource has been implemented.
 
 
 ## Link to Page UPDATE
 - [page](url)
-
-## Sitemap
+## Site Graphics
+### Sitemap
 
 ![Sitemap](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
 
-## Wireframe
+### Wireframe
 
 ![Wireframe](URL)
 
-## Entity Relationship Diagram
+### Entity Relationship Diagram
 
 ![ERD](https://github.com/jmalabed/project1/blob/main/ERD%20Project%201.png)
 
