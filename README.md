@@ -39,7 +39,7 @@ This project is completed with:
  - user will be able to contribute and edit resources on topic page
  - A user will be able to add likes to highlight helpful resources
  - A user will be able to update and delete resources from their respective lists
-### Stretch
+### Stretch Goals
  - Individual user profile to contain resources
  - A user will be able to add comments to resources to note anything particular.
  - A separate about us page will be created to give background on the contributors.
@@ -78,7 +78,7 @@ This project is completed with:
 
 
 
-## Future Work
+## Future Work UPDATE
 
 
-## Acknowledgements
+## Acknowledgements UPDATE
