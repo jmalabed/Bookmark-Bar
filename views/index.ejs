@@ -15,7 +15,7 @@
         <div class='col'>
           <ul> <% topics.forEach(topic => { %>
             <li>
-              <img src="<%=topic.img%>"> <a href='/bar/<%=topic._id%>'> <%= topic.name %></a>
+               <a href='/bar/<%=topic._id%>'> <img src="<%=topic.img%>"><%= topic.name %></a>
               <form action="/bar/<%=topic._id%>?_method=DELETE" method="post">
                 <input type="submit" value="DELETE">
               </form>
