@@ -34,6 +34,50 @@ db.on( 'open' , ()=>{
 
 
 // =============================
+//         SEED DATA
+// =============================
+
+// =============================
+//           TOPIC
+// const topicData = [
+//     {
+//       name: "JavaScript",
+//       img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+//     },
+//     {
+//       name: "HTML",
+//       img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/HTML5_logo_black.svg/2048px-HTML5_logo_black.svg.png"
+//     },
+//     {
+//       name: "CSS",
+//       img: "https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"
+//     }
+// ]
+
+// =============================
+//           RESOURCE
+// const resourceData = [
+//   {
+//     name: "JS Practice problems",
+//     url: "https://github.com/careercup/CtCI-6th-Edition-JavaScript",
+//     description: "Practice problems for javascript",
+//     topicId: "JavaScript"
+//   },
+//   {
+//     name: "W3 Schools",
+//     description: "Extensive examples and documentation on HTML elements.",
+//     url: "https://www.w3schools.com/",
+//     topicId: "HTML"
+//   },
+//   {
+//     name: "MDN CSS Reference",
+//     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+//     description: "Mozilla Developer Network (MDN) offers an exhaustive index of CSS properties and offers code sandboxes to run code snippets.",
+//     topicId:"CSS"
+//   }
+// ]
+
+// =============================
 //         INSTANTIATE
 // =============================
 // ** RUN THIS CODE ONE TIME TO BUILD YOUR DATABASE IN MONGODB! **
@@ -41,9 +85,10 @@ db.on( 'open' , ()=>{
 // Topic.insertMany(topicData,(err,topics)=>{
 //   if (err) {console.log(err)};
 //     console.log('added provided topic data', topics);
+//     mongoose.connection.close();
 //   });
-//
-//
+
+
 // Resource.insertMany(resourceData,(err,resources)=>{
 //   if (err) {
 //     console.log(err);
@@ -72,50 +117,6 @@ app.get('/bar/new', (req,res)=> {
 
 
 //show route
-<<<<<<< HEAD
-// app.get('/bar/:id', (req,res)=>{
-//   Resource.find({}, (err, callback)=> {
-//     res.render('show.ejs', {resources:callback})
-//   })
-// })
-
-// app.get('/bar/:id', (req,res)=>{
-//   let topicId = ''
-//   if(req.body.topicId ==='JavaScript') {
-//     topicId = 'JavaScript'
-//   }
-//   Resource.find({}, topicId, (err, callback)=> {
-//     res.render('show.ejs', {resources:callback})
-//   })
-// })
-
-// app.get('/bar/:id', (req,res)=>{
-//   Resource.find({$and: [
-//     {topicId: 'JavaScript'}]}, (err, callback)=> {
-//     res.render('show.ejs', {resources:callback})
-//   })
-// })
-
-app.get('/bar/:id', (req,res)=>{
-  let id = req.body.topicId
-    if(id == 'JavaScript') {
-      console.log(id)
-  Resource.find({topicId:id}, (err, callback)=> {
-    res.render('show.ejs', {resources:callback})
-  })}
-})
-
-
-// app.get('/bar/:id', (req,res)=>{
-//   if(req.body.topicId == 'JavaScript')
-//
-//   Resource.find({$and: [
-//     {topicId: 'JavaScript'}]}, (err, callback)=> {
-//     res.render('show.ejs', {resources:callback})
-//   })
-// })
-
-=======
 app.get('/bar/:id', (req,res)=>{
   id = req.params.id
   Topic.findById(id,(err,foundTopic)=>{
@@ -123,12 +124,11 @@ app.get('/bar/:id', (req,res)=>{
       if (err) {
         console.log(err);
       } else {
-          res.render('show.ejs', {
-            resources:allResources,
-            topic:foundTopic
+        res.render('show.ejs', {
+          resources:allResources,
+          topic:foundTopic
           })
       }
-
     })
   })
 })
@@ -136,12 +136,12 @@ app.get('/bar/:id', (req,res)=>{
 
 //index route
 app.get('/bar',(req,res)=>{
-  Topic.find({}, (err, callback) => {
+  Topic.find({}, (err, allTopics) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(callback);
-        res.render('index.ejs', {topics:callback})
+      console.log(allTopics);
+        res.render('index.ejs', {topics:allTopics})
     }
   })
 })
@@ -168,7 +168,19 @@ app.delete('/bar/:id',(req,res)=>{
     }
   })
 })
->>>>>>> submaster
+
+//edit route
+app.get('/bar/:id/edit', (req, res)=>{
+const id = req.params.id
+  Resource.findById(id, (err, foundResource)=>{
+    if(err){
+      res.send(err)
+    } else {
+      res.render('edit.ejs', {resource:foundResource})
+    }
+  })
+})
+
 
 
 app.use(express.static(__dirname + '/public'));
