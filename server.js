@@ -134,8 +134,16 @@ app.get('/bar/:id', (req,res)=>{
 })
 
 // new route resources
-app.get('/bar/resource/new',(req,res)=>{
-  res.render('newResource.ejs')
+app.get('/bar/:id/new',(req,res)=>{
+  id = req.params.id
+  Topic.findById(id,(err,foundTopic)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('newResource.ejs',{topic:foundTopic})
+    }
+  })
+
 })
 
 
@@ -163,13 +171,19 @@ app.post('/bar',(req,res)=>{
 })
 
 app.post('/bar/:id', (req,res)=>{
-  Resource.create(req.body,(err,newResource)=>{
+  console.log('testing testing!');
+  console.log(req.body);
+  id = req.params.id;
+  Resource.create([req.body],(err,newResource)=>{
+    console.log(newResource);
     if (err) {
       console.log(err);
     } else {
-      res.redirect('/bar/:id')
+      console.log('youre close');
+        res.redirect("/bar/"+req.params.id)
+      }
     }
-  })
+  )
 })
 
 // delete route
