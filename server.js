@@ -127,7 +127,7 @@ app.get('/bar/:id', (req,res)=>{
         res.render('show.ejs', {
           resources:allResources,
           topic:foundTopic
-        })
+          })
       }
     })
   })
@@ -175,11 +175,9 @@ app.post('/bar/:id', (req,res)=>{
   console.log(req.body);
   id = req.params.id;
   Resource.create([req.body],(err,newResource)=>{
-    console.log(newResource);
     if (err) {
       console.log(err);
     } else {
-      console.log('youre close');
         res.redirect("/bar/"+req.params.id)
       }
     }
@@ -210,19 +208,6 @@ const id = req.params.id
   })
 })
 
-//update
-app.put('/bar/:id', (req,res)=>{
-const id = req.params.id
-const updatedResourceData = req.body
-
-  Resource.findByIdAndUpdate(id, updatedResourceData, {new: true}, (err,updatedResource) => {
-    if(err){
-      res.send(err)
-    } else {
-      res.redirect('/bar')
-    }
-  })
-})
 
 
 app.use(express.static(__dirname + '/public'));
