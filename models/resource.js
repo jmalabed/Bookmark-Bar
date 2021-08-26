@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const resourceSchema = new mongoose.Schema({
+  _id: String,
   name: String,
   url: String,
   likes: {
