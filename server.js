@@ -110,7 +110,7 @@ app.use((req, res, next) => {
 // =============================
 //         ROUTING
 // =============================
-//new route
+//new route topics
 app.get('/bar/new', (req,res)=> {
   res.render('new.ejs')
 })
@@ -133,6 +133,11 @@ app.get('/bar/:id', (req,res)=>{
   })
 })
 
+// new route resources
+app.get('/bar/resource/new',(req,res)=>{
+  res.render('newResource.ejs')
+})
+
 
 //index route
 app.get('/bar',(req,res)=>{
@@ -153,6 +158,16 @@ app.post('/bar',(req,res)=>{
       console.log(err);
     } else {
       res.redirect('/bar/')
+    }
+  })
+})
+
+app.post('/bar/:id', (req,res)=>{
+  Resource.create(req.body,(err,newResource)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/bar/:id')
     }
   })
 })
