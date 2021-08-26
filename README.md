@@ -7,15 +7,15 @@ This project utilizes MongoDB, Mongoose, EJS, Express.js, and Node.js in order t
 
 ## Index:
 
--[Scope](#Scope)
--[User Stories](#user-stories)
--[Link to Page](#link-to-page)
--[Sitemap](#sitemap)
--[Entity Relationship Diagram](#entity-relationship-diagram)
--[Minimum Viable Product](#minimum-viable-product)
--[Code Snippets](#code-snippets)
--[Future Work](#future-work)
--[Acknowledgements](#acknowledgements)
+ - [Scope](#Scope)
+ - [User Stories](#user-stories)
+ - [Link to Page](#link-to-page)
+ - [Sitemap](#sitemap)
+ - [Entity Relationship Diagram](#entity-relationship-diagram)
+ - [Minimum Viable Product](#minimum-viable-product)
+ - [Code Snippets](#code-snippets)
+ - [Future Work](#future-work)
+ - [Acknowledgements](#acknowledgements)
 
 
 
