@@ -8,8 +8,8 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Resource = require('./models/resource.js');
 const Topic = require('./models/topics.js');
-const topicData = require('./seeds/topicData.js')
-const resourceData = require('./seeds/resourceData.js')
+const topicData = require('./data/topicData.js')
+const resourceData = require('./data/resourceData.js')
 // Configuration
 const mongoURI = 'mongodb://localhost:27017/'+ 'bar';
 const db = mongoose.connection;
