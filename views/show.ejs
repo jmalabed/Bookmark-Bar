@@ -14,11 +14,13 @@
       <ul> <% resources.forEach(resource => { %>
         <% if (topic.name === resource.topicId) { %>
           <li>
-            <a href='/bar/<%=resource._id%>'> <%= resource.name %></a>
+            <a href='/bar/<%=resource._id%>'> <%= resource.name %></a> Rep: <%=resource.likes%>
+            <p> Description: <%=resource.description%> </p>
           </li>
         <% } %>
       <% }) %>
       </ul>
     </div>
+    <a href="/bar">Return to Home</a>
   </body>
 </html>
