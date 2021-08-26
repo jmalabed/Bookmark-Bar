@@ -9,6 +9,13 @@
     <title></title>
   </head>
   <body>
-
+    <div class='col'>
+      <ul> <% resources.forEach(resource => { %>
+        <li>
+          <a href='/bar/<%=resource._id%>'> <%= resource.name %></a>
+        </li>
+      <% }) %>
+      </ul>
+    </div>
   </body>
 </html>
