@@ -2,10 +2,7 @@ const mongoose = require('mongoose')
 
 const resourceSchema = new mongoose.Schema({
   name: String,
-  url: {
-    type: String,
-    required: true
-  },
+  url: String,
   likes: {
     type: Number,
     default: 0
@@ -14,5 +11,5 @@ const resourceSchema = new mongoose.Schema({
   description: String
 })
 
-const Resource = mongoose.model('Resource',resourceSchema)
+const Resource = mongoose.model('Resource',resourceSchema);
 module.exports = Resource

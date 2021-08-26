@@ -9,11 +9,18 @@
     <title>Index</title>
   </head>
   <body>
-    <ul class='list-unstyled'>
-      <% resources.forEach(resource => { %>
-      <li> <a href='/topics/<%=topic._id%>'> <% resource.name %></a>
-      </li>
-      <% } %>
-    </ul>
+    <div class='container'>
+      <div class='row'>
+        <div class='col'>
+          <ul> <% topics.forEach(topic => { %>
+            <li>
+              <a href='/bar/<%=topic._id%>'> <%= topic.name %></a>
+            </li>
+          <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href='/bar/'>create</a>
   </body>
 </html>
