@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link type='text/css' href="/style.css" rel="stylesheet"/>
+    <title>Create A New Topic</title>
+    </head>
+    <body>
+      <h1>New Topic</h1>
+      <form action="/topics" method="post">
+        <p>Topic Name: <input type="text" name="name" value=""></p>
+        <p>Topic Image URL: <input type="text" name="img"></p>
+        <input type="submit" value="CREATE NEW">
+      </form>
+      <a href='/topics'>home</a>
+    </body>

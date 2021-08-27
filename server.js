@@ -6,10 +6,10 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const Resource = require('./models/resource.js');
-const Topic = require('./models/topics.js');
-const topicData = require('./data/topicData.js')
-const resourceData = require('./data/resourceData.js')
+// const Resource = require('./models/resource.js');
+// const Topic = require('./models/topics.js');
+// const topicData = require('./data/topicData.js')
+// const resourceData = require('./data/resourceData.js')
 // Configuration
 const mongoURI = 'mongodb://localhost:27017/'+ 'bar';
 const db = mongoose.connection;
@@ -31,52 +31,6 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 db.on( 'open' , ()=>{
   console.log('Connection made!');
 });
-
-
-// =============================
-//         SEED DATA
-// =============================
-
-// =============================
-//           TOPIC
-// const topicData = [
-//     {
-//       name: "JavaScript",
-//       img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-//     },
-//     {
-//       name: "HTML",
-//       img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/HTML5_logo_black.svg/2048px-HTML5_logo_black.svg.png"
-//     },
-//     {
-//       name: "CSS",
-//       img: "https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"
-//     }
-// ]
-
-// =============================
-//           RESOURCE
-// const resourceData = [
-//   {
-//     name: "JS Practice problems",
-//     url: "https://github.com/careercup/CtCI-6th-Edition-JavaScript",
-//     description: "Practice problems for javascript",
-//     topicId: "JavaScript"
-//   },
-//   {
-//     name: "W3 Schools",
-//     description: "Extensive examples and documentation on HTML elements.",
-//     url: "https://www.w3schools.com/",
-//     topicId: "HTML"
-//   },
-//   {
-//     name: "MDN CSS Reference",
-//     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
-//     description: "Mozilla Developer Network (MDN) offers an exhaustive index of CSS properties and offers code sandboxes to run code snippets.",
-//     topicId:"CSS"
-//   }
-// ]
-
 // =============================
 //         INSTANTIATE
 // =============================
@@ -110,107 +64,15 @@ app.use((req, res, next) => {
 // =============================
 //         ROUTING
 // =============================
-//new route topics
-app.get('/bar/new', (req,res)=> {
-  res.render('new.ejs')
-})
-
-
-//show route
-app.get('/bar/:id', (req,res)=>{
-  id = req.params.id
-  Topic.findById(id,(err,foundTopic)=>{
-    Resource.find({}, (err, allResources)=> {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render('show.ejs', {
-          resources:allResources,
-          topic:foundTopic
-          })
-      }
-    })
-  })
-})
-
-// new route resources
-app.get('/bar/:id/new',(req,res)=>{
-  id = req.params.id
-  Topic.findById(id,(err,foundTopic)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('newResource.ejs',{topic:foundTopic})
-    }
-  })
-
-})
-
-
-//index route
-app.get('/bar',(req,res)=>{
-  Topic.find({}, (err, allTopics) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(allTopics);
-        res.render('index.ejs', {topics:allTopics})
-    }
-  })
-})
-
-// post route
-app.post('/bar',(req,res)=>{
-  Topic.create(req.body,(err,newTopic)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect('/bar/')
-    }
-  })
-})
-
-app.post('/bar/:id', (req,res)=>{
-  console.log('testing testing!');
-  console.log(req.body);
-  id = req.params.id;
-  Resource.create([req.body],(err,newResource)=>{
-    if (err) {
-      console.log(err);
-    } else {
-        res.redirect("/bar/"+req.params.id)
-      }
-    }
-  )
-})
-
-// delete route
-app.delete('/bar/:id',(req,res)=>{
-  id = req.params.id
-  Topic.findByIdAndRemove(id, (err,deleteData)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect('/bar')
-    }
-  })
-})
-
-//edit route
-app.get('/bar/:id/edit', (req, res)=>{
-const id = req.params.id
-  Resource.findById(id, (err, foundResource)=>{
-    if(err){
-      res.send(err)
-    } else {
-      res.render('edit.ejs', {resource:foundResource})
-    }
-  })
-})
-
-
 
 app.use(express.static(__dirname + '/public'));
+// =============================
+//           CONTROLLERS
+const topicsController = require('./controllers/topics/topicController');
+app.use('/topics', topicsController);
+// const rsrcsController = require('./controllers/resources/rsrcController');
+// app.use('/resources', rsrcsController);
+
 // =============================
 //           LISTEN
 
