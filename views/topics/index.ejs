@@ -14,13 +14,16 @@
       <div class="flex-child1">
         <h1>Welcome to the Bookmarks Bar!</h1>
         <h2>A comprehensive, full-stack resource center compiled by students, for students.</h2>
-        <p>Select a topic you'd like to learn more about! </p>
+        <p>Select a topic you'd like to learn more about! Alternatively,
+          <!-- create topic link -->
+        <a href='/topics/newT'>create a topic.</a>
+        </p>
       </div>
     </div>
     <!-- Bootstrap Grid for topics -->
     <div class='container-fluid'>
       <div class='row'>
-        <div class="col-md justify-content-center">
+        <div class="col-md">
 
 
             <% topics.forEach(topic => { %>
@@ -35,7 +38,6 @@
         </div>
       </div>
     </div>
-    <!-- create topic link -->
-    <a href='/topics/newT'>create</a>
+
   </body>
 </html>
