@@ -9,7 +9,7 @@
     <title>edit resource</title>
     </head>
 <body>
-  <h1>edit resource</h1>
+  <h1>Edit Resource</h1>
   <form action='/topics/<%=resource._id%>?_method=PUT' method="POST">
     Name: <input type="text" name="name" value="<%=resource.name%>"/>
     <br/>
@@ -17,12 +17,11 @@
     <br/>
     Description: <input type="text" name="description" value="<%=resource.description%>"/>
     <br/>
-    TopicID:<input type="text" name="url" value="<%=resource.topicId%>"/>
-    <br/>
-    <input type="submit" value="edit">
+    <input type="hidden" name="url" value="<%=resource.topicId%>"/>
+    <input type="submit" value="EDIT">
   </form>
   <form action="/topics/<%=resource._id%>?_method=DELETE" method="post">
     <input type="submit" value="DELETE"/>
   </form>
-  <a href="/topics/<%=id%>">go back</a>
+  <a href="/topics/<%=id%>">Back</a>
 </body>

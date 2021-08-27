@@ -10,11 +10,10 @@
     <h1>Create a New Resource</h1>
 
       <form action="/topics/<%=topic._id%>" method="post">
-      <p>TopicID: <input type='text' name='topicId'></p>
+      <input type='hidden' name='topicId' value="<%=topic.name%>">
       <p>Resource Name: <input type="text" name="name" value=""></p>
       <p>Resource URL: <input type="text" name="url"></p>
       <p><textarea name="description" rows="8" cols="80" placeholder="Small description of resource"></textarea></p>
-<!-- want to update the resource topicId to match the topic it is created from.-->
       <input type="submit" value="CREATE NEW">
     </form>
     <a href="/topics/<%=id%>">go back</a>
