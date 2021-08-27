@@ -85,16 +85,23 @@ db.on( 'open' , ()=>{
 // Topic.insertMany(topicData,(err,topics)=>{
 //   if (err) {console.log(err)};
 //     console.log('added provided topic data', topics);
+<<<<<<< HEAD
+//
+//   });
+// //
+//
+=======
 //     mongoose.connection.close();
 //   });
 
 
+>>>>>>> submaster
 // Resource.insertMany(resourceData,(err,resources)=>{
 //   if (err) {
 //     console.log(err);
 //   } else {
 //     console.log('added provided resource data', resources);
-//     mongoose.connection.close();
+//       mongoose.connection.close();
 //   }
 // })
 
