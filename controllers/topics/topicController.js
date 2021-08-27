@@ -61,14 +61,19 @@ router.get('/:id/new',(req,res)=>{
 })
 
 //edit route
-router.get('/:id/edit', (req, res)=>{
-const id = req.params.id
-  Resource.findById(id, (err, foundResource)=>{
-    if(err){
-      res.send(err)
-    } else {
-      res.render('topics/edit.ejs', {resource:foundResource})
-    }
+router.get('/:topicId/:resourceId/edit', (req, res)=>{
+  const rId = req.params.resourceId
+  Topic.findById(req.params.topicId, (err,foundTopic)=>{
+    Resource.findById(rId, (err, foundResource)=>{
+      if(err){
+        res.send(err)
+      } else {
+        res.render('topics/edit.ejs', {
+          resource:foundResource,
+          topic: foundTopic
+        })
+      }
+    })
   })
 })
 
@@ -99,12 +104,14 @@ router.post('/:id', (req,res)=>{
   )
 })
 
-//UPDATE is BUGGY
-router.put('/:id', (req,res)=>{
-const id = req.params.id
+// Put route UPDATE
+router.put('/:tId/:rId', (req,res)=>{
+const resourceId = req.params.rId
+const topicId = req.params.tId
 const updatedResourceData = req.body
-  Resource.findByIdAndUpdate(id,updatedResourceData, {new: true}, (err,updatedResource) => {
-      res.redirect('/topics')
+console.log(updatedResourceData);
+  Resource.findByIdAndUpdate(resourceId,updatedResourceData, (err,updatedResource) => {
+      res.redirect('/topics/'+topicId)
   })
 })
 
