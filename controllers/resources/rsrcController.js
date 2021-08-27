@@ -12,23 +12,34 @@ router.get('/new',(req,res)=>{
   res.render('resources/new.ejs')
 })
 
-
-//show route
-router.get('/:id', (req,res)=>{
-  id = req.params.id
-  Topic.findById(id,(err,foundTopic)=>{
-    Resource.find({}, (err, allResources)=> {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render('resources/show.ejs', {
-          resources:allResources,
-          topic:foundTopic
-        }
-      )}
-    })
+//index route
+router.get('/',(req,res)=>{
+  Resource.find({}, (err, allr) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(allr);
+        res.render('resources/index.ejs', {resource:allr})
+    }
   })
 })
+
+// //show route
+// router.get('/:id', (req,res)=>{
+//   id = req.params.id
+//   Topic.findById(id,(err,foundTopic)=>{
+//     Resource.find({}, (err, allResources)=> {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.render('resources/show.ejs', {
+//           resources:allResources,
+//           topic:foundTopic
+//         }
+//       )}
+//     })
+//   })
+// })
 
 //edit route - GOOD
 router.get('/:id/edit', (req, res)=>{
@@ -42,42 +53,34 @@ const id = req.params.id
   })
 })
 
-//DELTE ROUTE IS BUGGY:
+//DELTE ROUTE:
 router.delete('/:id',(req,res)=>{
   id = req.params.id
   Resource.findByIdAndRemove(id, (err,removeRsrc)=>{
     if (err) {
       res.send(err);
     } else {
-      res.redirect('/resources/' + id)
+      res.redirect('/resources')
     }
   })
 })
 
-//update
+//UPDATE is BUGGY
 router.put('/:id', (req,res)=>{
 const id = req.params.id
 const updatedResourceData = req.body
-
-  Resource.findByIdAndUpdate(
-    id,
-    updatedResourceData, {new: true}, (err,updatedResource) => {
-    if(err){
-      res.send(err)
-    } else {
-      res.redirect('/resources/' + req.params.id)
-    }
+  Resource.findByIdAndUpdate(id,updatedResourceData, {new: true}, (err,updatedResource) => {
+      res.redirect('/resources')
   })
 })
 
-//POST ROUTE IS BUGGY
-router.post('/:id', (req,res)=>{
-  id = req.params.id;
+//POST ROUTE
+router.post('/', (req,res)=>{
   Resource.create(req.body,(err,newResource)=>{
     if (err) {
       console.log(err);
     } else {
-      res.redirect('/resources/' + id)
+      res.redirect('/resources')
     }
   })
 })

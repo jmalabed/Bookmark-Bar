@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
 
 const resourceSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   url: String,
   likes: {
     type: Number,
