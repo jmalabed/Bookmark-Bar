@@ -10,16 +10,19 @@
     </head>
 <body>
   <h1>edit resource</h1>
-  <form action='/bar/<%=resource._id%>?_method=PUT' method="POST">
+  <form action='/topics/<%=resource._id%>?_method=PUT' method="POST">
     Name: <input type="text" name="name" value="<%=resource.name%>"/>
     <br/>
     URL: <input type="text" name="url" value="<%=resource.url%>"/>
     <br/>
     Description: <input type="text" name="description" value="<%=resource.description%>"/>
     <br/>
-    TopicID: <input type="text" name="url" value="<%=resource.topicId%>"/>
+    TopicID:<input type="text" name="url" value="<%=resource.topicId%>"/>
     <br/>
     <input type="submit" value="edit">
   </form>
-  <a href='/bar'>home</a>
+  <form action="/topics/<%=resource._id%>?_method=DELETE" method="post">
+    <input type="submit" value="DELETE"/>
+  </form>
+  <a href="/topics/<%=id%>">go back</a>
 </body>

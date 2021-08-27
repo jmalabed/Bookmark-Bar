@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const resourceSchema = new mongoose.Schema({
-  name: String,
-  url: {
+  name: {
     type: String,
     required: true
   },
+  url: String,
   likes: {
     type: Number,
     default: 0
