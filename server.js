@@ -64,6 +64,7 @@ app.use((req, res, next) => {
 // =============================
 //         ROUTING
 // =============================
+<<<<<<< HEAD
 // //new route topics
 // app.get('/bar/new', (req,res)=> {
 //   res.render('new.ejs')
@@ -174,6 +175,106 @@ app.use((req, res, next) => {
 //     }
 //   })
 // })
+=======
+//new route topics
+app.get('/bar/new', (req,res)=> {
+  res.render('new.ejs')
+})
+
+
+//show route
+app.get('/bar/:id', (req,res)=>{
+  id = req.params.id
+  Topic.findById(id,(err,foundTopic)=>{
+    Resource.find({}, (err, allResources)=> {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('show.ejs', {
+          resources:allResources,
+          topic:foundTopic
+          })
+      }
+    })
+  })
+})
+
+// new route resources
+app.get('/bar/:id/new',(req,res)=>{
+  id = req.params.id
+  Topic.findById(id,(err,foundTopic)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('newResource.ejs',{topic:foundTopic})
+    }
+  })
+
+})
+
+
+//index route
+app.get('/bar',(req,res)=>{
+  Topic.find({}, (err, allTopics) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(allTopics);
+        res.render('index.ejs', {topics:allTopics})
+    }
+  })
+})
+
+// post route
+app.post('/bar',(req,res)=>{
+  Topic.create(req.body,(err,newTopic)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/bar/')
+    }
+  })
+})
+
+app.post('/bar/:id', (req,res)=>{
+  console.log('testing testing!');
+  console.log(req.body);
+  id = req.params.id;
+  Resource.create([req.body],(err,newResource)=>{
+    if (err) {
+      console.log(err);
+    } else {
+        res.redirect("/bar/"+req.params.id)
+      }
+    }
+  )
+})
+
+// delete route
+app.delete('/bar/:id',(req,res)=>{
+  id = req.params.id
+  Topic.findByIdAndRemove(id, (err,deleteData)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/bar')
+    }
+  })
+})
+
+//edit route
+app.get('/bar/:id/edit', (req, res)=>{
+const id = req.params.id
+  Resource.findById(id, (err, foundResource)=>{
+    if(err){
+      res.send(err)
+    } else {
+      res.render('edit.ejs', {resource:foundResource})
+    }
+  })
+})
+
+>>>>>>> submaster
 
 
 app.use(express.static(__dirname + '/public'));
