@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>
-      <!-- <img src="<%=topic%>" alt="" style ='width:200px; height:200px'> -->
+      <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'>
        <%=topic.name%>
     </h1>
     <div class='col'>
@@ -26,8 +26,9 @@
               <input type="submit" value="LIKE">
             </form>
 
+
             <p> <%= resource.description %> </p>
-            <a href='/topics/<%=resource._id%>/edit'>edit</a>
+            <a href='/topics/<%=topic._id%>/<%=resource._id%>/edit'>edit</a>
 
           </li>
         <% } %>
