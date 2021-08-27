@@ -10,15 +10,20 @@
   </head>
   <body>
     <h1>
-      <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'> <%=topic.name%>
+      <!-- <img src="<%=topic%>" alt="" style ='width:200px; height:200px'> -->
+       <%=topic.name%>
     </h1>
     <div class='col'>
       <ul> <% resources.forEach(resource => { %>
         <% if (topic.name === resource.topicId) { %>
           <li>
              <a href='<%=resource.url%>'> <%= resource.name %></a>
-            <form action="/bar/" method="post">
-            Likes: <%=resouce.likes%>
+
+            <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
+
+              Likes: <%=resource.likes%>
+              <input type="hidden" name="likes" value="<%=resource.likes%>">
+              <input type="submit" value="LIKE">
             </form>
 
             <p> <%= resource.description %> </p>

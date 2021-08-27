@@ -58,7 +58,7 @@ db.on( 'open' , ()=>{
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
 app.use((req, res, next) => {
-  console.log('run all routes')
+  // console.log('run all routes')
   next();
 })
 // =============================

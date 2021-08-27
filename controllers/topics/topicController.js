@@ -7,6 +7,11 @@ const Resource = require('../../models/resource.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js')
 
+
+
+
+
+
 //new route topics
 router.get('/new', (req,res)=> {
   res.render('topics/newT.ejs')
@@ -25,7 +30,7 @@ router.get('/',(req,res)=>{
   })
 })
 
-// //show route
+// show route
 
 router.get('/:id', (req,res)=>{
   id = req.params.id
@@ -55,7 +60,7 @@ router.get('/:id/new',(req,res)=>{
   })
 })
 
-//edit route - GOOD
+//edit route
 router.get('/:id/edit', (req, res)=>{
 const id = req.params.id
   Resource.findById(id, (err, foundResource)=>{
@@ -103,6 +108,19 @@ const updatedResourceData = req.body
   })
 })
 
+// Update route for likes
+router.put('/:topicId/:resourceId/like',(req,res)=>{
+  rId = req.params.resourceId
+  console.log('like');
+  // console.log(req.body);
+  req.body.likes++
+  console.log(req.body.likes );
+  Resource.findByIdAndUpdate(rId,req.body,(err,foundResource)=>{
+    // console.log(foundResource);
+    // res.send('testing in progress')
+    res.redirect('/topics/'+req.params.topicId)
+  })
+})
 
 // delete route
 router.delete('/:id',(req,res)=>{
