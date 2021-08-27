@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>
-      <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'> <%=topic.name%> 
+      <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'> <%=topic.name%>
     </h1>
     <div class='col'>
       <ul> <% resources.forEach(resource => { %>
@@ -18,13 +18,16 @@
           <li>
              <a href='<%=resource.url%>'> <%= resource.name %></a>
             <p> <%= resource.description %> </p>
-            <a href='/bar/<%=resource._id%>/edit'>edit</a>
+            <a href='/resources/<%=resource._id%>/edit'>edit</a>
+            <form action="/resources/<%=resource._id%>?_method=DELETE" method="post">
+              <input type="submit" value="DELETE"/>
+            </form>
           </li>
         <% } %>
       <% }) %>
       </ul>
     </div>
-    <a href="/bar/<%=topic._id%>/new">Add Resource!</a>
-    <a href='/bar'>home</a>
+    <a href="/resources/new">Add Resource!</a>
+    <a href='/topics'>home</a>
   </body>
 </html>

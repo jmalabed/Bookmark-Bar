@@ -8,7 +8,8 @@
   </head>
   <body>
     <h1>Create a New Resource</h1>
-    <form action="/bar/resource" method="post">
+    <form action="/resources/<%=id%>" method="post">
+      TopicID: <input type='text' name='topicId'></p>
       <p>Resource Name: <input type="text" name="name" value=""></p>
       <p>Resource URL: <input type="text" name="img"></p>
       <p><textarea name="description" rows="8" cols="80" placeholder="Small description of resource"></textarea></p>
