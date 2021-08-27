@@ -28,3 +28,6 @@ font-family: Roboto+Condensed;
   flex-direction: column;
   padding: 20px;
 }
+.col-md {
+  text-align: center;
+}
