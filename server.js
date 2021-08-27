@@ -181,8 +181,8 @@ app.use(express.static(__dirname + '/public'));
 //           CONTROLLERS
 const topicsController = require('./controllers/topics/topicController');
 app.use('/topics', topicsController);
-const rsrcsController = require('./controllers/resources/rsrcController');
-app.use('/resources', rsrcsController);
+// const rsrcsController = require('./controllers/resources/rsrcController');
+// app.use('/resources', rsrcsController);
 
 // =============================
 //           LISTEN

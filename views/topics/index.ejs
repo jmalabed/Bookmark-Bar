@@ -14,10 +14,7 @@
 
             <% topics.forEach(topic => { %>
 
-               <a href='/resources/<%=topic._id%>'> <img src="<%=topic.img%>" style ='width:200px; height:200px'> <%= topic.name %></a>
-              <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
-                <input type="submit" value="DELETE"/>
-              </form>
+               <a href='/topics/<%=topic._id%>'> <img src="<%=topic.img%>" style ='width:200px; height:200px'> <%= topic.name %></a>
             </div>
           <% }) %>
     <a href='/topics/new'>create</a>
