@@ -9,7 +9,7 @@ const resourceData = require('../../data/resourceData.js')
 
 //new route topics
 router.get('/new', (req,res)=> {
-  res.render('topics/new.ejs')
+  res.render('topics/newT.ejs')
 })
 
 
@@ -105,16 +105,16 @@ const updatedResourceData = req.body
 
 
 // delete route
-// router.delete('/:id',(req,res)=>{
-//   id = req.params.id
-//   Topic.findByIdAndRemove(id, (err,removeTopic)=>{
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.redirect('/topics')
-//     }
-//   })
-// })
+router.delete('/:id',(req,res)=>{
+  id = req.params.id
+  Topic.findByIdAndRemove(id, (err,removeTopic)=>{
+    if (err) {
+      res.send(err);
+    } else {
+      res.redirect('/topics')
+    }
+  })
+})
 
 router.delete('/:id',(req,res)=>{
   id = req.params.id
