@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link type='text/css' href="/style.css" rel="stylesheet"/>
-    <title>Topics</title>
+    <title>Blog</title>
   </head>
   <body>
-    <div class='container-fluid'>
-      <div class='row'>
+    <div class='container'>
 
-            <% topics.forEach(topic => { %>
-
-               <a href='/topics/<%=topic._id%>'> <img src="<%=topic.img%>" style ='width:200px; height:200px'> <%= topic.name %></a>
-               <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
-                 <input type="submit" value="DELETE"/>
-               </form>
+        <ul>
+        <% blogs.forEach(blog => { %>
+        <li>
+        <p> <%= blog.user %> </p>
+        <p> <%= blog.description %> </p>
+        </li>
             </div>
           <% }) %>
-    <a href='/topics/newT'>create</a>
-    <a href='/'>home</a>
+
   </body>
+
+  <a href='/blog/new'>create</a>
+  <a href='/'>home</a>
+
 </html>

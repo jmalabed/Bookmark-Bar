@@ -64,14 +64,19 @@ app.use((req, res, next) => {
 // =============================
 //         ROUTING
 // =============================
+app.get('/', (req, res)=> {
+  res.render('index.ejs')
+});
+
+
 
 app.use(express.static(__dirname + '/public'));
 // =============================
 //           CONTROLLERS
 const topicsController = require('./controllers/topics/topicController');
 app.use('/topics', topicsController);
-// const rsrcsController = require('./controllers/resources/rsrcController');
-// app.use('/resources', rsrcsController);
+const blogController = require('./controllers/blog/blogController');
+app.use('/blog', blogController);
 
 // =============================
 //           LISTEN
