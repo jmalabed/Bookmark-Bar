@@ -8,15 +8,22 @@
     <link type='text/css' href="/style.css" rel="stylesheet"/>
     <title></title>
   </head>
+
   <body>
     <h1>
       <!-- <img src="<%=topic%>" alt="" style ='width:200px; height:200px'> -->
        <%=topic.name%>
     </h1>
-    <div class='col'>
-      <ul> <% resources.forEach(resource => { %>
+
+    <div class='container-fluid'>
+      <div class="row">
+
+
+
+      <div class="col-sm">
+      <% resources.forEach(resource => { %>
         <% if (topic.name === resource.topicId) { %>
-          <li>
+
              <a href='<%=resource.url%>'> <%= resource.name %></a>
 
             <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
@@ -29,10 +36,11 @@
             <p> <%= resource.description %> </p>
             <a href='/topics/<%=resource._id%>/edit'>edit</a>
 
-          </li>
+
         <% } %>
       <% }) %>
-      </ul>
+    </div>
+    </div>
     </div>
     <a href="/topics/<%=topic._id%>/new">Add Resource!</a>
     <a href='/topics'>home</a>

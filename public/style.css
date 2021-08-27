@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 /* * {
   text-align: center;
 } */
@@ -6,12 +7,24 @@
   margin: auto;
 } */
 
-img {
+/* img {
   width: 40%;
+} */
+body {
+font-family: Roboto+Condensed;
 }
-.container-fluid {
+.topic-logo {
+  width: 20%
+}
+.flex-container1 {
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-self: center;
-
+  margin: 30px;
+}
+.flex-child1 {
+  background-color: #80DED9;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
 }

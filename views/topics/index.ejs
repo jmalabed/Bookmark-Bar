@@ -8,18 +8,34 @@
     <link type='text/css' href="/style.css" rel="stylesheet"/>
     <title>Index</title>
   </head>
+
   <body>
+    <div class="flex-container1">
+      <div class="flex-child1">
+        <h1>Welcome to the Bookmarks Bar!</h1>
+        <h2>A comprehensive, full-stack resource center compiled by students, for students.</h2>
+        <p>Select a topic you'd like to learn more about! </p>
+      </div>
+    </div>
+    <!-- Bootstrap Grid for topics -->
     <div class='container-fluid'>
       <div class='row'>
+        <div class="col-md justify-content-center">
+
 
             <% topics.forEach(topic => { %>
-
-               <a href='/topics/<%=topic._id%>'> <img src="<%=topic.img%>" style ='width:200px; height:200px'> <%= topic.name %></a>
-               <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
+              <!-- topic image -->
+              <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" class="topic-logo"</a>
+              <!-- Delete button - maybe move into individual topic page -->
+              <!-- <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
                  <input type="submit" value="DELETE"/>
-               </form>
-            </div>
+              </form> -->
+
           <% }) %>
+        </div>
+      </div>
+    </div>
+    <!-- create topic link -->
     <a href='/topics/newT'>create</a>
   </body>
 </html>
