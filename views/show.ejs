@@ -16,7 +16,11 @@
       <ul> <% resources.forEach(resource => { %>
         <% if (topic.name === resource.topicId) { %>
           <li>
-             <a href='<%=resource.url%>'> <%= resource.name %></a> <img src="https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png" alt="likes">: <%=resource.likes%>
+             <a href='<%=resource.url%>'> <%= resource.name %></a>
+            <form action="/bar/" method="post">
+            Likes: <%=resouce.likes%>
+            </form>
+
             <p> <%= resource.description %> </p>
             <a href='/bar/<%=resource._id%>/edit'>edit</a>
           </li>
