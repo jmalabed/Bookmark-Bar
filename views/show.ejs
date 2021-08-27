@@ -10,13 +10,13 @@
   </head>
   <body>
     <h1>
-      <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'> <%=topic.name%> 
+      <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'> <%=topic.name%>
     </h1>
     <div class='col'>
       <ul> <% resources.forEach(resource => { %>
         <% if (topic.name === resource.topicId) { %>
           <li>
-             <a href='<%=resource.url%>'> <%= resource.name %></a>
+             <a href='<%=resource.url%>'> <%= resource.name %></a> <img src="https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png" alt="likes">: <%=resource.likes%>
             <p> <%= resource.description %> </p>
             <a href='/bar/<%=resource._id%>/edit'>edit</a>
           </li>
