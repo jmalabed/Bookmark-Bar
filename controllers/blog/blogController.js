@@ -23,4 +23,33 @@ router.post('/',(req,res)=>{
     }
   })
 })
+
+//EDIT
+router.get('/:id/edit', (req, res)=>{
+const id = req.params.id
+  Blog.findById(id, (err, foundBlog)=>{
+    if(err){
+      res.send(err)
+    } else {
+      res.render('blog/edit.ejs', {blog:foundBlog})
+    }
+  })
+})
+
+
+//DELETE
+router.delete('/:id',(req,res)=>{
+  id = req.params.id
+  Blog.findByIdAndRemove(id, (err,removeBlog)=>{
+    if (err) {
+      res.send(err);
+    } else {
+      res.redirect('/blog')
+    }
+  })
+})
+
+//PUT
+
+
 module.exports = router

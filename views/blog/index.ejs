@@ -16,6 +16,10 @@
         <li>
         <p> <%= blog.user %> </p>
         <p> <%= blog.description %> </p>
+        <form action="/blog/<%=blog._id%>?_method=DELETE" method="post">
+          <input type="submit" value="DELETE"/>
+        </form>
+        <a href='/blog/<%=blog._id%>/edit'>edit</a>
         </li>
             </div>
           <% }) %>
