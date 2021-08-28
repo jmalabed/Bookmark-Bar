@@ -11,7 +11,8 @@ const resourceSchema = new mongoose.Schema({
     default: 0
   },
   topicId: String,
-  description: String
+  description: String,
+  comments: String
 })
 
 const Resource = mongoose.model('Resource',resourceSchema)
