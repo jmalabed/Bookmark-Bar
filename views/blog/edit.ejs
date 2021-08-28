@@ -14,37 +14,34 @@
 <!-- NAVIGATION -->
   <nav class='navbar-light' id='mainNav'>
     <ul class='nav nav-tabs'>
-      <li class='nav-item'>
-        <a class='nav-link' href='/'>home</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href="/topics">topics</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link active' href='/blog'>blog</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/aboutMe'>about</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/user'>login</a>
-      </li>
+      <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+      <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
+      <li class='nav-item'><a class='nav-link active' href='/blog'>blog</a></li>
+      <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+      <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
     </ul>
   </nav>
-
-  <h1>edit blog</h1>
+<!-- EDIT CONTENT -->
+<h1>edit post</h1>
   <form action='/blog/<%=blog._id%>?_method=PUT' method="POST">
-    user: <input type="text" name="name" value="<%=blog.user%>"/>
-    <br/>
-    Header: <input type='text' name='header' value='<%=blog.header%>'/> <br/>
-    Description:
-    <textarea name="name" rows="8" cols="80" placeholder="<%=blog.description%>"></textarea>
-    <br/>
-
+    user: <input type="text" name="name" value="<%=blog.user%>"/><br/>
+    Header: <input type='text' name='header' value='<%=blog.header%>'/><br/>
+    Description:<textarea name="name" rows="8" cols="80" placeholder="<%=blog.description%>"></textarea><br/>
     <input type="submit" value="save">
   </form>
   <form action="/blog/<%=blog._id%>?_method=DELETE" method="post">
     <input type="submit" value="delete"/>
   </form>
-  <a href="/blog">go back</a>
+<a href="/blog">go back</a>
+<!-- FOOTER -->
+<footer class='border-top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
+</html>

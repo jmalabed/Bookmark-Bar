@@ -12,26 +12,16 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-  <nav class='navbar-light' id='mainNav'>
-    <ul class='nav nav-tabs'>
-      <li class='nav-item'>
-        <a class='nav-link' href='/'>home</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link active' href="/topics">topics</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/blog'>blog</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/aboutMe'>about</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/user'>login</a>
-      </li>
-    </ul>
-  </nav>
-
+<nav class='navbar-light' id='mainNav'>
+  <ul class='nav nav-tabs'>
+    <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
+    <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
+    <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+    <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+  </ul>
+</nav>
+<!-- -->
     <h1>Create a New Resource</h1>
 
       <form action="/topics/<%=topic._id%>" method="post">
@@ -43,5 +33,15 @@
       <input type="submit" value="CREATE NEW">
     </form>
     <a href="/topics/<%=id%>">go back</a>
-  </body>
+<!-- FOOTER -->
+<footer class='border-top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
 </html>

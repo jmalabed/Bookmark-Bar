@@ -12,26 +12,16 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-  <nav class='navbar-light' id='mainNav'>
-    <ul class='nav nav-tabs'>
-      <li class='nav-item'>
-        <a class='nav-link' href='/'>home</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link active' href="/topics">topics</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/blog'>blog</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/aboutMe'>about</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/user'>login</a>
-      </li>
-    </ul>
-  </nav>
-
+<nav class='navbar-light' id='mainNav'>
+  <ul class='nav nav-tabs'>
+    <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
+    <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
+    <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+    <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+  </ul>
+</nav>
+<!--  -->
   <h1>
     <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'><%=topic.name%>
   </h1>
@@ -55,5 +45,15 @@
   </div>
   <a href="/topics/<%=topic._id%>/new">Add Resource!</a> <br/>
   <a href='/topics'>Go Back</a>
+<!-- FOOTER -->
+<footer class='border-top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

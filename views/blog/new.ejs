@@ -12,39 +12,36 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-  <nav class='navbar-light' id='mainNav'>
-    <ul class='nav nav-tabs'>
-      <li class='nav-item'>
-        <a class='nav-link' href='/'>home</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href="/topics">topics</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/blog'>blog</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/aboutMe'>about</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/user'>login</a>
-      </li>
-    </ul>
-  </nav>
-<!-- Temporary-->
-
+<nav class='navbar-light' id='mainNav'>
+  <ul class='nav nav-tabs'>
+    <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
+    <li class='nav-item'><a class='nav-link active' href='/blog'>blog</a></li>
+    <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+    <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+  </ul>
+</nav>
 <!-- CONTENT -->
-  <form action="/blog" method="post">
-    <div class='form-group'>
-      <label for='user'>user:</label>
-      <input type="text" id='userInput' name="user"/>
-      <label for='header'>Header:</label>
-      <input type='text' id='headerInput' name='header'/> <br/>
-      <label for='description'>description:</label>
-      <textarea class='form-control'name="description" rows="8" cols="80" placeholder="inner thoughts"></textarea>
-      <input type="submit" value="create">
+<form action="/blog" method="post">
+  <div class='form-group'>
+    <label for='user'>user:</label>
+    <input type="text" id='userInput' name="user"/>
+    <label for='header'>Header:</label>
+    <input type='text' id='headerInput' name='header'/> <br/>
+    <label for='description'>description:</label>
+    <textarea class='form-control'name="description" rows="8" cols="80" placeholder="inner thoughts"></textarea>
+    <input type="submit" value="create">
+  </div>
+</form>
+<!-- FOOTER -->
+<footer class='border-top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+      </div>
     </div>
-  </form>
-
+  </div>
+</footer>
 </body>
 </html>

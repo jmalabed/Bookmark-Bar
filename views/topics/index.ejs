@@ -17,25 +17,15 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-  <nav class='navbar-light' id='mainNav'>
-    <ul class='nav nav-tabs'>
-      <li class='nav-item'>
-        <a class='nav-link' href='/'>home</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link active' href="/topics">topics</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/blog'>blog</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/aboutMe'>about</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='/user'>login</a>
-      </li>
-    </ul>
-  </nav>
+<nav class='navbar-light' id='mainNav'>
+  <ul class='nav nav-tabs'>
+    <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
+    <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
+    <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+    <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+  </ul>
+</nav>
 
     <div class="flex-container1">
       <div class="flex-child1">
@@ -55,7 +45,7 @@
 
             <% topics.forEach(topic => { %>
               <!-- topic image -->
-              <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" class="topic-logo"</a>
+              <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" class="topic-logo"></a>
               <!-- Delete button - maybe move into individual topic page -->
               <!-- <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
                  <input type="submit" value="DELETE"/>
@@ -64,5 +54,15 @@
         </div>
       </div>
     </div>
+<!-- FOOTER -->
+<footer class='border-top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
