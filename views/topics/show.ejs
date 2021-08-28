@@ -30,9 +30,8 @@
       <% if (topic.name === resource.topicId) { %>
       <li> <a href='<%=resource.url%>'> <%= resource.name %></a>
         <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
-          Likes: <%=resource.likes%>
           <input type="hidden" name="likes" value="<%=resource.likes%>">
-          <input type="submit" value="LIKE">
+          <input type="submit" id='like-btn' value="LIKE"> : <%=resource.likes%>
         </form>
         <p> <%= resource.description %> </p>
         <label for='comments'>Comments:</label>

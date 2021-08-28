@@ -22,7 +22,7 @@
   </ul>
 </nav>
 <!-- -->
-    <h1>Create a New Resource</h1>
+    <h1>New Resource</h1>
 
       <form action="/topics/<%=topic._id%>" method="post">
       <input type='hidden' name='topicId' value="<%=topic.name%>">
@@ -30,9 +30,9 @@
       <p>Resource URL: <input type="text" name="url"></p>
       <p><textarea name="description" rows="8" cols="80" placeholder="Small description of resource"></textarea></p>
 <!-- want to update the resource topicId to match the topic it is created from.-->
-      <input type="submit" value="CREATE NEW">
+      <input type="submit" id='add-btn' value="add">
     </form>
-    <a href="/topics/<%=id%>">go back</a>
+    <a href="/topics/<%=id%>">Go Back</a>
 <!-- FOOTER -->
 <footer class='border-top'>
   <div class='container'>

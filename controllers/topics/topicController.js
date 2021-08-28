@@ -13,7 +13,7 @@ const resourceData = require('../../data/resourceData.js')
 
 
 //new route topics
-router.get('/new', (req,res)=> {
+router.get('/newT', (req,res)=> {
   res.render('topics/newT.ejs')
 })
 

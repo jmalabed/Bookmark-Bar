@@ -31,12 +31,12 @@
     Description: <input type="text" name="description" value="<%=resource.description%>"/>
     <br/>
     <input type="hidden" name="topicId" value="<%=resource.topicId%>"/>
-    <input type="submit" value="save">
+    <input type="submit" id='save-btn' value="save">
   </form>
   <form action="/topics/<%=resource._id%>?_method=DELETE" method="post">
-    <input type="submit" value="delete"/>
+    <input type="submit" id='delete-btn' value="delete"/>
   </form>
-  <a href="/topics/<%=topic._id%>">Back</a>
+  <a href="/topics/<%=topic._id%>">Go Back</a>
 <!-- FOOTER -->
 <footer class='border-top'>
   <div class='container'>

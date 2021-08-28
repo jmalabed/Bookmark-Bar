@@ -27,12 +27,12 @@
     user: <input type="text" name="name" value="<%=blog.user%>"/><br/>
     Header: <input type='text' name='header' value='<%=blog.header%>'/><br/>
     Description:<textarea name="name" rows="8" cols="80" placeholder="<%=blog.description%>"></textarea><br/>
-    <input type="submit" value="save">
+    <input type="submit" id='save-btn' value="save">
   </form>
   <form action="/blog/<%=blog._id%>?_method=DELETE" method="post">
-    <input type="submit" value="delete"/>
+    <input type="submit" id='delete-btn' value="delete"/>
   </form>
-<a href="/blog">go back</a>
+<a href="/blog">Go Back</a>
 <!-- FOOTER -->
 <footer class='border-top'>
   <div class='container'>
