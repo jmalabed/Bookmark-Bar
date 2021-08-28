@@ -61,14 +61,6 @@ router.get('/:id/new',(req,res)=>{
 })
 
 //edit route
-router.get('/:id/edit', (req, res)=>{
-const id = req.params.id
-  Resource.findById(id, (err, foundResource)=>{
-    if(err){
-      res.send(err)
-    } else {
-      res.render('topics/edit.ejs', {resource:foundResource})
-    }
 router.get('/:topicId/:resourceId/edit', (req, res)=>{
   const rId = req.params.resourceId
   Topic.findById(req.params.topicId, (err,foundTopic)=>{
@@ -111,7 +103,6 @@ router.post('/:id', (req,res)=>{
     }
   )
 })
-
 
 // Put route UPDATE
 router.put('/:tId/:rId', (req,res)=>{
