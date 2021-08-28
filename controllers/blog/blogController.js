@@ -50,6 +50,13 @@ router.delete('/:id',(req,res)=>{
 })
 
 //PUT
+router.put('/:id', (req, res)=>{
+  const id = req.params.id
+  const updatedBlog = req.body
 
+Blog.findByIdAndUpdate(id, updatedBlog, (err, callback) => {
+  res.redirect('/blog')
+  })
+})
 
 module.exports = router

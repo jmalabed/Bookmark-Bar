@@ -9,6 +9,10 @@ const blogSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  header: {
+    type: String,
+    required: true
+  },
   description: String
 })
 
