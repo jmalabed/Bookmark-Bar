@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link type='text/css' href="/style.css" rel="stylesheet"/>
-    <title>Create New Resource</title>
-  </head>
-  <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- LINKS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link type='text/css' href="/style.css" rel="stylesheet"/>
+
+  <title>Create New Resource</title>
+</head>
+<body>
+<!-- NAVIGATION -->
+  <nav class='navbar-light' id='mainNav'>
+    <ul class='nav nav-tabs'>
+      <li class='nav-item'>
+        <a class='nav-link' href='/'>home</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link active' href="/topics">topics</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='/blog'>blog</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='/aboutMe'>about</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='/user'>login</a>
+      </li>
+    </ul>
+  </nav>
+
     <h1>Create a New Resource</h1>
 
       <form action="/topics/<%=topic._id%>" method="post">
-    
+
       <p>TopicID: <input type='text' name='topicId'></p>
       <p>Resource Name: <input type="text" name="name" value=""></p>
       <p>Resource URL: <input type="text" name="url"></p>

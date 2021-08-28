@@ -11,6 +11,27 @@
   <title>edit resource</title>
 </head>
 <body>
+<!-- NAVIGATION -->
+  <nav class='navbar-light' id='mainNav'>
+    <ul class='nav nav-tabs'>
+      <li class='nav-item'>
+        <a class='nav-link' href='/'>home</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link active' href="/topics">topics</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='/blog'>blog</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='/aboutMe'>about</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='/user'>login</a>
+      </li>
+    </ul>
+  </nav>
+
   <h1>Edit Resource</h1>
   <form action='/topics/<%=topic._id%>/<%=resource._id%>?_method=PUT' method="POST">
     Name: <input type="text" name="name" value="<%=resource.name%>"/>
