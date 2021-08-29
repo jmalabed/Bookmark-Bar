@@ -49,11 +49,25 @@ router.delete('/:id',(req,res)=>{
   })
 })
 
+//UPDATE ROUTE - LIKE
+router.put('/:blogId/like',(req,res)=>{
+  bId = req.params.blogId
+  console.log('like');
+  // console.log(req.body);
+  req.body.likes++
+  console.log(req.body.likes);
+  Blog.findByIdAndUpdate(bId,req.body,(err,foundBlog)=>{
+    // console.log(foundResource);
+    // res.send('testing in progress')
+    res.redirect('/blog')
+  })
+})
+
 //PUT
 router.put('/:id', (req, res)=>{
-  const id = req.params.id
-  const updatedBlog = req.body
-
+const id = req.params.id
+const updatedBlog = req.body
+console.log(updatedBlog)
 Blog.findByIdAndUpdate(id, updatedBlog, (err, callback) => {
   res.redirect('/blog')
   })

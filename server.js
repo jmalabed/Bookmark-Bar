@@ -65,7 +65,7 @@ app.use((req, res, next) => {
 //         ROUTING
 // =============================
 app.get('/', (req, res)=> {
-  res.render('index.ejs')
+  res.render('home.ejs')
 });
 
 app.get('/about', (req, res)=>{
