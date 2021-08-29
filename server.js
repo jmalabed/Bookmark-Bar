@@ -65,9 +65,12 @@ app.use((req, res, next) => {
 //         ROUTING
 // =============================
 app.get('/', (req, res)=> {
-  res.render('index.ejs')
+  res.render('home.ejs')
 });
 
+app.get('/about', (req, res)=>{
+  res.render('about.ejs')
+});
 
 
 app.use(express.static(__dirname + '/public'));
