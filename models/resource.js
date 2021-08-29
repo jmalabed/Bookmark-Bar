@@ -13,7 +13,7 @@ const resourceSchema = new mongoose.Schema({
   topicId: String,
   description: String,
   comments: String
-})
+}, {timestamps:true})
 
 const Resource = mongoose.model('Resource',resourceSchema)
 module.exports = Resource

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link type='text/css' href="/style.css" rel="stylesheet"/>
 
-  <title>Create</title>
+  <title>Blog</title>
 </head>
 
 <body>
@@ -25,19 +25,37 @@
     </ul>
   </div>
 </nav>
-<!-- CONTENT -->
-<form action="/blog" method="post">
-  <div class='form-group'>
-    <label for='user'>user:</label>
-    <input type="text" id='userInput' name="user"/>
-    <label for='header'>Header:</label>
-    <input type='text' id='headerInput' name='header'/> <br/>
-    <label for='description'>description:</label>
-    <textarea class='form-control'name="description" rows="8" cols="80" placeholder="inner thoughts"></textarea>
-    <input type="submit" id='add-btn' value="post">
-  </div>
-</form>
-<a href="/blog">Go Back</a>
+<!-- MAIN CONTENT -->
+<main>
+  <!-- divider -->
+  <div class='border-bottom border-primary border-1 opacity-1'></div>
+  <!-- Header -->
+  <section class='pb-3 pb-lg-5'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-12'>
+        <h1> <%=blog.header %> </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Body -->
+  <section class='pt-0'>
+    <div class='container position relative'>
+      <div class='row'>
+        <!--left bar -->
+        <div class='col-lg-2'></div>
+        <!-- Body Content -->
+        <div class='col-lg-7 mb-5'>
+          <p> <%=blog.description %> </p>
+          <a href='/blog/<%=blog._id%>/edit'>edit</a>
+          <input type="text" class="form-control" placeholder="Post a comment"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 <!-- FOOTER -->
 <footer class='border-top'>
   <div class='container'>
