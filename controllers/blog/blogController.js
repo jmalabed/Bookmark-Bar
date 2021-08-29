@@ -13,11 +13,23 @@ router.get('/', (req,res) =>{
   })
 })
 
+//SHOW
+router.get('/:id', (req, res) =>{
+const id = req.params.id
+  Blog.findById(id, (err, foundBlog)=>{
+    if (err) {
+      res.send(err);
+    } else {
+      res.render('blog/show.ejs', {blog:foundBlog, id:id})
+    }
+  })
+})
+
 //POST
 router.post('/',(req,res)=>{
   Blog.create(req.body,(err,newBlog)=>{
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       res.redirect('/blog')
     }

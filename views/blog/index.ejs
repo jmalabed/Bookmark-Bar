@@ -14,7 +14,7 @@
 
 <body>
 <!-- NAVIGATION -->
-<nav class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-gradient'>
+<nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-gradient'>
   <div class='container'>
     <ul class='nav navbar'>
       <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
@@ -25,6 +25,7 @@
     </ul>
   </div>
 </nav>
+<!-- Create Link -->
 <div>
   <ul class='nav nav-pills'>
     <li class='nav-item'><a class='nav-link' href='/blog/new'>create</a></li>
@@ -35,16 +36,17 @@
   <div class='container' data-sticky-container>
     <div class='row'>
       <!-- MAIN POST Start: -->
-      <!-- col large max container width at 960px -->
+      <!-- col large max container width set at 960px -->
       <div class='col-lg-9'>
         <!-- Title -->
-        <!-- margin bottom -->
+        <!-- margin bottom set to 1.5rem (24px if font size is 16px)-->
         <div class='mb-4'>
-          <h2 class='m-0'> Today's highlights</h2>
+        <!-- margin set at 0 -->
+        <h2 class='m-0'> Today's highlights</h2>
         </div>
         <!-- gutters are padding between your columns, used to responsively space and align content in the Bootstrap grid system.  -->
-        <!-- vertical gutters width at $spacer * 4 -->
-        <!--  $spacer is s sass variable. value at 16px -->
+        <!-- vertical gutters width set at $spacer * 4 -->
+        <!--  $spacer is s sass variable. value set at 16px -->
         <div class ='row gy-4'>
           <!-- CARD ITEMs START: -->
           <!-- Responsive to small devices - screen width equal to or greater than 576px  -->
@@ -54,10 +56,10 @@
               <div class ='position-relative'>
                 <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
                   <!-- CARD body -->
-                  <!-- padded section within a card: padding-horizontal at 0 & padding-top at 1.0rem  -->
+                  <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
                 <div class='card-body px-0 pt-3'>
                   <!-- no underline link.. font weight-bold -->
-                  <h4><a href='' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
+                  <h4><a href='/blog/<%= blog._id %>' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
                   <form action="/blog/<%=blog._id%>/like?_method=PUT" method="post">
                     <input type="hidden" name="likes" value="<%=blog.likes%>">
                     <input type="submit" id='like-btn' value="Like"> : <%=blog.likes%>
@@ -67,8 +69,7 @@
                   <blockquote class='blockquote text-right'>
                     <footer class='blockquote-footer'> yours truly: <cite title='Source Title'><%= blog.user %></cite></footer>
                   </blockquote>
-                  <a href='/blog/<%=blog._id%>/edit'>edit</a>
-                  <input type="text" class="form-control" placeholder="Post a comment"/><% }) %>
+                  <% }) %>
                 </div>
                 <!-- body end -->
               </div>
