@@ -1,16 +1,60 @@
-/* * {
-  text-align: center;
-} */
-/* body {
-  margin: auto;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-img {
-  width: 40%;
+body {
+font-family: Roboto+Condensed;
+
 }
-.container-fluid {
+.topic-logo {
+  width: 20%
+}
+/* flexbox styles */
+.flex-container1 {
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-self: center;
+  margin: 30px;
+}
+.flex-child1 {
+
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
+/* bootstrap class styles */
+.col-md {
+  text-align: center;
+  width: 60%;
 
 }
+.row {
+  overflow: auto;
+}
+/* homepage styles */
+.home-text {
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  max-width: 600px;
+}
+.bookmark-logo{
+  width: 65%;
+}
+.bookmark-man{
+  width: 50%;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+/* new page */
+.new-form{
+  text-align: center;
+  padding: 20px;
+}
+/* footer tweaks */
+.padding{
+  padding-top: 0px !important;
+}
+/* .badge-secondary{
+  color: #0b65c2;
+} */

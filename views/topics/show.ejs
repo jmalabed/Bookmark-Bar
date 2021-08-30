@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- LINKS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link type='text/css' href="/style.css" rel="stylesheet"/>
+
+  <title>resources</title>
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav class='navbar-light' id='mainNav'>
+  <ul class='nav nav-tabs'>
+    <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
+    <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
+    <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+    <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+  </ul>
+</nav>
+<!--  -->
+  <h1>
+    <img src="<%=topic.img%>" alt="" style ='width:200px; height:200px'><%=topic.name%>
+  </h1>
+  <div class='col'>
+    <ul> <% resources.forEach(resource => { %>
+      <% if (topic.name === resource.topicId) { %> 
+      <li> <a href='<%=resource.url%>'> <%= resource.name %></a>
+        <!-- Like Button -->
+        <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
+          <input type="hidden" name="likes" value="<%=resource.likes%>">
+          <input type="submit" id='like-btn' value="LIKE"> : <%=resource.likes%>
+        </form>
+        <!--  -->
+        <p> <%= resource.description %> </p>
+        <!-- Comment -->
+        <form  action="/topics/<%=topic._id%>/<%=resource._id%>/comment?_method=PUT" method="post">
+          <label for='comments'>Comments:</label>
+          <% resource.comments.forEach((comment,idx) => { %>
+              <p> <%= idx+1 %>. <%=resource.comments[idx]%> </p>
+          <% }) %>
+          <p> <%=resource.comment%> </p>
+          <textarea class='form-control'name="comments" rows="4" cols="50" placeholder="text here"></textarea>
+          <input type="submit" value="COMMENT">
+        </form>
+        <!--  -->
+        <a href='/topics/<%=topic._id%>/<%=resource._id%>/edit'>edit</a>
+      </li>
+      <% } %>
+    <% }) %>
+    </ul>
+  </div>
+  <a href="/topics/<%=topic._id%>/new">Add Resource!</a> <br/>
+  <a href='/topics'>Go Back</a>
+<!-- FOOTER -->
+<footer class='border-top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
