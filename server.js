@@ -37,26 +37,26 @@ db.on( 'open' , ()=>{
 
 // ** RUN THIS CODE ONE TIME TO BUILD YOUR DATABASE IN MONGODB! **
 // Comment out after
-const Topic = require('./models/topics.js');
-const Resource = require('./models/resource.js');
-const topicData = require('./data/topicData.js');
-const resourceData = require('./data/resourceData.js')
-
-Topic.insertMany(topicData,(err,topics)=>{
-  if (err) {console.log(err)};
-    console.log('added provided topic data', topics);
-    // mongoose.connection.close();
-  });
-
-
-Resource.insertMany(resourceData,(err,resources)=>{
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('added provided resource data', resources);
-    mongoose.connection.close();
-  }
-})
+// const Topic = require('./models/topics.js');
+// const Resource = require('./models/resource.js');
+// const topicData = require('./data/topicData.js');
+// const resourceData = require('./data/resourceData.js')
+//
+// Topic.insertMany(topicData,(err,topics)=>{
+//   if (err) {console.log(err)};
+//     console.log('added provided topic data', topics);
+//     // mongoose.connection.close();
+//   });
+//
+//
+// Resource.insertMany(resourceData,(err,resources)=>{
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('added provided resource data', resources);
+//     mongoose.connection.close();
+//   }
+// })
 
 // =============================
 //         MIDDLEWARE
@@ -86,6 +86,8 @@ const topicsController = require('./controllers/topics/topicController');
 app.use('/topics', topicsController);
 const blogController = require('./controllers/blog/blogController');
 app.use('/blog', blogController);
+const userController = require('./controllers/user/userController');
+app.use('/user', userController);
 
 // =============================
 //           LISTEN

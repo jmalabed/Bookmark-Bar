@@ -31,7 +31,6 @@ router.get('/',(req,res)=>{
 })
 
 // show route
-
 router.get('/:id', (req,res)=>{
   id = req.params.id
   Topic.findById(id,(err,foundTopic)=>{
@@ -78,7 +77,7 @@ router.get('/:topicId/:resourceId/edit', (req, res)=>{
   })
 })
 
-// post route
+// post route for new topic
 router.post('/',(req,res)=>{
   Topic.create(req.body,(err,newTopic)=>{
     if (err) {
@@ -89,16 +88,15 @@ router.post('/',(req,res)=>{
   })
 })
 
-router.post('/:id', (req,res)=>{
+// post route for new resource
+router.post('/:id', async (req,res)=>{
   // console.log('testing testing!');
   console.log(req.body);
   id = req.params.id;
   Resource.create([req.body],(err,newResource)=>{
-    console.log(newResource);
     if (err) {
       console.log(err);
     } else {
-      console.log('youre close');
         res.redirect("/topics/"+req.params.id)
       }
     }
@@ -107,10 +105,10 @@ router.post('/:id', (req,res)=>{
 
 // Put route UPDATE
 router.put('/:tId/:rId', (req,res)=>{
-const resourceId = req.params.rId
-const topicId = req.params.tId
-const updatedResourceData = req.body
-console.log(updatedResourceData);
+  const resourceId = req.params.rId
+  const topicId = req.params.tId
+  const updatedResourceData = req.body
+  console.log(updatedResourceData)
   Resource.findByIdAndUpdate(resourceId,updatedResourceData, (err,updatedResource) => {
       res.redirect('/topics/'+topicId)
   })

@@ -18,6 +18,5 @@ const resourceSchema = new mongoose.Schema({
     ref:'Topic'
   }})
 
-
 const Resource = mongoose.model('Resource',resourceSchema)
 module.exports = Resource

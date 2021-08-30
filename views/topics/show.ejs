@@ -27,7 +27,7 @@
   </h1>
   <div class='col'>
     <ul> <% resources.forEach(resource => { %>
-      <% if (topic.name === resource.topicId) { %>
+      <% if (topic.name === resource.topicId) { %> 
       <li> <a href='<%=resource.url%>'> <%= resource.name %></a>
         <!-- Like Button -->
         <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
