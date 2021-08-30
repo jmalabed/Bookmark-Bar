@@ -3,9 +3,12 @@
 // =============================
 const express = require('express')
 const app = express()
-const port = 3000
+
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+require('dotenv').config()
+const port = process.env.PORT
+const session=require('express-session')
 // const Resource = require('./models/resource.js');
 // const Topic = require('./models/topics.js');
 // const topicData = require('./data/topicData.js')
@@ -19,6 +22,13 @@ const connectionOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }
+
+
+app.use( session({
+  secret:process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 // Connect to Mongo
 mongoose.connect( mongoURI );

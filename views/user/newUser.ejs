@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <title>User Login Page</title>
+    <title>Create New Account</title>
   </head>
   <body>
     <nav class='navbar-light' id='mainNav'>
@@ -23,18 +23,14 @@
         <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
       </ul>
     </nav>
-    <h1>Login Page</h1>
-    <form action="/user/login" method="post">
-      Username: <input type="text" name="username">
-      Password: <input type="password" name="password">
-      <input type="submit" value="login">
+    <h1>Create Account</h1>
+    <form action="/user/create" method="post">
+      <p>New Username: <input type="text" name="username"></p>
+      <p>Email Address: <input type="text" name="email"></p>
+      <p>New Password: <input type="password" name="password"></p>
+      <input type="submit" value="Create New Account">
     </form>
-    <a href="/user/login/create">Create new account</a>
-
   </body>
-
-
-
   <!-- FOOTER -->
   <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
   <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
