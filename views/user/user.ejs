@@ -21,10 +21,17 @@
         <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
         <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
         <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+          <form action="user/logout?_method=DELETE" method="post">
+            <input type="submit" value="LOGOUT">
+          </form>
       </ul>
     </nav>
+
+
+
+
     <h1>Login Page</h1>
-    <form action="/user/login" method="post">
+    <form action="/user/auth/login" method="post">
       Username: <input type="text" name="username">
       Password: <input type="password" name="password">
       <input type="submit" value="login">

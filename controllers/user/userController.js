@@ -5,8 +5,11 @@ const Topic = require('../../models/topics.js');
 const Resource = require('../../models/resource.js');
 const User = require('../../models/user.js');
 const topicData = require('../../data/topicData.js');
-const resourceData = require('../../data/resourceData.js')
-
+const resourceData = require('../../data/resourceData.js');
+const bcrypt = require('bcrypt');
+const sessions = express.Router()
+const salt = bcrypt.genSaltSync(10);
+const hashedPassword = bcrypt.hashSync("yourPassword",salt);
 
 
 // user login
@@ -17,18 +20,65 @@ router.get('/',(req,res)=>{
 router.get('/login/create',(req,res)=>{
   res.render('user/newUser.ejs')
 })
+
+
 // create new user post route
-router.post('/create',(req,res)=>{
+router.post('/auth/registration',(req,res)=>{
   console.log(req.body);
-  User.create([req.body],(err,createdUser)=>{
+  const passwordHash = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10))
+  console.log(passwordHash);
+  const userDbEntry = {
+    username: req.body.username,
+    password: passwordHash,
+    email: req.body.email
+  }
+  User.create(userDbEntry,(err,createdUser)=>{
     if (err) {
       console.log(err);
     } else {
-      res.send('user created')
+      console.log(createdUser);
+      req.session.currentUser = createdUser
+      res.redirect('/user')
     }
   })
-
-  // res.redirect('/user')
 })
+
+
+// Login route, compare the entered req.body with the database.
+router.post('/auth/login',(req,res)=>{
+  console.log("testing");
+  User.findOne({ username: req.body.username}, (err,foundUser)=>{
+    console.log(foundUser);
+    if (err) {
+      console.log(err);
+    } else {
+      // First, check if username matches
+      console.log('testing1');
+      if (!foundUser) {
+        console.log('not found');
+        res.redirect('/user')
+      } else {
+        console.log('peering in');
+        // Now, check if the hashed password matches the req.body.password that was submitted.
+        if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+          console.log('logged in>>', foundUser._id)
+          res.redirect('/topics')
+        } else {
+          console.log('not matched');
+        }
+      }
+    }
+  })
+})
+
+// delete route:
+router.delete('/logout',(req,res)=>{
+  req.session.destroy(()=>{
+    res.redirect('/user')
+  })
+})
+
+
+
 
 module.exports = router
