@@ -33,6 +33,7 @@
 </div>
 <!-- MAIN CONTENT -->
 <section class='position-relative'>
+  <!-- NOTES ADD -->
   <div class='container' data-sticky-container>
     <div class='row'>
       <!-- MAIN POST Start: -->
@@ -44,8 +45,11 @@
         <!-- margin set at 0 -->
         <h2 class='m-0'> Today's highlights</h2>
         </div>
+        <!-- https://getbootstrap.com/docs/5.0/layout/gutters/ -->
+        <!-- https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
+        <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
         <!-- gutters are padding between your columns, used to responsively space and align content in the Bootstrap grid system.  -->
-        <!-- vertical gutters width set at $spacer * 4 -->
+        <!-- vertical gutters width set at $spacer * 1.5 -->
         <!--  $spacer is s sass variable. value set at 16px -->
         <div class ='row gy-4'>
           <!-- CARD ITEMs START: -->
@@ -75,6 +79,50 @@
               </div>
             <!-- CARD ITEMs END -->
             </div>
+            <!-- CARD ITEMs START: -->
+            <!-- Responsive to small devices - screen width equal to or greater than 576px  -->
+            <div class ='col-sm-6'
+              <div class='card'> <% blogs.forEach(blog => { %>
+                <!-- CARD img -->
+                <div class ='position-relative'>
+                  <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
+                    <!-- CARD body -->
+                    <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
+                  <div class='card-body px-0 pt-3'>
+                    <!-- no underline link.. font weight-bold -->
+                    <h4><a href='/blog/<%= blog._id %>' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
+                    <form action="/blog/<%=blog._id%>/like?_method=PUT" method="post">
+                      <input type="hidden" name="likes" value="<%=blog.likes%>">
+                      <input type="submit" id='like-btn' value="Like"> : <%=blog.likes%>
+                    </form>
+                    <p class='card-text'> <%= blog.description %> </p>
+                    <!-- CARD info -->
+                    <blockquote class='blockquote text-right'>
+                      <footer class='blockquote-footer'> yours truly: <cite title='Source Title'><%= blog.user %></cite></footer>
+                    </blockquote>
+                    <% }) %>
+                  </div>
+                  <!-- body end -->
+                </div>
+              <!-- CARD ITEMs END -->
+              </div>
+            </div>
+          </div>
+          <!-- SIDEBAR START: -->
+          <!-- NOTES ADD -->
+          <div class ='col-lg-3 mt-5 mt-lg-0'>
+            <!-- NOTES ADD -->
+            <div data-sticky data-margin-top='80' data-sticky-for='767'>
+            </div>
+            <div>
+              <!-- NOTES ADD -->
+            <h4 class='mt-4 mb-3'>Trending Topics</h4>
+              <% for(let i=0; i<topics.length; i++) {%>
+              <p>  topics[i].name </p>
+                <% } %>
+            </div>
+            <!-- NOTES ADD -->
+            <div class='text-center mt-3'><a href='/topics'>View All</a></div>
           </div>
         </div>
       </div>
@@ -84,11 +132,37 @@
 </section>
 
 <!-- FOOTER -->
-<footer class='border-top'>
+<!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
+<!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
+<!-- padding top set $spaceer * 3  -->
+<!--  $spacer is s sass variable. default value set at 1rem:16px -->
+<footer class='border-top pt-5'>
   <div class='container'>
-    <div class='row'>
-      <div class='col'>
-        <div class='small text-center text muted'>Copyright &copy; Bookmarks Bar 2021</div>
+    <div class='row pt-5'>
+      <!-- three equal columns href:https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+      <!-- .col-sm screen width is >=768px -->
+      <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
+      <div class="col-sm-4">
+      <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
+      <div style='margin-top:38px'class='pt-5 d-flex justify-content-end'>
+        <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
+        <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+        <ul class='nav flex-column'>
+          <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+          <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+          <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+        </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class='d-flex justify-content-center'>
+        <a href='https://generalassemb.ly/'><img src="https://recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/000/000/170/original/GALogoForGreenhouse.png?1448035888" width=380px height=250px></a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div style='margin-top:38px'class='pt-5 d-flex justify-content-center'>
+          <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center''></a>
+        </div>
       </div>
     </div>
   </div>
