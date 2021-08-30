@@ -39,6 +39,7 @@ router.get('/:id', (req,res)=>{
       if (err) {
         console.log(err);
       } else {
+        console.log(allResources);
         res.render('topics/show.ejs', {
           resources:allResources,
           topic:foundTopic
@@ -148,7 +149,7 @@ router.put('/:topicId/:resourceId/comment',(req,res)=>{
 })
 
 // delete route
-router.delete('/:id',(req,res)=>{
+router.delete('/topic/:id',(req,res)=>{
   id = req.params.id
   Topic.findByIdAndRemove(id, (err,removeTopic)=>{
     if (err) {
@@ -159,7 +160,7 @@ router.delete('/:id',(req,res)=>{
   })
 })
 
-router.delete('/:id',(req,res)=>{
+router.delete('/resource/:id',(req,res)=>{
   id = req.params.id
   Resource.findByIdAndRemove(id, (err,removeResource)=>{
     if (err) {

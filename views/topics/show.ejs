@@ -40,7 +40,7 @@
         <form  action="/topics/<%=topic._id%>/<%=resource._id%>/comment?_method=PUT" method="post">
           <label for='comments'>Comments:</label>
           <% resource.comments.forEach((comment,idx) => { %>
-            <p><%= idx+1 %>. <%=resource.comments[idx]%> </p>
+              <p> <%= idx+1 %>. <%=resource.comments[idx]%> </p>
           <% }) %>
           <p> <%=resource.comment%> </p>
           <textarea class='form-control'name="comments" rows="4" cols="50" placeholder="text here"></textarea>

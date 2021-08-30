@@ -30,10 +30,20 @@
     <br/>
     Description: <input type="text" name="description" value="<%=resource.description%>"/>
     <br/>
+    <% resource.comments.forEach((comment,idx)=>{ %>
+    <p>
+      <%= resource.comments[idx] %>
+      <form action="" method="post">
+        <input type="submit" value="DELETE">
+      </form>
+    </p>
+    <% }) %>
+
+
     <input type="hidden" name="topicId" value="<%=resource.topicId%>"/>
     <input type="submit" id='save-btn' value="save">
   </form>
-  <form action="/topics/<%=resource._id%>?_method=DELETE" method="post">
+  <form action="/topics/resource/<%=resource._id%>?_method=DELETE" method="post">
     <input type="submit" id='delete-btn' value="delete"/>
   </form>
   <a href="/topics/<%=topic._id%>">Go Back</a>
