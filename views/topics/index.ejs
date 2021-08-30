@@ -29,8 +29,7 @@
 
     <div class="flex-container1">
       <div class="flex-child1">
-        <h1>Welcome to the Bookmarks Bar!</h1>
-        <h2>A comprehensive, full-stack resource center compiled by students, for students.</h2>
+      
         <p>Select a topic you'd like to learn more about! Alternatively,
           <!-- create topic link -->
         <a href='/topics/newT'>create a topic.</a>
@@ -38,11 +37,10 @@
       </div>
     </div>
     <!-- Bootstrap Grid for topics -->
+
     <div class='container-fluid'>
       <div class='row'>
         <div class="col-md">
-
-
             <% topics.forEach(topic => { %>
               <!-- topic image -->
               <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" class="topic-logo"></a>
@@ -54,6 +52,7 @@
         </div>
       </div>
     </div>
+
 <!-- FOOTER -->
 <footer class='border-top'>
   <div class='container'>
