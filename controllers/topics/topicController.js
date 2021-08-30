@@ -24,6 +24,9 @@ router.get('/',(req,res)=>{
     if (err) {
       console.log(err);
     } else {
+      if (true) {
+
+      }
       console.log(allTopics);
         res.render('topics/index.ejs', {topics:allTopics})
     }

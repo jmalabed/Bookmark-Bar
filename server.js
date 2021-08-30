@@ -3,9 +3,12 @@
 // =============================
 const express = require('express')
 const app = express()
-const port = 3000
+
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+require('dotenv').config()
+const port = process.env.PORT
+const session=require('express-session')
 // const Resource = require('./models/resource.js');
 // const Topic = require('./models/topics.js');
 // const topicData = require('./data/topicData.js')
@@ -19,6 +22,13 @@ const connectionOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }
+
+
+app.use( session({
+  secret:process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 // Connect to Mongo
 mongoose.connect( mongoURI );
@@ -34,15 +44,21 @@ db.on( 'open' , ()=>{
 // =============================
 //         INSTANTIATE
 // =============================
+
 // ** RUN THIS CODE ONE TIME TO BUILD YOUR DATABASE IN MONGODB! **
 // Comment out after
+// const Topic = require('./models/topics.js');
+// const Resource = require('./models/resource.js');
+// const topicData = require('./data/topicData.js');
+// const resourceData = require('./data/resourceData.js')
+//
 // Topic.insertMany(topicData,(err,topics)=>{
 //   if (err) {console.log(err)};
 //     console.log('added provided topic data', topics);
-//     mongoose.connection.close();
+//     // mongoose.connection.close();
 //   });
-
-
+//
+//
 // Resource.insertMany(resourceData,(err,resources)=>{
 //   if (err) {
 //     console.log(err);
@@ -80,6 +96,8 @@ const topicsController = require('./controllers/topics/topicController');
 app.use('/topics', topicsController);
 const blogController = require('./controllers/blog/blogController');
 app.use('/blog', blogController);
+const userController = require('./controllers/user/userController');
+app.use('/user', userController);
 
 // =============================
 //           LISTEN
