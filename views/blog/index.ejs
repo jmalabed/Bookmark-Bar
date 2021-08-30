@@ -9,22 +9,48 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link type='text/css' href="/style.css" rel="stylesheet"/>
 
-  <title>Blog</title>
-</head>
+  <style>
+    .banner-image{
+      background-image: url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+    }
+  </style>
 
+  <title>blog</title>
+</head>
 <body>
 <!-- NAVIGATION -->
-<nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-gradient'>
+<!-- https://getbootstrap.com/docs/4.0/components/navbar/ -->
+<nav id='mainNav' class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
   <div class='container'>
-    <ul class='nav navbar'>
-      <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <div class='navbar-header'>
+    <!-- navbar brand will always go on the left -->
+    <a href='/' class='navbar-brand'>BookmarksBar
+    <img src='https://images.vexels.com/media/users/3/156834/isolated/preview/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'></a>
+    </div>
+    <button
+    type='button'
+    class='navbar-toggler'
+    data-bs-toggle='collapse'
+    data-bs-target='#toggleMenu'
+    aria-controls='toggleMenu'
+    aria-expanded='false'
+    aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'</span>
+    </button>
+    <div class='collapse navbar-collapse' id='toggleMenu'>
+    <ul class='navbar-nav ms-auto text-center'>
       <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
       <li class='nav-item'><a class='nav-link active' href='/blog'>blog</a></li>
       <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
       <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
     </ul>
+    </div>
   </div>
 </nav>
+<!-- BANNER -->
+<div class='banner-image w-100 vh-100 d-flex justify-content-center align-items-center'></div>
+
 <!-- Create Link -->
 <div>
   <ul class='nav nav-pills'>
@@ -33,8 +59,7 @@
 </div>
 <!-- MAIN CONTENT -->
 <section class='position-relative'>
-  <!-- NOTES ADD -->
-  <div class='container' data-sticky-container>
+  <div class='container mt-3'>
     <div class='row'>
       <!-- MAIN POST Start: -->
       <!-- col large max container width set at 960px -->
@@ -55,7 +80,7 @@
           <!-- CARD ITEMs START: -->
           <!-- Responsive to small devices - screen width equal to or greater than 576px  -->
           <div class ='col-sm-6'
-            <div class='card'> <% blogs.forEach(blog => { %>
+            <div class='card d-flex flex-wrap'> <% blogs.forEach(blog => { %>
               <!-- CARD img -->
               <div class ='position-relative'>
                 <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
@@ -71,7 +96,7 @@
                   <p class='card-text'> <%= blog.description %> </p>
                   <!-- CARD info -->
                   <blockquote class='blockquote text-right'>
-                    <footer class='blockquote-footer'> yours truly: <cite title='Source Title'><%= blog.user %></cite></footer>
+                    <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
                   </blockquote>
                   <% }) %>
                 </div>
@@ -98,7 +123,7 @@
                     <p class='card-text'> <%= blog.description %> </p>
                     <!-- CARD info -->
                     <blockquote class='blockquote text-right'>
-                      <footer class='blockquote-footer'> yours truly: <cite title='Source Title'><%= blog.user %></cite></footer>
+                      <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
                     </blockquote>
                     <% }) %>
                   </div>
@@ -109,19 +134,18 @@
             </div>
           </div>
           <!-- SIDEBAR START: -->
-          <!-- NOTES ADD -->
+          <!-- col >= 992px, margin-top set at $spaceer * 3, & margin-top-lg set at 0 to eliminate magin/padding -->
           <div class ='col-lg-3 mt-5 mt-lg-0'>
-            <!-- NOTES ADD -->
-            <div data-sticky data-margin-top='80' data-sticky-for='767'>
-            </div>
             <div>
-              <!-- NOTES ADD -->
+            <!-- margin-top set at $spacer * 1.5 & margin-bottom set at $spacer -->
             <h4 class='mt-4 mb-3'>Trending Topics</h4>
+            <div>
               <% for(let i=0; i<topics.length; i++) {%>
               <p>  topics[i].name </p>
                 <% } %>
+              </div>
             </div>
-            <!-- NOTES ADD -->
+            <!-- margin-top set at $spacer -->
             <div class='text-center mt-3'><a href='/topics'>View All</a></div>
           </div>
         </div>
@@ -167,5 +191,15 @@
     </div>
   </div>
 </footer>
+<script>
+var nav = document.querySelector('nav');
+window.addEventListener('scroll', function () {
+  if (window.pageYOffset > 100) {
+    nav.classList.add('bg-secondary', 'shadow');
+    } else {
+    nav.classList.remove('bg-secondary', 'shadow');
+    }
+  });
+</script>
 </body>
 </html>
