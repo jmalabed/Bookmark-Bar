@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/jmalabed/project1#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "method-override": "^3.0.0",
-    "mongoose": "5.13.8"
+    "mongoose": "5.13.8",
+    "session": "^0.1.0"
   }
 }

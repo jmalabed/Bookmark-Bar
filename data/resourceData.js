@@ -15,6 +15,6 @@ module.exports = [
     name: "MDN CSS Reference",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
     description: "Mozilla Developer Network (MDN) offers an exhaustive index of CSS properties and offers code sandboxes to run code snippets.",
-    topicId:"CSS"
-  }
+    topicId:"CSS",
+    }
 ]
