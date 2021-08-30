@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const Blog = require('../../models/blog.js')
+const Topic = require('../../models/topics.js');
+const Resource = require('../../models/resource.js');
+const topicData = require('../../data/topicData.js');
+const resourceData = require('../../data/resourceData.js')
 //NEW
 router.get('/new', (req, res)=> {
   res.render('blog/new.ejs')
@@ -9,9 +13,14 @@ router.get('/new', (req, res)=> {
 //INDEX
 router.get('/', (req,res) =>{
   Blog.find({}, (err, allBlogs)=> {
-    res.render('blog/index.ejs', {blogs: allBlogs})
-  })
-})
+    Topic.findById({likes:{$gte:1}}, (err, allTopics=>{
+    res.render('blog/index.ejs', {
+      blogs: allBlogs,
+      topics: allTopics
+      })
+    })
+  )}
+)})
 
 //SHOW
 router.get('/:id', (req, res) =>{
