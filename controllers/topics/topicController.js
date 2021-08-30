@@ -89,7 +89,7 @@ router.post('/',(req,res)=>{
 })
 
 router.post('/:id', (req,res)=>{
-  console.log('testing testing!');
+  // console.log('testing testing!');
   console.log(req.body);
   id = req.params.id;
   Resource.create([req.body],(err,newResource)=>{
@@ -119,6 +119,7 @@ console.log(updatedResourceData);
 router.put('/:topicId/:resourceId/like',(req,res)=>{
   rId = req.params.resourceId
   console.log('like');
+  console.log(req.body);
   // console.log(req.body);
   req.body.likes++
   console.log(req.body.likes );
@@ -126,6 +127,23 @@ router.put('/:topicId/:resourceId/like',(req,res)=>{
     // console.log(foundResource);
     // res.send('testing in progress')
     res.redirect('/topics/'+req.params.topicId)
+  })
+})
+
+// Update route for comments
+router.put('/:topicId/:resourceId/comment',(req,res)=>{
+  rId = req.params.resourceId;
+  newComment = req.body.comments
+  // req.body.comments.push(req.body)
+  console.log(req.body);
+  Resource.findByIdAndUpdate(rId,{$push: {comments:req.body.comments}},(err,foundResource)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('updated resource');
+      console.log(foundResource);
+      res.redirect('/topics/'+req.params.topicId)
+    }
   })
 })
 

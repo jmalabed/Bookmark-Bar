@@ -29,13 +29,24 @@
     <ul> <% resources.forEach(resource => { %>
       <% if (topic.name === resource.topicId) { %>
       <li> <a href='<%=resource.url%>'> <%= resource.name %></a>
+        <!-- Like Button -->
         <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
           <input type="hidden" name="likes" value="<%=resource.likes%>">
           <input type="submit" id='like-btn' value="LIKE"> : <%=resource.likes%>
         </form>
+        <!--  -->
         <p> <%= resource.description %> </p>
-        <label for='comments'>Comments:</label>
-        <textarea class='form-control'name="comments" rows="8" cols="80" placeholder="text here"></textarea>
+        <!-- Comment -->
+        <form  action="/topics/<%=topic._id%>/<%=resource._id%>/comment?_method=PUT" method="post">
+          <label for='comments'>Comments:</label>
+          <% resource.comments.forEach((comment,idx) => { %>
+            <p><%= idx+1 %>. <%=resource.comments[idx]%> </p>
+          <% }) %>
+          <p> <%=resource.comment%> </p>
+          <textarea class='form-control'name="comments" rows="4" cols="50" placeholder="text here"></textarea>
+          <input type="submit" value="COMMENT">
+        </form>
+        <!--  -->
         <a href='/topics/<%=topic._id%>/<%=resource._id%>/edit'>edit</a>
       </li>
       <% } %>
