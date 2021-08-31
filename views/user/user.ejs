@@ -12,60 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <title>User Login Page</title>
-<<<<<<< HEAD
-  </head>
-  <body>
-    <nav class='navbar-light' id='mainNav'>
-      <ul class='nav nav-tabs'>
-        <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
-        <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
-        <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
-        <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-        <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
-          <form action="user/logout?_method=DELETE" method="post">
-            <input type="submit" value="LOGOUT">
-          </form>
-      </ul>
-    </nav>
 
-
-
-
-    <h1>Login Page</h1>
-    <form action="/user/auth/login" method="post">
-      Username: <input type="text" name="username">
-      Password: <input type="password" name="password">
-      <input type="submit" value="login">
-    </form>
-    <a href="/user/login/create">Create new account</a>
-
-  </body>
-
-
-
-  <!-- FOOTER -->
-  <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
-  <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
-  <!-- padding top set $spaceer * 3  -->
-  <!--  $spacer is s sass variable. default value set at 1rem:16px -->
-  <footer class='border-top pt-5'>
-    <div class='container'>
-      <div class='row pt-5'>
-        <!-- three equal columns href:https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
-        <!-- .col-sm screen width is >=768px -->
-        <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
-        <div class="col-sm-4">
-        <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
-        <div style='margin-top:38px'class='pt-5 d-flex justify-content-end'>
-          <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
-          <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
-          <ul class='nav flex-column'>
-            <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
-            <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
-            <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
-          </ul>
-          </div>
-=======
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -152,19 +99,19 @@
           <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
           <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
         </ul>
->>>>>>> submaster
         </div>
-        <div class="col-sm-4">
-          <div class='d-flex justify-content-center'>
-          <a href='https://generalassemb.ly/'><img src="https://recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/000/000/170/original/GALogoForGreenhouse.png?1448035888" width=380px height=250px></a>
-          </div>
+      </div>
+      <div class="col-sm-4">
+        <div class='d-flex justify-content-center'>
+        <a href='https://generalassemb.ly/'><img src="https://recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/000/000/170/original/GALogoForGreenhouse.png?1448035888" width=380px height=250px></a>
         </div>
-        <div class="col-sm-4">
-          <div style='margin-top:38px'class='pt-5 d-flex justify-content-center'>
-            <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center''></a>
-          </div>
+      </div>
+      <div class="col-sm-4">
+        <div style='margin-top:38px'class='pt-5 d-flex justify-content-center'>
+          <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center'></a>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 </html>
