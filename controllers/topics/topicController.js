@@ -7,10 +7,17 @@ const Resource = require('../../models/resource.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js')
 
+const sessions = express.Router()
 
 
-
-
+const isAuthenticated = (req,res,next)=>{
+  console.log(req.session.currentUser);
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/user')
+  }
+}
 
 //new route topics
 router.get('/newT', (req,res)=> {
@@ -24,10 +31,7 @@ router.get('/',(req,res)=>{
     if (err) {
       console.log(err);
     } else {
-      if (true) {
-
-      }
-      console.log(allTopics);
+        // console.log(allTopics);
         res.render('topics/index.ejs', {topics:allTopics})
     }
   })
@@ -35,7 +39,7 @@ router.get('/',(req,res)=>{
 
 // show route
 
-router.get('/:id', (req,res)=>{
+router.get('/:id',isAuthenticated, (req,res)=>{
   id = req.params.id
   Topic.findById(id,(err,foundTopic)=>{
     Resource.find({}, (err, allResources)=> {
@@ -44,7 +48,8 @@ router.get('/:id', (req,res)=>{
       } else {
         res.render('topics/show.ejs', {
           resources:allResources,
-          topic:foundTopic
+          topic:foundTopic,
+          user:req.session.currentUser
         }
       )}
     })
