@@ -14,11 +14,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 
-  <title>Index</title>
+  <style>
+    .banner-image{
+      background-image: url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+    }
+    .card-img{
+      border-radius: 25px;
+    }
+  </style>
+
+  <title>blog</title>
 </head>
 <body>
 <!-- NAVIGATION -->
-<nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark p-md-3 bg-secondary shadow'>
+<!-- https://getbootstrap.com/docs/4.0/components/navbar/ -->
+<nav id='mainNav' class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
   <div class='container'>
     <div class='navbar-header'>
     <!-- navbar brand will always go on the left -->
@@ -45,6 +56,8 @@
     </div>
   </div>
 </nav>
+<!-- BANNER -->
+<div class='banner-image w-100 vh-100 d-flex justify-content-center align-items-center'></div>
 
 <!-- placeholder home page -->
 <div class="home-text">
@@ -110,5 +123,15 @@
     </div>
   </div>
 </footer>
+<script>
+var nav = document.querySelector('nav');
+window.addEventListener('scroll', function () {
+  if (window.pageYOffset > 100) {
+    nav.classList.add('bg-secondary', 'shadow');
+    } else {
+    nav.classList.remove('bg-secondary', 'shadow');
+    }
+  });
+</script>
 </body>
 </html>
