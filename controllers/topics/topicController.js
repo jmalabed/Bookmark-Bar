@@ -11,7 +11,7 @@ const sessions = express.Router()
 
 
 const isAuthenticated = (req,res,next)=>{
-  console.log(req.session.currentUser);
+  // console.log(req.session.currentUser);
   if (req.session.currentUser) {
     return next()
   } else {
@@ -39,7 +39,7 @@ router.get('/',(req,res)=>{
 
 // show route
 
-router.get('/:id',isAuthenticated, (req,res)=>{
+router.get('/:id', (req,res)=>{
   id = req.params.id
   Topic.findById(id,(err,foundTopic)=>{
     Resource.find({}, (err, allResources)=> {

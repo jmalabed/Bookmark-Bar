@@ -18,39 +18,6 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-<<<<<<< HEAD
-<nav class='navbar-light' id='mainNav'>
-  <ul class='nav nav-tabs'>
-    <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
-    <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
-    <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
-    <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-    <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
-
-  </ul>
-  <ul>
-    <li class="justify-content-end"> testing</li>
-  </ul>
-  <div class="float-right mr-5">
-    <button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button>
-    <script type="text/javascript">
-      const logbtn = document.getElementById('login')
-
-      if (<%=user%>) {
-        logbtn.innerHTML='LOGOUT'
-
-      } else {
-        logbtn.innerHTML='LOGIN'
-      }
-
-      logbtn.addEventListener('click',()=>{
-        // alert('test')
-      logbtn.classList.remove('btn-primary')
-      logbtn.classList.add('btn-secondary')
-      })
-    </script>
-    <p>Welcome, <%=user.username%> </p>
-=======
 <nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark p-md-3 bg-secondary shadow'>
   <div class='container'>
     <div class='navbar-header'>
@@ -76,8 +43,24 @@
       <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
     </ul>
     </div>
->>>>>>> submaster
   </div>
+  <div class="float-right mr-5">
+    <% if (user) { %>
+      <p>Welcome, <%=user.username%>! </p>
+      <form action="/user/logout?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
+      </form>
+
+
+    <% } else { %>
+      <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
+      <script type="text/javascript">
+        const welcomeMsg = document.getElementById('welcomeMsg')
+      </script>
+    <% }%>
+</div>
+
+
 </nav>
 <!-- MAIN CONTENT -->
 <div class='container my-5 d-grid gap-5 mt-3'>
@@ -85,12 +68,9 @@
   <div class='col'>
     <ul> <% resources.forEach(resource => { %>
       <% if (topic.name === resource.topicId) { %>
-<<<<<<< HEAD
       <li> <a href='<%=resource.url%>' target="_blank"> <%= resource.name %></a>
         <!-- Like Button -->
-=======
-      <li> <a href='<%=resource.url%>'> <%= resource.name %></a>
->>>>>>> submaster
+
         <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
           <input type="hidden" name="likes" value="<%=resource.likes%>">
           <input type="submit" id='like-btn' value="LIKE"> : <%=resource.likes%>
