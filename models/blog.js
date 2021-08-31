@@ -9,6 +9,10 @@ const blogSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  topicTest: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'Topic'
+  },
   header: {
     type: String,
     required: true

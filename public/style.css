@@ -55,6 +55,10 @@ font-family: Roboto+Condensed;
 .padding{
   padding-top: 0px !important;
 }
-/* .badge-secondary{
-  color: #0b65c2;
-} */
+/* LinkedIn Badges */
+.badge.badge-primary {
+  background-color: #245ea0!important;
+}
+#like-btn {
+  border-radius:20px;
+  background:url('https://cdn.pixabay.com/photo/2021/03/22/09/34/heart-6114039_960_720.png') no-repeat;

@@ -4,27 +4,61 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- LINKS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Main CSS -->
   <link type='text/css' href="/style.css" rel="stylesheet"/>
+  <!-- Google Fonts API -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 
-  <title>Blog</title>
+  <style>
+    .banner-image{
+      background-image: url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+    }
+    .card-img{
+      border-radius: 25px;
+    }
+  </style>
+
+  <title>blog</title>
 </head>
-
 <body>
 <!-- NAVIGATION -->
-<nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-gradient'>
+<!-- https://getbootstrap.com/docs/4.0/components/navbar/ -->
+<nav id='mainNav' class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
   <div class='container'>
-    <ul class='nav navbar'>
-      <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
+    <div class='navbar-header'>
+    <!-- navbar brand will always go on the left -->
+    <a href='/' class='navbar-brand'>BookmarksBar
+    <img src='https://images.vexels.com/media/users/3/156834/isolated/preview/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'></a>
+    </div>
+    <button
+    type='button'
+    class='navbar-toggler'
+    data-bs-toggle='collapse'
+    data-bs-target='#toggleMenu'
+    aria-controls='toggleMenu'
+    aria-expanded='false'
+    aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'</span>
+    </button>
+    <div class='collapse navbar-collapse' id='toggleMenu'>
+    <ul class='navbar-nav ms-auto text-center'>
       <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
       <li class='nav-item'><a class='nav-link active' href='/blog'>blog</a></li>
       <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
       <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
     </ul>
+    </div>
   </div>
 </nav>
+<!-- BANNER -->
+<div class='banner-image w-100 vh-100 d-flex justify-content-center align-items-center'></div>
+
 <!-- Create Link -->
 <div>
   <ul class='nav nav-pills'>
@@ -33,8 +67,7 @@
 </div>
 <!-- MAIN CONTENT -->
 <section class='position-relative'>
-  <!-- NOTES ADD -->
-  <div class='container' data-sticky-container>
+  <div class='container mt-3'>
     <div class='row'>
       <!-- MAIN POST Start: -->
       <!-- col large max container width set at 960px -->
@@ -55,7 +88,7 @@
           <!-- CARD ITEMs START: -->
           <!-- Responsive to small devices - screen width equal to or greater than 576px  -->
           <div class ='col-sm-6'
-            <div class='card'> <% blogs.forEach(blog => { %>
+            <div class='card d-flex flex-wrap'> <% blogs.forEach(blog => { %>
               <!-- CARD img -->
               <div class ='position-relative'>
                 <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
@@ -71,7 +104,7 @@
                   <p class='card-text'> <%= blog.description %> </p>
                   <!-- CARD info -->
                   <blockquote class='blockquote text-right'>
-                    <footer class='blockquote-footer'> yours truly: <cite title='Source Title'><%= blog.user %></cite></footer>
+                    <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
                   </blockquote>
                   <% }) %>
                 </div>
@@ -98,7 +131,7 @@
                     <p class='card-text'> <%= blog.description %> </p>
                     <!-- CARD info -->
                     <blockquote class='blockquote text-right'>
-                      <footer class='blockquote-footer'> yours truly: <cite title='Source Title'><%= blog.user %></cite></footer>
+                      <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
                     </blockquote>
                     <% }) %>
                   </div>
@@ -109,19 +142,18 @@
             </div>
           </div>
           <!-- SIDEBAR START: -->
-          <!-- NOTES ADD -->
+          <!-- col >= 992px, margin-top set at $spaceer * 3, & margin-top-lg set at 0 to eliminate magin/padding -->
           <div class ='col-lg-3 mt-5 mt-lg-0'>
-            <!-- NOTES ADD -->
-            <div data-sticky data-margin-top='80' data-sticky-for='767'>
-            </div>
             <div>
-              <!-- NOTES ADD -->
+            <!-- margin-top set at $spacer * 1.5 & margin-bottom set at $spacer -->
             <h4 class='mt-4 mb-3'>Trending Topics</h4>
+            <div class='container'>
               <% for(let i=0; i<topics.length; i++) {%>
-              <p>  topics[i].name </p>
+              <p>  topics[i].resources</p>
                 <% } %>
+              </div>
             </div>
-            <!-- NOTES ADD -->
+            <!-- margin-top set at $spacer -->
             <div class='text-center mt-3'><a href='/topics'>View All</a></div>
           </div>
         </div>
@@ -148,9 +180,10 @@
         <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
         <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
         <ul class='nav flex-column'>
-          <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
-          <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
-          <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+          <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
+          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
         </ul>
         </div>
       </div>
@@ -161,11 +194,21 @@
       </div>
       <div class="col-sm-4">
         <div style='margin-top:38px'class='pt-5 d-flex justify-content-center'>
-          <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center''></a>
+          <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center'></a>
         </div>
       </div>
     </div>
   </div>
 </footer>
+<script>
+var nav = document.querySelector('nav');
+window.addEventListener('scroll', function () {
+  if (window.pageYOffset > 100) {
+    nav.classList.add('bg-secondary', 'shadow');
+    } else {
+    nav.classList.remove('bg-secondary', 'shadow');
+    }
+  });
+</script>
 </body>
 </html>
