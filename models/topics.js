@@ -6,6 +6,10 @@ const topicSchema = new mongoose.Schema({
     required: true
   },
   img: String,
+  likes: {
+    type: Number,
+    default: 0
+  },
   resources: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Resource'
