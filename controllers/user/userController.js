@@ -58,6 +58,7 @@ router.post('/auth/login',(req,res)=>{
       // First, check if username matches
       // console.log('testing1');
       if (!foundUser) {
+        alert('user not found')
         // console.log('not found');
         res.redirect('/user')
       } else {

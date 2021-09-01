@@ -44,6 +44,23 @@
     </ul>
     </div>
   </div>
+  <div class="float-right mr-5">
+    <% if (user) { %>
+      <p>Welcome, <%=user.username%>! </p>
+      <form action="/user/logout?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
+      </form>
+
+
+    <% } else { %>
+      <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
+      <script type="text/javascript">
+        const welcomeMsg = document.getElementById('welcomeMsg')
+      </script>
+    <% }%>
+</div>
+
+
 </nav>
 <!-- MAIN CONTENT -->
 <div class='container my-5 d-grid gap-5 mt-3'>
@@ -51,7 +68,9 @@
   <div class='col'>
     <ul> <% resources.forEach(resource => { %>
       <% if (topic.name === resource.topicId) { %>
-      <li> <a href='<%=resource.url%>'> <%= resource.name %></a>
+      <li> <a href='<%=resource.url%>' target="_blank"> <%= resource.name %></a>
+        <!-- Like Button -->
+
         <form action="/topics/<%=topic._id%>/<%=resource._id%>/like?_method=PUT" method="post">
           <input type="hidden" name="likes" value="<%=resource.likes%>">
           <input type="submit" id='like-btn' value="LIKE"> : <%=resource.likes%>
