@@ -9,11 +9,7 @@ const topicSchema = new mongoose.Schema({
   likes: {
     type: Number,
     default: 0
-  },
-  resources: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Resource'
-  }]
+  }
 })
 
 const Topic = mongoose.model('Topic',topicSchema)

@@ -12,11 +12,7 @@ const resourceSchema = new mongoose.Schema({
   },
   topicId: String,
   description: String,
-  comments: [String],
-  topicTest: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref:'Topic'
-  }})
+  comments: [String]})
 
 const Resource = mongoose.model('Resource',resourceSchema)
 module.exports = Resource
