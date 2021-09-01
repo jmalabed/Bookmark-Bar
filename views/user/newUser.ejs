@@ -1,74 +1,121 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Main CSS -->
-    <link type='text/css' href="/style.css" rel="stylesheet"/>
-    <!-- Google Fonts API -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Main CSS -->
+  <link type='text/css' href="/style.css" rel="stylesheet"/>
+  <!-- Google Fonts API -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
     <title>Create New Account</title>
-  </head>
-  <body>
-    <nav class='navbar-light' id='mainNav'>
-      <ul class='nav nav-tabs'>
-        <li class='nav-item'><a class='nav-link' href='/'>home</a></li>
-        <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
-        <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
-        <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-        <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
-      </ul>
-    </nav>
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark p-md-3 bg-secondary shadow'>
+  <div class='container'>
+    <div class='navbar-header'>
+    <!-- navbar brand will always go on the left -->
+    <a href='/' class='navbar-brand'>BookmarksBar
+    <img src='https://images.vexels.com/media/users/3/156834/isolated/preview/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'></a>
+    </div>
+    <button
+    type='button'
+    class='navbar-toggler'
+    data-bs-toggle='collapse'
+    data-bs-target='#toggleMenu'
+    aria-controls='toggleMenu'
+    aria-expanded='false'
+    aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse' id='toggleMenu'>
+    <ul class='navbar-nav ms-auto text-center'>
+      <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
+      <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
+      <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+      <li class='nav-item'><a class='nav-link active' href='/user'>login</a></li>
+    </ul>
+    </div>
+  </div>
+</nav>
+<!-- CREATE ACCOUNT -->
+<section class=''>
+  <div class='container-fluid'>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <div class='px-5 ms-xl-4'>
+          <div class='d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5'>
+            <form action="/user/auth/registration" method="post">
+            <h1 class='mb-3 pb-3'>Sign Up</h1>
+              <div class='form-outline mb-4'>
+                <input class='form-control form-control-lg' id='new-user' type="text" placeholder="username" name="username">
+              </div>
+              <div class='form-outline mb-4'>
+                <input class='form-control form-control-lg' id='email' type="email" placeholder="email" name="email">
+              </div>
+              <div class='form-outline mb-4'>
+                <input class='form-control form-control-lg' id='password' type="password" placeholder='password' name="password">
+              </div>
+              <div class='pt-1 mb-4'>
+                <input type="submit" class='btn btn-info btn-lg btn-block' value="CREATE NEW ACCOUNT">
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class='col-sm-6 px-0 d-sm-block'>
+        <img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/90100166-86fa-412c-b77b-c4b2779a4bdc/d4j65ly-de1ef70b-4563-45b6-ac44-02a1efc69328.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzkwMTAwMTY2LTg2ZmEtNDEyYy1iNzdiLWM0YjI3NzlhNGJkY1wvZDRqNjVseS1kZTFlZjcwYi00NTYzLTQ1YjYtYWM0NC0wMmExZWZjNjkzMjguanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.9sDpiIacdYiyEpeEkj3UjxUuhYjqRVkdulh368y-aaw' id='login-img' class='w-100 vh-100' style="object-fit:cover; objection:left;">
+      </div>
+    </div>
+  </div>
+</section>
+</body>
 
 
-    <h1>Create Account</h1>
-    <form action="/user/auth/registration" method="post">
-      <p>New Username: <input type="text" name="username"></p>
-      <p>Email Address: <input type="text" name="email"></p>
-      <p>New Password: <input type="password" name="password"></p>
-      <input type="submit" value="Create New Account">
-    </form>
-  </body>
-
-
-  <!-- FOOTER -->
-  <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
-  <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
-  <!-- padding top set $spaceer * 3  -->
-  <!--  $spacer is s sass variable. default value set at 1rem:16px -->
-  <footer class='border-top pt-5'>
-    <div class='container'>
-      <div class='row pt-5'>
-        <!-- three equal columns href:https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
-        <!-- .col-sm screen width is >=768px -->
-        <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
-        <div class="col-sm-4">
-        <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
+<!-- FOOTER -->
+<!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
+<!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
+<!-- padding top set $spaceer * 3  -->
+<!--  $spacer is s sass variable. default value set at 1rem:16px -->
+<footer class='border-top pt-5 padding'>
+  <div class='container'>
+    <div class='row pt-5 padding'>
+      <!-- three equal columns href:https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+      <!-- .col-sm screen width is >=768px -->
+      <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
+      <div class="col-sm-4">
+      <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
         <div style='margin-top:38px'class='pt-5 d-flex justify-content-end'>
           <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
           <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
           <ul class='nav flex-column'>
-            <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
-            <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
-            <li class='nav-item'><a class='badge badge-secondary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+            <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
+            <!-- Badges in footer for LinkedIn profiles, Jared, Ari, Rio -->
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
           </ul>
-          </div>
         </div>
-        <div class="col-sm-4">
-          <div class='d-flex justify-content-center'>
-          <a href='https://generalassemb.ly/'><img src="https://recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/000/000/170/original/GALogoForGreenhouse.png?1448035888" width=380px height=250px></a>
-          </div>
+      </div>
+      <div class="col-sm-4">
+        <div class='d-flex justify-content-center'>
+        <a href='https://generalassemb.ly/'><img src="https://recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/000/000/170/original/GALogoForGreenhouse.png?1448035888" width=380px height=250px></a>
         </div>
-        <div class="col-sm-4">
-          <div style='margin-top:38px'class='pt-5 d-flex justify-content-center'>
-            <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center''></a>
-          </div>
+      </div>
+      <div class="col-sm-4">
+        <div style='margin-top:38px'class='pt-5 d-flex justify-content-center'>
+          <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' class='topic-logo justify-content-center'></a>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 </html>

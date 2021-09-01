@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap');
 body {
 font-family: Roboto+Condensed;
 
@@ -7,7 +7,9 @@ font-family: Roboto+Condensed;
 .topic-logo {
   width: 20%
 }
-/* flexbox styles */
+/*********************************************************************
+flexbox styles
+**********************************************************************/
 .flex-container1 {
   display: flex;
   align-items: center;
@@ -20,7 +22,9 @@ font-family: Roboto+Condensed;
   flex-direction: column;
   padding: 20px;
 }
-/* bootstrap class styles */
+/*********************************************************************
+bootstrap class styles
+**********************************************************************/
 .col-md {
   text-align: center;
   width: 60%;
@@ -29,32 +33,126 @@ font-family: Roboto+Condensed;
 .row {
   overflow: auto;
 }
-/* homepage styles */
-.home-text {
-  text-align: center;
-  margin: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
-
-  max-width: 600px;
+/*********************************************************************
+topic index styles
+**********************************************************************/
+.topic-wrapper {
+  background-image: url("https://i.imgur.com/WAShLLh.jpg?3");
+  background-size: cover;
 }
-.bookmark-logo{
-  width: 65%;
+.topic-head {
+  padding: 100px;
+  background-size: cover;
+  color: white;
+  margin-bottom: 20px;
+}
+.topic-content {
+  background: rgba(0,0,0,.8);
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding-bottom: 50px;
+  border-top: 1px solid white;
+}
+/*********************************************************************
+homepage styles
+**********************************************************************/
+.home-wrapper {
+  background-image: url("https://i.imgur.com/MbFb7rD.jpg?1");
+  background-size: cover;
+}
+.homeh1 {
+  font-size: 55px;
+  font-family: Merienda;
+  color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+}
+.home-head {
+  padding: 100px;
+  background-size: cover;
+  color: white;
+  margin-bottom: 20px;
+}
+.home-txt-wrap {
+  display: flex;
+  background: rgba(0,0,0,.7);
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid white;
+}
+.home-text {
+  max-width: 700px;
 }
 .bookmark-man{
-  width: 50%;
+  width: 30%;
   border-radius: 50px;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
-/* new page */
+/*********************************************************************
+new page styles
+**********************************************************************/
 .new-form{
   text-align: center;
   padding: 20px;
 }
-/* footer tweaks */
+/*********************************************************************
+about us styles
+**********************************************************************/
+.wrapper {
+  background-image: url("https://i.imgur.com/rQAVyrw.jpg");
+  background-size: cover;
+}
+.abouth1 {
+  font-size: 55px;
+  font-family: Merienda;
+  color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+}
+.master-head {
+  padding: 100px;
+  background-size: cover;
+  color: white;
+  margin-bottom: 20px;
+}
+.m-content {
+background: rgba(0,0,0,.8);
+color: white;
+text-align: center;
+padding-bottom: 30px;
+border-top: 1px solid white;
+}
+
+.pic {
+  width: 250px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+}
+.name {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/*********************************************************************
+footer styles
+**********************************************************************/
 .padding{
   padding-top: 0px !important;
 }
-/* .badge-secondary{
-  color: #0b65c2;
-} */
+/* LinkedIn Badges */
+.badge.badge-primary {
+  background-color: #0b65c2!important;
+}
+#like-btn {
+  border-radius:20px;
+  background:url('https://cdn.pixabay.com/photo/2021/03/22/09/34/heart-6114039_960_720.png') no-repeat;

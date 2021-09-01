@@ -24,11 +24,7 @@ const connectionOptions = {
 }
 
 
-app.use( session({
-  secret:process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
+
 
 // Connect to Mongo
 mongoose.connect( mongoURI );
@@ -90,6 +86,13 @@ app.get('/about', (req, res)=>{
 
 
 app.use(express.static(__dirname + '/public'));
+
+
+app.use( session({
+  secret:process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 // =============================
 //           CONTROLLERS
 const topicsController = require('./controllers/topics/topicController');
