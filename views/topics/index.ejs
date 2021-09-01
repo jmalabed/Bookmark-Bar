@@ -45,14 +45,15 @@
     </div>
   </div>
 </nav>
+<!-- Main topic wrapper -->
  <div class="topic-wrapper">
-
+<!-- Header + H1 -->
    <header class='topic-head'>
      <div class='container'>
        <h1 class="homeh1">Topics<h1>
      </div>
    </header>
-   
+<!-- Page text content -->
   <div class="topic-content">
     <div class="flex-container1">
       <div class="flex-child1">
@@ -71,10 +72,6 @@
             <% topics.forEach(topic => { %>
               <!-- topic image -->
               <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" class="topic-logo"></a>
-              <!-- Delete button - maybe move into individual topic page -->
-              <!-- <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
-                 <input type="submit" value="DELETE"/>
-              </form> -->
           <% }) %>
         </div>
       </div>
@@ -98,12 +95,13 @@
       <div style='margin-top:38px'class='pt-5 d-flex justify-content-end'>
         <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
         <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
-        <ul class='nav flex-column'>
-          <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
-          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
-          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
-          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
-        </ul>
+          <ul class='nav flex-column'>
+            <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
+            <!-- Badges in footer for LinkedIn profiles, Jared, Ari, Rio -->
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+          </ul>
         </div>
       </div>
       <div class="col-sm-4">
