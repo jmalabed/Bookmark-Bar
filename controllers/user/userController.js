@@ -12,9 +12,11 @@ const salt = bcrypt.genSaltSync(10);
 const hashedPassword = bcrypt.hashSync("yourPassword",salt);
 
 
+
+
 // user login
 router.get('/',(req,res)=>{
-  res.render('user/user.ejs')
+  res.render('user/user.ejs',{currentUser:req.session.currentUser})
 })
 
 router.get('/login/create',(req,res)=>{
@@ -24,9 +26,9 @@ router.get('/login/create',(req,res)=>{
 
 // create new user post route
 router.post('/auth/registration',(req,res)=>{
-  console.log(req.body);
+  // console.log(req.body);
   const passwordHash = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10))
-  console.log(passwordHash);
+  // console.log(passwordHash);
   const userDbEntry = {
     username: req.body.username,
     password: passwordHash,
@@ -36,8 +38,9 @@ router.post('/auth/registration',(req,res)=>{
     if (err) {
       console.log(err);
     } else {
-      console.log(createdUser);
+      // console.log(createdUser);
       req.session.currentUser = createdUser
+      console.log(req.session.currentUser);
       res.redirect('/user')
     }
   })
@@ -46,21 +49,22 @@ router.post('/auth/registration',(req,res)=>{
 
 // Login route, compare the entered req.body with the database.
 router.post('/auth/login',(req,res)=>{
-  console.log("testing");
+  // console.log("testing");
   User.findOne({ username: req.body.username}, (err,foundUser)=>{
     console.log(foundUser);
     if (err) {
       console.log(err);
     } else {
       // First, check if username matches
-      console.log('testing1');
+      // console.log('testing1');
       if (!foundUser) {
-        console.log('not found');
+        // console.log('not found');
         res.redirect('/user')
       } else {
-        console.log('peering in');
+        // console.log('peering in');
         // Now, check if the hashed password matches the req.body.password that was submitted.
         if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+          req.session.currentUser = foundUser
           console.log('logged in>>', foundUser._id)
           res.redirect('/topics')
         } else {

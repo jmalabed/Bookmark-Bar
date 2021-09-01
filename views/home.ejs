@@ -60,29 +60,39 @@
 <div class='banner-image w-100 vh-100 d-flex justify-content-center align-items-center'></div>
 
 <!-- placeholder home page -->
-<div class="home-text">
-<img src="https://i.imgur.com/MEoHxXO.jpg?1" class="bookmark-logo" alt="stack of books">
+<div class="home-wrapper">
+  <header class='home-head'>
+    <div class='container'>
+      <h1 class="homeh1">Welcome to the Bookmarks Bar!<h1>
+    </div>
+  </header>
 
-<h1>Welcome to the Bookmarks Bar!</h1>
-<h2>A comprehensive, full-stack resource center compiled by students, for students.</h2>
-<p> <br/>
-  How it works: <br/><br/>
-  The Bookmarks Bar is intended to be a collaborative academic resource sharing hub to help with navigating the vast and complex world of web development. On the topics page, you will find a list of subjects pertaining to full-stack web dev. <br/>
+  <main class="home-content">
 
-  <br/>Each topic page will bring you to a list of links to helpful pages, videos, and other forms of media related to a potential curriculum path. From there, you can add your feedback on things you found helpful that will be integrated into our student blog. <br/><br/>
 
-  The original set of resources were curated by GA Software Engineering students, however these are meant to be fluid and evolving and can be added to by anyone wanting to contribute.
-<br/>
-<br/>
-  What are you waiting for? Dive into your first topic!
-<div class="topic-redirect">
-  <a href="/topics"><img src="https://i.imgur.com/Z24t6Aq.jpg" class="bookmark-man" alt="seated man pointing at a book"></a>
+    <div class="home-txt-wrap">
+      <div class="home-text">
+        <h2>A comprehensive, full-stack resource center compiled by students, for students.</h2>
+        <p>
+          <br/>
+          How it works:
+          <br/><br/>
+          The Bookmarks Bar is intended to be a collaborative academic resource sharing hub to help with navigating the vast and complex world of web development. On the topics page, you will find a list of subjects pertaining to full-stack web dev.
+          <br/><br/>
+          Each topic page will bring you to a list of links to helpful pages, videos, and other forms of media related to a potential curriculum path. From there, you can add your feedback on things you found helpful that will be integrated into our student blog. <br/><br/>
 
+          The original set of resources were curated by GA Software Engineering students, however these are meant to be fluid and evolving and can be added to by anyone wanting to contribute.
+          <br/><br/>
+          What are you waiting for? Dive into your first topic!
+
+          <div class="topic-redirect">
+          <a href="/topics"><img src="https://i.imgur.com/wvKZUof.png" class="bookmark-man" alt="seated man pointing at a book"></a>
+          </div>
+        </p>
+      </div>
+    </div>
+  </main>
 </div>
-</p>
-
-</div>
-
 
 
 
@@ -91,6 +101,9 @@
 <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
 <!-- padding top set $spaceer * 3  -->
 <!--  $spacer is s sass variable. default value set at 1rem:16px -->
+<div class="">
+
+
 <footer class='border-top pt-5 padding'>
   <div class='container'>
     <div class='row pt-5 padding'>
@@ -123,6 +136,7 @@
     </div>
   </div>
 </footer>
+</div>
 <script>
 var nav = document.querySelector('nav');
 window.addEventListener('scroll', function () {
