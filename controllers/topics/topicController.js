@@ -7,10 +7,17 @@ const Resource = require('../../models/resource.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js')
 
+const sessions = express.Router()
 
 
-
-
+const isAuthenticated = (req,res,next)=>{
+  // console.log(req.session.currentUser);
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/user')
+  }
+}
 
 //new route topics
 router.get('/newT', (req,res)=> {
@@ -24,13 +31,14 @@ router.get('/',(req,res)=>{
     if (err) {
       console.log(err);
     } else {
-      console.log(allTopics);
+        // console.log(allTopics);
         res.render('topics/index.ejs', {topics:allTopics})
     }
   })
 })
 
 // show route
+
 router.get('/:id', (req,res)=>{
   id = req.params.id
   Topic.findById(id,(err,foundTopic)=>{
@@ -38,10 +46,10 @@ router.get('/:id', (req,res)=>{
       if (err) {
         console.log(err);
       } else {
-        console.log(allResources);
         res.render('topics/show.ejs', {
           resources:allResources,
-          topic:foundTopic
+          topic:foundTopic,
+          user:req.session.currentUser
         }
       )}
     })
@@ -77,7 +85,7 @@ router.get('/:topicId/:resourceId/edit', (req, res)=>{
   })
 })
 
-// post route for new topic
+// post route
 router.post('/',(req,res)=>{
   Topic.create(req.body,(err,newTopic)=>{
     if (err) {
@@ -88,15 +96,16 @@ router.post('/',(req,res)=>{
   })
 })
 
-// post route for new resource
-router.post('/:id', async (req,res)=>{
-  // console.log('testing testing!');
+router.post('/:id', (req,res)=>{
+  console.log('testing testing!');
   console.log(req.body);
   id = req.params.id;
   Resource.create([req.body],(err,newResource)=>{
+    console.log(newResource);
     if (err) {
       console.log(err);
     } else {
+      console.log('youre close');
         res.redirect("/topics/"+req.params.id)
       }
     }
@@ -105,10 +114,10 @@ router.post('/:id', async (req,res)=>{
 
 // Put route UPDATE
 router.put('/:tId/:rId', (req,res)=>{
-  const resourceId = req.params.rId
-  const topicId = req.params.tId
-  const updatedResourceData = req.body
-  console.log(updatedResourceData)
+const resourceId = req.params.rId
+const topicId = req.params.tId
+const updatedResourceData = req.body
+console.log(updatedResourceData);
   Resource.findByIdAndUpdate(resourceId,updatedResourceData, (err,updatedResource) => {
       res.redirect('/topics/'+topicId)
   })
@@ -118,7 +127,6 @@ router.put('/:tId/:rId', (req,res)=>{
 router.put('/:topicId/:resourceId/like',(req,res)=>{
   rId = req.params.resourceId
   console.log('like');
-  console.log(req.body);
   // console.log(req.body);
   req.body.likes++
   console.log(req.body.likes );
@@ -129,25 +137,8 @@ router.put('/:topicId/:resourceId/like',(req,res)=>{
   })
 })
 
-// Update route for comments
-router.put('/:topicId/:resourceId/comment',(req,res)=>{
-  rId = req.params.resourceId;
-  newComment = req.body.comments
-  // req.body.comments.push(req.body)
-  console.log(req.body);
-  Resource.findByIdAndUpdate(rId,{$push: {comments:req.body.comments}},(err,foundResource)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('updated resource');
-      console.log(foundResource);
-      res.redirect('/topics/'+req.params.topicId)
-    }
-  })
-})
-
 // delete route
-router.delete('/topic/:id',(req,res)=>{
+router.delete('/:id',(req,res)=>{
   id = req.params.id
   Topic.findByIdAndRemove(id, (err,removeTopic)=>{
     if (err) {
@@ -158,7 +149,7 @@ router.delete('/topic/:id',(req,res)=>{
   })
 })
 
-router.delete('/resource/:id',(req,res)=>{
+router.delete('/:id',(req,res)=>{
   id = req.params.id
   Resource.findByIdAndRemove(id, (err,removeResource)=>{
     if (err) {
