@@ -49,7 +49,7 @@ This project is completed with:
 ## Site Graphics
 ### Sitemap
 
-![Sitemap](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
+![Sitemap](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-sitemap.png)
 
 ### Wireframe
 #### First Pass
@@ -58,7 +58,7 @@ This project is completed with:
 
 #### Full Site Wireframes
 
-![Link to Wireframes](url)
+![Link to Wireframes](https://github.com/jmalabed/project1/blob/submaster/SiteWireframeREADME.md)
 
 ### Entity Relationship Diagram
 
@@ -84,6 +84,7 @@ This project is completed with:
 ## Future Work
 #### Account Setup
 - Accounts should not be able to have the same username.
+- Users should have account page. This will contain the ability to change password, set a profile picture, and
 
 #### Comment Ranking
 - Comments should appear in order of how many likes they have and be sortable. The comment with the greatest number of likes should also be visible.
