@@ -13,14 +13,9 @@ router.get('/new', (req, res)=> {
 //INDEX
 router.get('/', (req,res) =>{
   Blog.find({}, (err, allBlogs)=> {
-    Topic.findById({likes:{$gte:0}}, (err, allTopics=>{
-    res.render('blog/index.ejs', {
-      blogs: allBlogs,
-      topics: allTopics
-      })
-    })
-  )}
-)})
+    res.render('blog/index.ejs', {blogs: allBlogs})
+  })
+})
 
 
 //SHOW
