@@ -56,21 +56,29 @@ This project is completed with:
 ### Wireframe
 #### First Pass
 
-![TopicWireframe](https://github.com/jmalabed/project1/blob/submaster/ari-topic-index.jpg)
+![Topic Wireframe](https://github.com/jmalabed/project1/blob/submaster/ari-topic-index.jpg)
 
 #### Full Site Wireframes
+![Navigation and Footer](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-typ-page.png)
+![Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-home.png)
+![Topics Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-topics.png)
+![Topics New Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newTopic.png)
+![Resource Show Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-resourcesShow.png)
+![Resource New Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newresource.png)
+![Resource Edit Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-edit-resource.png)
+![Blog Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-blog.png)
+![Blog Show Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-blogShow.png)
+![Blog New Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newBlog.png)
+![Blog Edit Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-blogEdit.jpg)
+![Login Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-login.png)
+![New User Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newuser.png)
+![About Us](url)
+![#!Name#!](url)
 
-![Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/pr1-home.png)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
 
 ### Entity Relationship Diagram
 
-![ERD](https://github.com/jmalabed/project1/blob/submaster/pr1-ERD.png)
+![ERD](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-ERD.png)
 
 ## Minimum Viable Product
 - Create an Express Application.
