@@ -47,18 +47,18 @@
   </div>
 </nav>
 
-<!-- Header / banner -->
+<!-- placeholder home page -->
 <div class="home-wrapper">
   <header class='home-head'>
     <div class='container'>
       <h1 class="homeh1">Welcome to the Bookmarks Bar!<h1>
     </div>
   </header>
-<!-- main content wrapper -->
+
   <main class="home-content">
-    <!-- text wrapper -->
+
+
     <div class="home-txt-wrap">
-      <!-- text box -->
       <div class="home-text">
         <h2>A comprehensive, full-stack resource center compiled by students, for students.</h2>
         <p>
@@ -72,7 +72,7 @@
           The original set of resources were curated by GA Software Engineering students, however these are meant to be fluid and evolving and can be added to by anyone wanting to contribute.
           <br/><br/>
           What are you waiting for? Dive into your first topic!
-        <!-- redirect to topic page - image of a seated man pointing at a book -->
+
           <div class="topic-redirect">
           <a href="/topics"><img src="https://i.imgur.com/wvKZUof.png" class="bookmark-man" alt="seated man pointing at a book"></a>
           </div>
@@ -83,13 +83,11 @@
 </div>
 
 
-
 <!-- FOOTER -->
 <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
 <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
 <!-- padding top set $spaceer * 3  -->
 <!--  $spacer is s sass variable. default value set at 1rem:16px -->
-<div class="">
 <footer class='border-top pt-5 padding'>
   <div class='container'>
     <div class='row pt-5 padding'>
@@ -124,17 +122,6 @@
   </div>
 </footer>
 </div>
-<!-- script to change color/opacity of nav bar on scroll -->
-<script>
-var nav = document.querySelector('nav');
-window.addEventListener('scroll', function () {
-  if (window.pageYOffset > 100) {
-    nav.classList.add('bg-secondary', 'shadow');
-    } else {
-    nav.classList.remove('bg-secondary', 'shadow');
-    }
-  });
-</script>
 
 </body>
 </html>
