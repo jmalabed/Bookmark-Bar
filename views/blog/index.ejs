@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!-- Main CSS -->
@@ -13,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-  
+
   <style>
     .banner-image{
       background-image: url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -24,9 +25,10 @@
     }
   </style>
 
-  <title>blog</title>
+  <title>Blog Index</title>
 </head>
 <body>
+
 <!-- NAVIGATION -->
 <!-- https://getbootstrap.com/docs/4.0/components/navbar/ -->
 <nav id='mainNav' class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
@@ -70,30 +72,19 @@
   <div class='container mt-3'>
     <div class='row'>
       <!-- MAIN POST Start: -->
-      <!-- col large max container width set at 960px -->
-      <div class='col-lg-9'>
-        <!-- Title -->
-        <!-- margin bottom set to 1.5rem (24px if font size is 16px)-->
+      <div class='col-md-8'>
+        <!-- Topic Header -->
         <div class='mb-4'>
-        <!-- margin set at 0 -->
         <h2 class='m-0'> Today's highlights</h2>
         </div>
-        <!-- https://getbootstrap.com/docs/5.0/layout/gutters/ -->
-        <!-- https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
-        <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
-        <!-- gutters are padding between your columns, used to responsively space and align content in the Bootstrap grid system.  -->
-        <!-- vertical gutters width set at $spacer * 1.5 -->
-        <!--  $spacer is s sass variable. value set at 16px -->
-        <div class ='row gy-4'>
-          <!-- CARD ITEMs START: -->
-          <!-- Responsive to small devices - screen width equal to or greater than 576px  -->
-          <div class ='col-sm-6'
-            <div class='card d-flex flex-wrap'> <% blogs.forEach(blog => { %>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <div class='row'> <% blogs.forEach(blog => { %>
               <!-- CARD img -->
               <div class ='position-relative'>
                 <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
-                  <!-- CARD body -->
-                  <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
+                <!-- CARD body -->
+                <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
                 <div class='card-body px-0 pt-3'>
                   <!-- no underline link.. font weight-bold -->
                   <h4><a href='/blog/<%= blog._id %>' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
@@ -112,57 +103,165 @@
               </div>
             <!-- CARD ITEMs END -->
             </div>
-            <!-- CARD ITEMs START: -->
-            <!-- Responsive to small devices - screen width equal to or greater than 576px  -->
-            <div class ='col-sm-6'
-              <div class='card'> <% blogs.forEach(blog => { %>
-                <!-- CARD img -->
-                <div class ='position-relative'>
-                  <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
-                    <!-- CARD body -->
-                    <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
-                  <div class='card-body px-0 pt-3'>
-                    <!-- no underline link.. font weight-bold -->
-                    <h4><a href='/blog/<%= blog._id %>' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
-                    <form action="/blog/<%=blog._id%>/like?_method=PUT" method="post">
-                      <input type="hidden" name="likes" value="<%=blog.likes%>">
-                      <input type="submit" id='like-btn' value="Like"> : <%=blog.likes%>
-                    </form>
-                    <p class='card-text'> <%= blog.description %> </p>
-                    <!-- CARD info -->
-                    <blockquote class='blockquote text-right'>
-                      <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
-                    </blockquote>
-                    <% }) %>
-                  </div>
-                  <!-- body end -->
-                </div>
-              <!-- CARD ITEMs END -->
-              </div>
-            </div>
-          </div>
-          <!-- SIDEBAR START: -->
-          <!-- col >= 992px, margin-top set at $spaceer * 3, & margin-top-lg set at 0 to eliminate magin/padding -->
-          <div class ='col-lg-3 mt-5 mt-lg-0'>
-            <div>
-            <!-- margin-top set at $spacer * 1.5 & margin-bottom set at $spacer -->
-            <h4 class='mt-4 mb-3'>Trending Topics</h4>
-            <div class='container'>
-              <% for(let i=0; i<topics.length; i++) {%>
-              <p>  topics[i].resources</p>
-                <% } %>
-              </div>
-            </div>
-            <!-- margin-top set at $spacer -->
-            <div class='text-center mt-3'><a href='/topics'>View All</a></div>
           </div>
         </div>
       </div>
+      <!-- SIDEBAR -->
+      <div class='col-md-4'>
+      <!-- Header -->
+      <h4 class='mt-4 mb-3'>Trending Topics</h4>
+      <!-- BUTTON Library: -->
+      <!-- https://getbootstrap.com/docs/4.0/components/dropdowns/ -->
+      <!-- Mongoose -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href='http://localhost:3000/topics/612eedde4b055e83cb43125a'>Mongoose</a>
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false">
+          <span class='sr-only'></span>
+        </button>
+        <div class='dropdown-menu'>
+        <!-- Resource Links -->
+        <a class='nav-link dropdown-item' href='https://mongoosejs.com/docs/api.html'>API Docs</a>
+        <div class="dropdown-divider"></div>
+        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d/new'>Add</a>
+        </div>
+      </div>
+      <br/>
+      <!-- JavaScript -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href="http://localhost:3000/topics/6126fdcfbfdfea1facb03415">JavaScript</a>
+        </button>
+        <button
+          type='button'
+          class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-toggle='dropdown'
+          aria-haspopop='true'
+          aria-expanded='false'>
+          <span class='sr-only'></span>
+        </button>
+        <div class='dropdown-menu'>
+        <!-- Resource links -->
+        <a class='nav-link dropdown-item' href='https://github.com/careercup/CtCI-6th-Edition-JavaScript'>Practice Problems</a>
+        <div class="dropdown-divider"></div>
+        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03415/new'>Add</a>
+        </div>
+      </div>
+      <br/>
+      <!-- MongoDB -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href='http://localhost:3000/topics/612eee0e4b055e83cb431260'>MongoDB</a>
+        </button>
+        <button
+        type='button'
+        class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+        data-toggle='dropdown'
+        aria-haspopop='true'
+        aria-expanded='false'>
+        <span class='sr-only'></span>
+      </button>
+      <div class='dropdown-menu'>
+      <!-- Resource links -->
+      <a class='nav-link dropdown-item' href='https://docs.mongodb.com/manual/reference/resource-document/'>Resource Doc</a>
+      <div class="dropdown-divider"></div>
+      <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eee0e4b055e83cb431260/new'>Add</a>
+      </div>
     </div>
-  <!-- Row end -->
+    <br/>
+      <!-- Python -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d'>Python</a>
+        </button>
+        <button
+        type='button'
+        class='btn btn-secondary dropdown-toggle'
+        data-toggle='dropdown'
+        aria-haspopop='true'
+        aria-expanded='false'>
+        </button>
+        <div class='dropdown-menu'>
+        <!-- Resource Links -->
+        <a class='nav-link dropdown-item' href='https://docs.python.org/3/library/resource.html'>Resource Usage Info</a>
+        <div class="dropdown-divider"></div>
+        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d/new'>Add</a>
+        </div>
+      </div>
+      <br/>
+      <!-- HTML -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03416'>HTML</a>
+        </button>
+        <button
+        type='button'
+        class='btn btn-secondary dropdown-toggle'
+        data-toggle='dropdown'
+        aria-haspopop='true'
+        aria-expanded='false'>
+        </button>
+        <div class='dropdown-menu'>
+        <!-- Resource Links -->
+        <a class='nav-link dropdown-item' href='https://www.w3schools.com/'>W3 Schools</a>
+        <div class="dropdown-divider"></div>
+        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03416/new'>Add</a>
+        </div>
+      </div>
+      <br/>
+      <!-- Node -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href='http://localhost:3000/topics/612eed644b055e83cb431250'>Node</a>
+        </button>
+        <button
+        type='button'
+        class='btn btn-secondary dropdown-toggle'
+        data-toggle='dropdown'
+        aria-haspopop='true'
+        aria-expanded='false'>
+        </button>
+        <div class='dropdown-menu'>
+        <!-- Resource links -->
+        <a class='nav-link dropdown-item' href='https://nodejs.org/en/docs/'>Docs</a>
+        <div class="dropdown-divider"></div>
+        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eed644b055e83cb431250/new'>Add</a>
+        </div>
+      </div>
+      <br/>
+      <!-- CSS -->
+      <div class='btn-group dropright mt-3'>
+        <button type='button'class='btn btn-secondary'>
+        <a class='dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03417'>CSS</a>
+        </button>
+        <button
+        type='button'
+        class='btn btn-secondary dropdown-toggle'
+        data-toggle='dropdown'
+        aria-haspopop='true'
+        aria-expanded='false'>
+        </button>
+        <div class='dropdown-menu'>
+        <!-- Resource Links -->
+        <a class='nav-link dropdown-item' href='https://developer.mozilla.org/en-US/docs/Web/CSS/Reference'>MDN CSS</a>
+        <div class="dropdown-divider"></div>
+        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03417/new'>Add</a>
+        </div>
+      </div>
+      <br/>
+      <!-- Btns End -->
+      <!-- margin-top set at $spacer -->
+      <div class='text-center mt-3'><a href='/topics'>View All</a></div>
+      </div>
+    </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
 <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
@@ -176,15 +275,16 @@
       <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
       <div class="col-sm-4">
       <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
-      <div style='margin-top:38px'class='pt-5 d-flex justify-content-end'>
-        <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
-        <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
-        <ul class='nav flex-column'>
-          <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
-          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
-          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
-          <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
-        </ul>
+        <div style='margin-top:38px'class='pt-5 d-flex justify-content-end'>
+          <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
+          <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+          <ul class='nav flex-column'>
+            <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
+            <!-- Badges in footer for LinkedIn profiles, Jared, Ari, Rio -->
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+            <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+          </ul>
         </div>
       </div>
       <div class="col-sm-4">
@@ -200,7 +300,11 @@
     </div>
   </div>
 </footer>
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
 var nav = document.querySelector('nav');
 window.addEventListener('scroll', function () {
