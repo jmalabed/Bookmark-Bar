@@ -24,13 +24,13 @@
     <img src='https://images.vexels.com/media/users/3/156834/isolated/preview/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'></a>
     </div>
     <button
-    type='button'
-    class='navbar-toggler'
-    data-bs-toggle='collapse'
-    data-bs-target='#toggleMenu'
-    aria-controls='toggleMenu'
-    aria-expanded='false'
-    aria-label='Toggle navigation'>
+      type='button'
+      class='navbar-toggler'
+      data-bs-toggle='collapse'
+      data-bs-target='#toggleMenu'
+      aria-controls='toggleMenu'
+      aria-expanded='false'
+      aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'</span>
     </button>
     <div class='collapse navbar-collapse' id='toggleMenu'>
@@ -63,7 +63,11 @@
                 <input class='form-control form-control-lg' id='password' type="password" placeholder='password' name="password">
               </div>
               <div class='pt-1 mb-4'>
-                <button class='btn btn-info btn-lg btn-block' type='button'>Login</button>
+                <button class='btn btn-info btn-lg btn-block' id='loginBtn' type='button'>Login</button>
+                <script type="text/javascript">
+                  const loginBtn = document.getElementById('loginBtn')
+
+                </script>
               </div>
               <p class='mb-4'>Don't have an account yet?<a class='link-info' href="/user/login/create"> Sign Up</a></p>
             </form>
