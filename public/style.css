@@ -7,7 +7,9 @@ font-family: Roboto+Condensed;
 .topic-logo {
   width: 20%
 }
-/* flexbox styles */
+/*********************************************************************
+flexbox styles
+**********************************************************************/
 .flex-container1 {
   display: flex;
   align-items: center;
@@ -20,7 +22,9 @@ font-family: Roboto+Condensed;
   flex-direction: column;
   padding: 20px;
 }
-/* bootstrap class styles */
+/*********************************************************************
+bootstrap class styles
+**********************************************************************/
 .col-md {
   text-align: center;
   width: 60%;
@@ -147,7 +151,7 @@ footer styles
 }
 /* LinkedIn Badges */
 .badge.badge-primary {
-  background-color: #245ea0!important;
+  background-color: #0b65c2!important;
 }
 #like-btn {
   border-radius:20px;
