@@ -5,7 +5,7 @@ font-family: Roboto+Condensed;
 
 }
 .topic-logo {
-  width: 20%
+  width: 10%
 }
 /*********************************************************************
 flexbox styles
@@ -95,7 +95,7 @@ homepage styles
   margin-bottom: 30px;
 }
 /*********************************************************************
-new page styles
+new topic page styles
 **********************************************************************/
 .new-form{
   text-align: center;
@@ -143,6 +143,36 @@ border-top: 1px solid white;
   text-align: center;
   margin-bottom: 20px;
 }
+/*********************************************************************
+blog styles
+**********************************************************************/
+.blog-wrapper {
+  background-image: url("https://i.imgur.com/wswRAWC.jpg?1");
+  background-size: cover;
+}
+.blog-txt-wrap {
+  background: rgba(0,0,0,.8);
+  color: white;
+  text-align: center;
+  padding-bottom: 30px;
+  border-top: 1px solid white;
+}
+.blog-head {
+  padding: 100px;
+  background-size: cover;
+  color: white;
+  margin-bottom: 20px;
+}
+.blogh1 {
+  font-size: 55px;
+  font-family: Merienda;
+  color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+}
+
 /*********************************************************************
 footer styles
 **********************************************************************/

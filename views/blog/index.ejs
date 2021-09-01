@@ -58,210 +58,227 @@
     </div>
   </div>
 </nav>
-<!-- BANNER -->
-<div class='banner-image w-100 vh-100 d-flex justify-content-center align-items-center'></div>
 
-<!-- Create Link -->
-<div>
-  <ul class='nav nav-pills'>
-    <li class='nav-item'><a class='nav-link' href='/blog/new'>create</a></li>
-  </ul>
-</div>
-<!-- MAIN CONTENT -->
-<section class='position-relative'>
-  <div class='container mt-3'>
-    <div class='row'>
-      <!-- MAIN POST Start: -->
-      <div class='col-md-8'>
-        <!-- Topic Header -->
-        <div class='mb-4'>
-        <h2 class='m-0'> Today's highlights</h2>
-        </div>
+<!-- BANNER -->
+<!-- <div class='banner-image w-100 vh-100 d-flex justify-content-center align-items-center'></div> -->
+
+<!-- Blog wrapper - wraps from here to just before "footer" -->
+<div class="blog-wrapper">
+<!-- header -->
+    <header class='blog-head'>
+      <div class='container'>
+        <h1 class="blogh1">Bookmarks Blog<h1>
+      </div>
+    </header>
+
+
+  <!-- Create Link -->
+    <div>
+      <ul class='nav nav-pills'>
+        <li class='nav-item'><a class='nav-link' href='/blog/new'>create</a></li>
+      </ul>
+    </div>
+
+  <div class="blog-txt-wrap">
+    <!-- MAIN CONTENT -->
+    <section class='position-relative'>
+      <div class='container mt-3'>
         <div class='row'>
-          <div class='col-sm-6'>
-            <div class='row'> <% blogs.forEach(blog => { %>
-              <!-- CARD img -->
-              <div class ='position-relative'>
-                <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
-                <!-- CARD body -->
-                <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
-                <div class='card-body px-0 pt-3'>
-                  <!-- no underline link.. font weight-bold -->
-                  <h4><a href='/blog/<%= blog._id %>' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
-                  <form action="/blog/<%=blog._id%>/like?_method=PUT" method="post">
-                    <input type="hidden" name="likes" value="<%=blog.likes%>">
-                    <input type="submit" id='like-btn' value="Like"> : <%=blog.likes%>
-                  </form>
-                  <p class='card-text'> <%= blog.description %> </p>
-                  <!-- CARD info -->
-                  <blockquote class='blockquote text-right'>
-                    <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
-                  </blockquote>
-                  <% }) %>
-                </div>
-                <!-- body end -->
-              </div>
-            <!-- CARD ITEMs END -->
+          <!-- MAIN POST Start: -->
+          <div class='col-md-8'>
+            <!-- Topic Header -->
+            <div class='mb-4'>
+            <h2 class='m-0'> Today's Highlights</h2>
             </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <div class='row'> <% blogs.forEach(blog => { %>
+                  <!-- CARD img -->
+                  <div class ='position-relative'>
+                    <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
+                    <!-- CARD body -->
+                    <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
+                    <div class='card-body px-0 pt-3'>
+                      <!-- no underline link.. font weight-bold -->
+                      <h4><a href='/blog/<%= blog._id %>' class='text-decoration-none btn-link fw-bold'> <%= blog.header %> </a></h4>
+                      <form action="/blog/<%=blog._id%>/like?_method=PUT" method="post">
+                        <input type="hidden" name="likes" value="<%=blog.likes%>">
+                        <input type="submit" id='like-btn' value="Like"> : <%=blog.likes%>
+                      </form>
+                      <p class='card-text'> <%= blog.description %> </p>
+                      <!-- CARD info -->
+                      <blockquote class='blockquote text-right'>
+                        <footer class='blockquote-footer'> <cite title='Source Title'><%= blog.user %></cite></footer>
+                      </blockquote>
+                      <% }) %>
+                    </div>
+                    <!-- body end -->
+                  </div>
+                <!-- CARD ITEMs END -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SIDEBAR -->
+          <div class='col-md-4'>
+          <!-- Header -->
+          <h4 class='mt-4 mb-3'>Trending Topics</h4>
+          <!-- BUTTON Library: -->
+          <!-- https://getbootstrap.com/docs/4.0/components/dropdowns/ -->
+          <!-- Mongoose -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href='http://localhost:3000/topics/612eedde4b055e83cb43125a'>Mongoose</a>
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false">
+              <span class='sr-only'></span>
+            </button>
+            <div class='dropdown-menu'>
+            <!-- Resource Links -->
+            <a class='nav-link dropdown-item' href='https://mongoosejs.com/docs/api.html'>API Docs</a>
+            <div class="dropdown-divider"></div>
+            <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d/new'>Add</a>
+            </div>
+          </div>
+          <br/>
+          <!-- JavaScript -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href="http://localhost:3000/topics/6126fdcfbfdfea1facb03415">JavaScript</a>
+            </button>
+            <button
+              type='button'
+              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+              data-toggle='dropdown'
+              aria-haspopop='true'
+              aria-expanded='false'>
+              <span class='sr-only'></span>
+            </button>
+            <div class='dropdown-menu'>
+            <!-- Resource links -->
+            <a class='nav-link dropdown-item' href='https://github.com/careercup/CtCI-6th-Edition-JavaScript'>Practice Problems</a>
+            <div class="dropdown-divider"></div>
+            <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03415/new'>Add</a>
+            </div>
+          </div>
+          <br/>
+          <!-- MongoDB -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href='http://localhost:3000/topics/612eee0e4b055e83cb431260'>MongoDB</a>
+            </button>
+            <button
+            type='button'
+            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+            data-toggle='dropdown'
+            aria-haspopop='true'
+            aria-expanded='false'>
+            <span class='sr-only'></span>
+          </button>
+          <div class='dropdown-menu'>
+          <!-- Resource links -->
+          <a class='nav-link dropdown-item' href='https://docs.mongodb.com/manual/reference/resource-document/'>Resource Doc</a>
+          <div class="dropdown-divider"></div>
+          <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eee0e4b055e83cb431260/new'>Add</a>
+          </div>
+        </div>
+        <br/>
+          <!-- Python -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d'>Python</a>
+            </button>
+            <button
+            type='button'
+            class='btn btn-secondary dropdown-toggle'
+            data-toggle='dropdown'
+            aria-haspopop='true'
+            aria-expanded='false'>
+            </button>
+            <div class='dropdown-menu'>
+            <!-- Resource Links -->
+            <a class='nav-link dropdown-item' href='https://docs.python.org/3/library/resource.html'>Resource Usage Info</a>
+            <div class="dropdown-divider"></div>
+            <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d/new'>Add</a>
+            </div>
+          </div>
+          <br/>
+          <!-- HTML -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03416'>HTML</a>
+            </button>
+            <button
+            type='button'
+            class='btn btn-secondary dropdown-toggle'
+            data-toggle='dropdown'
+            aria-haspopop='true'
+            aria-expanded='false'>
+            </button>
+            <div class='dropdown-menu'>
+            <!-- Resource Links -->
+            <a class='nav-link dropdown-item' href='https://www.w3schools.com/'>W3 Schools</a>
+            <div class="dropdown-divider"></div>
+            <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03416/new'>Add</a>
+            </div>
+          </div>
+          <br/>
+          <!-- Node -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href='http://localhost:3000/topics/612eed644b055e83cb431250'>Node</a>
+            </button>
+            <button
+            type='button'
+            class='btn btn-secondary dropdown-toggle'
+            data-toggle='dropdown'
+            aria-haspopop='true'
+            aria-expanded='false'>
+            </button>
+            <div class='dropdown-menu'>
+            <!-- Resource links -->
+            <a class='nav-link dropdown-item' href='https://nodejs.org/en/docs/'>Docs</a>
+            <div class="dropdown-divider"></div>
+            <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eed644b055e83cb431250/new'>Add</a>
+            </div>
+          </div>
+          <br/>
+          <!-- CSS -->
+          <div class='btn-group dropright mt-3'>
+            <button type='button'class='btn btn-secondary'>
+            <a class='dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03417'>CSS</a>
+            </button>
+            <button
+            type='button'
+            class='btn btn-secondary dropdown-toggle'
+            data-toggle='dropdown'
+            aria-haspopop='true'
+            aria-expanded='false'>
+            </button>
+            <div class='dropdown-menu'>
+            <!-- Resource Links -->
+            <a class='nav-link dropdown-item' href='https://developer.mozilla.org/en-US/docs/Web/CSS/Reference'>MDN CSS</a>
+            <div class="dropdown-divider"></div>
+            <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03417/new'>Add</a>
+            </div>
+          </div>
+          <br/>
+          <!-- Btns End -->
+          <!-- margin-top set at $spacer -->
+          <div class='text-center mt-3'><a href='/topics'>View All</a></div>
           </div>
         </div>
       </div>
-      <!-- SIDEBAR -->
-      <div class='col-md-4'>
-      <!-- Header -->
-      <h4 class='mt-4 mb-3'>Trending Topics</h4>
-      <!-- BUTTON Library: -->
-      <!-- https://getbootstrap.com/docs/4.0/components/dropdowns/ -->
-      <!-- Mongoose -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href='http://localhost:3000/topics/612eedde4b055e83cb43125a'>Mongoose</a>
-        </button>
-        <button
-          type="button"
-          class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          <span class='sr-only'></span>
-        </button>
-        <div class='dropdown-menu'>
-        <!-- Resource Links -->
-        <a class='nav-link dropdown-item' href='https://mongoosejs.com/docs/api.html'>API Docs</a>
-        <div class="dropdown-divider"></div>
-        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d/new'>Add</a>
-        </div>
-      </div>
-      <br/>
-      <!-- JavaScript -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href="http://localhost:3000/topics/6126fdcfbfdfea1facb03415">JavaScript</a>
-        </button>
-        <button
-          type='button'
-          class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-          data-toggle='dropdown'
-          aria-haspopop='true'
-          aria-expanded='false'>
-          <span class='sr-only'></span>
-        </button>
-        <div class='dropdown-menu'>
-        <!-- Resource links -->
-        <a class='nav-link dropdown-item' href='https://github.com/careercup/CtCI-6th-Edition-JavaScript'>Practice Problems</a>
-        <div class="dropdown-divider"></div>
-        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03415/new'>Add</a>
-        </div>
-      </div>
-      <br/>
-      <!-- MongoDB -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href='http://localhost:3000/topics/612eee0e4b055e83cb431260'>MongoDB</a>
-        </button>
-        <button
-        type='button'
-        class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-        data-toggle='dropdown'
-        aria-haspopop='true'
-        aria-expanded='false'>
-        <span class='sr-only'></span>
-      </button>
-      <div class='dropdown-menu'>
-      <!-- Resource links -->
-      <a class='nav-link dropdown-item' href='https://docs.mongodb.com/manual/reference/resource-document/'>Resource Doc</a>
-      <div class="dropdown-divider"></div>
-      <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eee0e4b055e83cb431260/new'>Add</a>
-      </div>
-    </div>
-    <br/>
-      <!-- Python -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d'>Python</a>
-        </button>
-        <button
-        type='button'
-        class='btn btn-secondary dropdown-toggle'
-        data-toggle='dropdown'
-        aria-haspopop='true'
-        aria-expanded='false'>
-        </button>
-        <div class='dropdown-menu'>
-        <!-- Resource Links -->
-        <a class='nav-link dropdown-item' href='https://docs.python.org/3/library/resource.html'>Resource Usage Info</a>
-        <div class="dropdown-divider"></div>
-        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eedf14b055e83cb43125d/new'>Add</a>
-        </div>
-      </div>
-      <br/>
-      <!-- HTML -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03416'>HTML</a>
-        </button>
-        <button
-        type='button'
-        class='btn btn-secondary dropdown-toggle'
-        data-toggle='dropdown'
-        aria-haspopop='true'
-        aria-expanded='false'>
-        </button>
-        <div class='dropdown-menu'>
-        <!-- Resource Links -->
-        <a class='nav-link dropdown-item' href='https://www.w3schools.com/'>W3 Schools</a>
-        <div class="dropdown-divider"></div>
-        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03416/new'>Add</a>
-        </div>
-      </div>
-      <br/>
-      <!-- Node -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href='http://localhost:3000/topics/612eed644b055e83cb431250'>Node</a>
-        </button>
-        <button
-        type='button'
-        class='btn btn-secondary dropdown-toggle'
-        data-toggle='dropdown'
-        aria-haspopop='true'
-        aria-expanded='false'>
-        </button>
-        <div class='dropdown-menu'>
-        <!-- Resource links -->
-        <a class='nav-link dropdown-item' href='https://nodejs.org/en/docs/'>Docs</a>
-        <div class="dropdown-divider"></div>
-        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/612eed644b055e83cb431250/new'>Add</a>
-        </div>
-      </div>
-      <br/>
-      <!-- CSS -->
-      <div class='btn-group dropright mt-3'>
-        <button type='button'class='btn btn-secondary'>
-        <a class='dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03417'>CSS</a>
-        </button>
-        <button
-        type='button'
-        class='btn btn-secondary dropdown-toggle'
-        data-toggle='dropdown'
-        aria-haspopop='true'
-        aria-expanded='false'>
-        </button>
-        <div class='dropdown-menu'>
-        <!-- Resource Links -->
-        <a class='nav-link dropdown-item' href='https://developer.mozilla.org/en-US/docs/Web/CSS/Reference'>MDN CSS</a>
-        <div class="dropdown-divider"></div>
-        <a class='nav-link dropdown-item' href='http://localhost:3000/topics/6126fdcfbfdfea1facb03417/new'>Add</a>
-        </div>
-      </div>
-      <br/>
-      <!-- Btns End -->
-      <!-- margin-top set at $spacer -->
-      <div class='text-center mt-3'><a href='/topics'>View All</a></div>
-      </div>
-    </div>
+    </section>
+  <!-- content wrapper end div -->
   </div>
-</section>
+<!-- wrapper end div -->
+</div>
 <!-- FOOTER -->
 <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
 <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
