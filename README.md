@@ -1,5 +1,3 @@
-# project1
-
 # General Assembly Project 1: The Bookmark Bar
 
 This project utilizes MongoDB, Mongoose, EJS, Express.js, and Node.js in order to render a database containing resources relevant to topics that have been covered in the General Assembly coursework. The application accepts new resources which can be voted on to show which resources have been the most helpful.
@@ -59,22 +57,8 @@ This project is completed with:
 ![Topic Wireframe](https://github.com/jmalabed/project1/blob/submaster/ari-topic-index.jpg)
 
 #### Full Site Wireframes
-![Navigation and Footer](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-typ-page.png)
-![Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-home.png)
-![Topics Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-topics.png)
-![Topics New Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newTopic.png)
-![Resource Show Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-resourcesShow.png)
-![Resource New Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newresource.png)
-![Resource Edit Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-edit-resource.png)
-![Blog Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-blog.png)
-![Blog Show Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-blogShow.png)
-![Blog New Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newBlog.png)
-![Blog Edit Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-blogEdit.jpg)
-![Login Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-login.png)
-![New User Wireframe](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-newuser.png)
-![About Us](url)
-![#!Name#!](url)
 
+![Link to Wireframes](url)
 
 ### Entity Relationship Diagram
 
@@ -89,15 +73,20 @@ This project is completed with:
 - 50+ Git commits.
 - Write clean and professional-looking code. Include comments where necessary and utilize spacing and proper indentation to ensure that code is easy to follow.
 - Visual design with Flexbox, CSS Grid, Bootstrap, Materialize, Foundation, Skeleton, or another CSS framework to make your front-end snazzy. First impressions matter!
-- Deploy app on Heroku
+- Deploy app on Heroku.
 
 
-## Code Snippets UPDATE
+## Code Snippets
 
 
 
 
-## Future Work UPDATE
+## Future Work
+#### Account Setup
+- Accounts should not be able to have the same username.
+
+#### Comment Ranking
+- Comments should appear in order of how many likes they have and be sortable. The comment with the greatest number of likes should also be visible.
 
 
-## Acknowledgements UPDATE
+## Acknowledgements
