@@ -12,6 +12,14 @@ const salt = bcrypt.genSaltSync(10);
 const hashedPassword = bcrypt.hashSync("yourPassword",salt);
 
 
+const isAuthenticated = (req,res,next)=>{
+  // console.log(req.session.currentUser);
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/user')
+  }
+}
 
 
 // user login

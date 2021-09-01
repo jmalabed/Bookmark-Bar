@@ -5,8 +5,20 @@ const Topic = require('../../models/topics.js');
 const Resource = require('../../models/resource.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js')
+const sessions = express.Router()
+
+const isAuthenticated = (req,res,next)=>{
+  // console.log(req.session.currentUser);
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/user')
+  }
+}
+
+
 //NEW
-router.get('/new', (req, res)=> {
+router.get('/new', isAuthenticated, (req, res)=> {
   res.render('blog/new.ejs')
 })
 
@@ -45,7 +57,7 @@ router.post('/',(req,res)=>{
 })
 
 //EDIT
-router.get('/:id/edit', (req, res)=>{
+router.get('/:id/edit', isAuthenticated, (req, res)=>{
 const id = req.params.id
   Blog.findById(id, (err, foundBlog)=>{
     if(err){
@@ -58,7 +70,7 @@ const id = req.params.id
 
 
 //DELETE
-router.delete('/:id',(req,res)=>{
+router.delete('/:id', isAuthenticated, (req,res)=>{
   id = req.params.id
   Blog.findByIdAndRemove(id, (err,removeBlog)=>{
     if (err) {

@@ -54,6 +54,7 @@
       <form action='/blog/<%=blog._id%>?_method=PUT' method="POST">
         user: <input type="text" name="user" value="<%=blog.user%>"/><br/>
         Header: <input type='text' name='header' value='<%=blog.header%>'/><br/>
+        img: <input type='text' name='img' value='<%=blog.img %>'/><br/>
         Description:<textarea name="description" rows="8" cols="80" placeholder="<%=blog.description%>"></textarea><br/>
         <input type="submit" id='save-btn' value="save">
       </form>

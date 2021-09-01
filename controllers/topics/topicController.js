@@ -20,7 +20,7 @@ const isAuthenticated = (req,res,next)=>{
 }
 
 //new route topics
-router.get('/newT', (req,res)=> {
+router.get('/newT', isAuthenticated, (req,res)=> {
   res.render('topics/newT.ejs')
 })
 
@@ -69,7 +69,7 @@ router.get('/:id/new',(req,res)=>{
 })
 
 //edit route
-router.get('/:topicId/:resourceId/edit', (req, res)=>{
+router.get('/:topicId/:resourceId/edit', isAuthenticated, (req, res)=>{
   const rId = req.params.resourceId
   Topic.findById(req.params.topicId, (err,foundTopic)=>{
     Resource.findById(rId, (err, foundResource)=>{
@@ -149,7 +149,7 @@ router.delete('/:id',(req,res)=>{
   })
 })
 
-router.delete('/:id',(req,res)=>{
+router.delete('/:id', isAuthenticated, (req,res)=>{
   id = req.params.id
   Resource.findByIdAndRemove(id, (err,removeResource)=>{
     if (err) {

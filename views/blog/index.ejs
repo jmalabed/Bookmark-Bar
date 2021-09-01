@@ -64,8 +64,15 @@
 <section class='position-relative'>
   <div class='container mt-3'>
     <div class='row'>
-      <!-- Create Link -->
       <div class='d-flex justify-content-center'>
+        <div class='carousel-item'>
+          <img src=''/>
+          <div class='carousel-caption d-none d-md-block'>
+          <h5>...</h5>
+          <p>...</p>
+          </div>
+        </div>
+      <!-- Create Link -->
       <a class='nav-link' href='/blog/new'>create</a>
       </div>
       <!-- MAIN POST Start: -->
@@ -79,7 +86,7 @@
             <div class='row'> <% blogs.forEach(blog => { %>
               <!-- CARD img -->
               <div class ='position-relative'>
-                <img class='card-img' src='https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' alt='Card Image'/>
+                <img class='card-img' src='<%= blog.img %>'/>
                 <!-- CARD body -->
                 <!-- padded section within a card: padding-horizontal at 0 & padding-top set at 1.0rem  -->
                 <div class='card-body px-0 pt-3'>
