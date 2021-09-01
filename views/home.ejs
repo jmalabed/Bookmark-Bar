@@ -14,14 +14,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 
-
-
   <title>BookmarksBar</title>
 </head>
 <body>
 <!-- NAVIGATION -->
-<!-- https://getbootstrap.com/docs/4.0/components/navbar/ -->
-<nav id='mainNav' class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+<nav id='mainNav' class='navbar sticky-top navbar-expand-lg navbar-dark p-md-3 bg-secondary shadow'>
   <div class='container'>
     <div class='navbar-header'>
     <!-- navbar brand will always go on the left -->
@@ -36,11 +33,11 @@
     aria-controls='toggleMenu'
     aria-expanded='false'
     aria-label='Toggle navigation'>
-    <span class='navbar-toggler-icon'</span>
+    <span class='navbar-toggler-icon'></span>
     </button>
     <div class='collapse navbar-collapse' id='toggleMenu'>
     <ul class='navbar-nav ms-auto text-center'>
-      <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
+      <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
       <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
       <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
       <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
@@ -92,8 +89,6 @@
 <!-- padding top set $spaceer * 3  -->
 <!--  $spacer is s sass variable. default value set at 1rem:16px -->
 <div class="">
-
-
 <footer class='border-top pt-5 padding'>
   <div class='container'>
     <div class='row pt-5 padding'>
@@ -127,7 +122,6 @@
     </div>
   </div>
 </footer>
-
 </div>
 <!-- script to change color/opacity of nav bar on scroll -->
 <script>
