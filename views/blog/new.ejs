@@ -47,20 +47,20 @@
   </div>
 </nav>
 <!-- CONTENT -->
+<div class="new-form">
+
+
 <div class='container my-5 d-grid gap-5 mt-3'>
   <div class='row justify-content-center mt-2'>
     <div class='col-lg-9'
-    <form action="/blog" method="post">
       <div class='form-group'>
-        <label for='user'>user:</label>
-        <input type="text" id='userInput' name="user"/>
-        <label for='header'>Header:</label>
-        <input type='text' id='headerInput' name='header'/> <br/>
-        <label for='description'>description:</label>
-        <textarea class='form-control'name="description" rows="8" cols="80" placeholder="inner thoughts"></textarea>
+        <form action="/blog" method="post">
+        <p>user:<input type="text" id='userInput' name="user"</p>
+        <p>Header:<input type='text' id='headerInput' name='header'/></p> <br/>
+        <p><textarea class='form-control'name="description" rows="8" cols="80" placeholder="inner thoughts"></textarea></p>
         <input type="submit" id='add-btn' value="post">
+        </form>
       </div>
-    </form>
 </div>
 </div>
 <a href="/blog">Go Back</a>

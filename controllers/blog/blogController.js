@@ -32,10 +32,13 @@ const id = req.params.id
 
 //POST
 router.post('/',(req,res)=>{
+  console.log('hitting route')
   Blog.create(req.body,(err,newBlog)=>{
+    console.log(req.body)
     if (err) {
-      res.send(err);
+      console.log(err);
     } else {
+      console.log('checked')
       res.redirect('/blog')
     }
   })

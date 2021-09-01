@@ -52,9 +52,9 @@
     <div class='col-lg-9'
     <h1>edit post</h1>
       <form action='/blog/<%=blog._id%>?_method=PUT' method="POST">
-        user: <input type="text" name="name" value="<%=blog.user%>"/><br/>
+        user: <input type="text" name="user" value="<%=blog.user%>"/><br/>
         Header: <input type='text' name='header' value='<%=blog.header%>'/><br/>
-        Description:<textarea name="name" rows="8" cols="80" placeholder="<%=blog.description%>"></textarea><br/>
+        Description:<textarea name="description" rows="8" cols="80" placeholder="<%=blog.description%>"></textarea><br/>
         <input type="submit" id='save-btn' value="save">
       </form>
       <form action="/blog/<%=blog._id%>?_method=DELETE" method="post">
