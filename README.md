@@ -54,12 +54,23 @@ This project is completed with:
 ![Sitemap](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
 
 ### Wireframe
+#### First Pass
 
-![Wireframe](URL)
+![TopicWireframe](https://github.com/jmalabed/project1/blob/submaster/ari-topic-index.jpg)
+
+#### Full Site Wireframes
+
+![Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/pr1-home.png)
+![#!Name#!](url)
+![#!Name#!](url)
+![#!Name#!](url)
+![#!Name#!](url)
+![#!Name#!](url)
+![#!Name#!](url)
 
 ### Entity Relationship Diagram
 
-![ERD](https://github.com/jmalabed/project1/blob/main/ERD%20Project%201.png)
+![ERD](https://github.com/jmalabed/project1/blob/submaster/pr1-ERD.png)
 
 ## Minimum Viable Product
 - Create an Express Application.
