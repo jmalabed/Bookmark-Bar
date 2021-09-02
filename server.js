@@ -9,12 +9,13 @@ const methodOverride = require('method-override');
 require('dotenv').config()
 const port = process.env.PORT
 const session=require('express-session')
+
 // const Resource = require('./models/resource.js');
 // const Topic = require('./models/topics.js');
 // const topicData = require('./data/topicData.js')
 // const resourceData = require('./data/resourceData.js')
 // Configuration
-const mongoURI = 'mongodb://localhost:27017/'+ 'bar';
+const mongoURI = 'mongodb://localhost:27017/'+'bar';
 const db = mongoose.connection;
 
 //DEPRECATION WARNING:
@@ -27,7 +28,7 @@ const connectionOptions = {
 
 
 // Connect to Mongo
-mongoose.connect( mongoURI );
+mongoose.connect( mongoURI);
 
 // Connection Error/Success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -73,16 +74,7 @@ app.use((req, res, next) => {
   // console.log('run all routes')
   next();
 })
-// =============================
-//         ROUTING
-// =============================
-app.get('/', (req, res)=> {
-  res.render('home.ejs')
-});
 
-app.get('/about', (req, res)=>{
-  res.render('about.ejs')
-});
 
 
 app.use(express.static(__dirname + '/public'));
@@ -101,6 +93,25 @@ const blogController = require('./controllers/blog/blogController');
 app.use('/blog', blogController);
 const userController = require('./controllers/user/userController');
 app.use('/user', userController);
+
+// =============================
+//         ROUTING
+// =============================
+app.get('/', (req, res)=> {
+  res.render('home.ejs',{
+    user:req.session.currentUser
+  })
+});
+
+app.get('/about', (req, res)=>{
+  res.render('about.ejs',{
+    user:req.session.currentUser
+  })
+});
+
+
+
+
 
 // =============================
 //           LISTEN
