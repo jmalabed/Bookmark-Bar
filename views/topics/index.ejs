@@ -1,4 +1,4 @@
-<!DO<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-
+  <style>
+  #topics {
+    width: 10%
+  }
+  </style>
   <title>Topics</title>
 </head>
 <body>
@@ -52,7 +56,7 @@
        <h1 class="homeh1">Topics<h1>
      </div>
    </header>
-
+</div>
   <div class="topic-content">
     <div class="flex-container1">
       <div class="flex-child1">
@@ -70,7 +74,7 @@
         <div class="col-md">
             <% topics.forEach(topic => { %>
               <!-- topic image -->
-              <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" class="topic-logo"></a>
+              <a href='/topics/<%=topic._id%>'><img src="<%=topic.img%>" id='topics'></a>
               <!-- Delete button - maybe move into individual topic page -->
               <!-- <form action="/topics/<%=topic._id%>?_method=DELETE" method="post">
                  <input type="submit" value="DELETE"/>
@@ -81,7 +85,7 @@
     </div>
 
   </div>
- </div>
+
 <!-- FOOTER -->
 <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
 <!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
