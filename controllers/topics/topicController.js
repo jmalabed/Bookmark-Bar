@@ -7,7 +7,6 @@ const Resource = require('../../models/resource.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js')
 
-const sessions = express.Router()
 
 
 const isAuthenticated = (req,res,next)=>{
@@ -20,8 +19,8 @@ const isAuthenticated = (req,res,next)=>{
 }
 
 //new route topics
-router.get('/newT', (req,res)=> {
-  res.render('topics/newT.ejs')
+router.get('/newT',isAuthenticated, (req,res)=> {
+  res.render('topics/newT.ejs',{user:req.session.currentUser})
 })
 
 
@@ -32,7 +31,9 @@ router.get('/',(req,res)=>{
       console.log(err);
     } else {
         // console.log(allTopics);
-        res.render('topics/index.ejs', {topics:allTopics})
+        res.render('topics/index.ejs', {
+          topics:allTopics,
+          user:req.session.currentUser})
     }
   })
 })
@@ -63,13 +64,16 @@ router.get('/:id/new',(req,res)=>{
     if (err) {
       console.log(err);
     } else {
-      res.render('topics/newR.ejs',{topic:foundTopic})
+      res.render('topics/newR.ejs',{
+        topic:foundTopic,
+        user: req.session.currentUser
+      })
     }
   })
 })
 
 //edit route
-router.get('/:topicId/:resourceId/edit', (req, res)=>{
+router.get('/:topicId/:resourceId/edit',isAuthenticated, (req, res)=>{
   const rId = req.params.resourceId
   Topic.findById(req.params.topicId, (err,foundTopic)=>{
     Resource.findById(rId, (err, foundResource)=>{
@@ -78,7 +82,8 @@ router.get('/:topicId/:resourceId/edit', (req, res)=>{
       } else {
         res.render('topics/edit.ejs', {
           resource:foundResource,
-          topic: foundTopic
+          topic: foundTopic,
+          user: req.session.currentUser
         })
       }
     })

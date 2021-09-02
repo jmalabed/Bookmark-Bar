@@ -1,5 +1,3 @@
-# project1
-
 # General Assembly Project 1: The Bookmark Bar
 
 This project utilizes MongoDB, Mongoose, EJS, Express.js, and Node.js in order to render a database containing resources relevant to topics that have been covered in the General Assembly coursework. The application accepts new resources which can be voted on to show which resources have been the most helpful.
@@ -51,26 +49,20 @@ This project is completed with:
 ## Site Graphics
 ### Sitemap
 
-![Sitemap](https://user-images.githubusercontent.com/87847753/130840701-feecdfe3-310f-4788-8c13-8d837ef82853.png)
+![Sitemap](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-sitemap.png)
 
 ### Wireframe
 #### First Pass
 
-![TopicWireframe](https://github.com/jmalabed/project1/blob/submaster/ari-topic-index.jpg)
+![Topic Wireframe](https://github.com/jmalabed/project1/blob/submaster/ari-topic-index.jpg)
 
 #### Full Site Wireframes
 
-![Home Wireframe](https://github.com/jmalabed/project1/blob/submaster/pr1-home.png)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
-![#!Name#!](url)
+![Link to Wireframes](https://github.com/jmalabed/project1/blob/submaster/SiteWireframeREADME.md)
 
 ### Entity Relationship Diagram
 
-![ERD](https://github.com/jmalabed/project1/blob/submaster/pr1-ERD.png)
+![ERD](https://github.com/jmalabed/project1/blob/submaster/wireframe/pr1-ERD.png)
 
 ## Minimum Viable Product
 - Create an Express Application.
@@ -81,15 +73,21 @@ This project is completed with:
 - 50+ Git commits.
 - Write clean and professional-looking code. Include comments where necessary and utilize spacing and proper indentation to ensure that code is easy to follow.
 - Visual design with Flexbox, CSS Grid, Bootstrap, Materialize, Foundation, Skeleton, or another CSS framework to make your front-end snazzy. First impressions matter!
-- Deploy app on Heroku
+- Deploy app on Heroku.
 
 
-## Code Snippets UPDATE
+## Code Snippets
 
 
 
 
-## Future Work UPDATE
+## Future Work
+#### Account Setup
+- Accounts should not be able to have the same username.
+- Users should have account page. This will contain the ability to change password, set a profile picture, and
+
+#### Comment Ranking
+- Comments should appear in order of how many likes they have and be sortable. The comment with the greatest number of likes should also be visible.
 
 
-## Acknowledgements UPDATE
+## Acknowledgements
