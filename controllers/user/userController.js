@@ -49,8 +49,8 @@ router.post('/auth/registration',(req,res)=>{
 
 // Login route, compare the entered req.body with the database.
 router.post('/auth/login',(req,res)=>{
-  // console.log("testing");
-  User.findOne({ username: req.body.username}, (err,foundUser)=>{
+  console.log("testing");
+  User.findOne({username: req.body.username}, (err,foundUser)=>{
     console.log(foundUser);
     if (err) {
       console.log(err);
@@ -58,7 +58,6 @@ router.post('/auth/login',(req,res)=>{
       // First, check if username matches
       // console.log('testing1');
       if (!foundUser) {
-        alert('user not found')
         // console.log('not found');
         res.redirect('/user')
       } else {
