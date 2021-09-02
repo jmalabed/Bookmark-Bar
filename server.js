@@ -7,7 +7,7 @@ const app = express()
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require('dotenv').config()
-const port = process.env.PORT
+const port = process.env.PORT||3000
 const session=require('express-session')
 
 // const Resource = require('./models/resource.js');
@@ -15,7 +15,7 @@ const session=require('express-session')
 // const topicData = require('./data/topicData.js')
 // const resourceData = require('./data/resourceData.js')
 // Configuration
-const mongoURI = 'mongodb://localhost:27017/'+'bar';
+const MONGODB_URI = process.env.MONGODB_URI||'mongodb://localhost:27017/'+'bar';
 const db = mongoose.connection;
 
 //DEPRECATION WARNING:
@@ -28,11 +28,11 @@ const connectionOptions = {
 
 
 // Connect to Mongo
-mongoose.connect( mongoURI);
+mongoose.connect(MONGODB_URI,connectionOptions);
 
 // Connection Error/Success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', mongoURI));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on( 'open' , ()=>{
@@ -70,6 +70,7 @@ db.on( 'open' , ()=>{
 // =============================
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
+app.use(express.json());
 app.use((req, res, next) => {
   // console.log('run all routes')
   next();
