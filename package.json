@@ -2,7 +2,7 @@
   "name": "project1",
   "version": "1.0.0",
   "engines": {
-    "node": "10.19.0"
+    "node": "14.17.6"
   },
   "description": "# General Assembly Project 1: The Bookmark Bar ## User Stories - When navigating to the index, a user will be able to navigate to the desired topic of their choice. - user utilizes wiki-page style navigation - user will be able to contribute and edit resources on topic page - A user will be able to add likes on helpful resources - A user will be able to update and delete resources from their respective lists",
   "main": "server.js",
