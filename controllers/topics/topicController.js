@@ -138,16 +138,16 @@ router.put('/:topicId/:resourceId/like',(req,res)=>{
 })
 
 // delete route
-router.delete('/:id',(req,res)=>{
-  id = req.params.id
-  Topic.findByIdAndRemove(id, (err,removeTopic)=>{
-    if (err) {
-      res.send(err);
-    } else {
-      res.redirect('/topics')
-    }
-  })
-})
+// router.delete('/:id',(req,res)=>{
+//   id = req.params.id
+//   Topic.findByIdAndRemove(id, (err,removeTopic)=>{
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.redirect('/topics')
+//     }
+//   })
+// })
 
 router.delete('/:id', isAuthenticated, (req,res)=>{
   id = req.params.id
@@ -155,7 +155,7 @@ router.delete('/:id', isAuthenticated, (req,res)=>{
     if (err) {
       res.send(err);
     } else {
-      res.redirect('/topics')
+      res.redirect('/topics/'+id)
     }
   })
 })

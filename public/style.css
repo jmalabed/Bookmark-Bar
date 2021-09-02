@@ -38,7 +38,6 @@ topic index styles
 **********************************************************************/
 .topic-wrapper {
   background-image: url("https://i.imgur.com/WAShLLh.jpg?3");
-  background: rgba(0,0,0,.1);
   background-size: cover;
 }
 .topic-head {
@@ -48,8 +47,9 @@ topic index styles
   margin-bottom: 20px;
 }
 .topic-content {
+  background: rgba(0,0,0,.8);
   justify-content: center;
-  color:;
+  color: white;
   text-align: center;
   padding-bottom: 50px;
   border-top: 1px solid white;
@@ -176,7 +176,6 @@ blog styles
 /*********************************************************************
 footer styles
 **********************************************************************/
-
 .padding{
   padding-top: 0px !important;
 }
