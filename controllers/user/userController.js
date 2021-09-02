@@ -15,7 +15,7 @@ const hashedPassword = bcrypt.hashSync("yourPassword",salt);
 
 // user login
 router.get('/',(req,res)=>{
-  res.render('user/user.ejs',{currentUser:req.session.currentUser})
+  res.render('user/user.ejs',{user:req.session.currentUser})
 })
 
 router.get('/login/create',(req,res)=>{
