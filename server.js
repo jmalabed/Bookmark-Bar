@@ -7,7 +7,7 @@ const app = express()
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require('dotenv').config()
-const port = process.env.PORT||3000
+const PORT = process.env.PORT||3000
 const session=require('express-session')
 
 // const Resource = require('./models/resource.js');
@@ -117,6 +117,6 @@ app.get('/about', (req, res)=>{
 // =============================
 //           LISTEN
 
-app.listen(port, ()=>{
-  console.log("listening on port", port);
+app.listen(PORT, ()=>{
+  console.log("listening on port", PORT);
 })
