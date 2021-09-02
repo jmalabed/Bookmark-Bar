@@ -28,7 +28,9 @@ const connectionOptions = {
 
 
 // Connect to Mongo
-mongoose.connect(MONGODB_URI,connectionOptions);
+mongoose.connect(MONGODB_URI,connectionOptions,()=>{
+  console.log('completed connection');
+});
 
 // Connection Error/Success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
