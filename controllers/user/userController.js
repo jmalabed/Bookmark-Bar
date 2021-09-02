@@ -7,7 +7,6 @@ const User = require('../../models/user.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js');
 const bcrypt = require('bcrypt');
-const sessions = express.Router()
 const salt = bcrypt.genSaltSync(10);
 const hashedPassword = bcrypt.hashSync("yourPassword",salt);
 

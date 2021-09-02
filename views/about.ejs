@@ -46,6 +46,21 @@
       </ul>
     </div>
   </div>
+  <div class="float-right mr-5">
+    <% if (user) { %>
+      <p>Welcome, <%=user.username%>! </p>
+      <form action="/user/logout?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
+      </form>
+
+
+    <% } else { %>
+      <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
+      <script type="text/javascript">
+        const welcomeMsg = document.getElementById('welcomeMsg')
+      </script>
+    <% }%>
+  </div>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -70,7 +85,7 @@
           <img src="https://live.staticflickr.com/65535/51385465895_ac9ddeb7ac_w.jpg" class="pic"
           alt="LinkedIn photo - Syska">
           <h3 class="name">Jared</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Bicycle enthusiast, phography novice, Mechanical Engineer retiree, and professional dabbler. Currently located in San Francisco. Intimate with Karl the Fog.</br></br>Student at General Assembly</p>
         </div>
         <div class='col about'>
           <!-- About Ari -->
@@ -126,10 +141,6 @@
     </div>
   </div>
 </footer>
-<<<<<<< HEAD
-<!-- Script to change color / opacity of nav bar on scroll -->
-=======
->>>>>>> submaster
 <script>
 var nav = document.querySelector('nav');
 window.addEventListener('scroll', function () {
