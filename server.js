@@ -14,7 +14,7 @@ const session=require('express-session')
 // const topicData = require('./data/topicData.js')
 // const resourceData = require('./data/resourceData.js')
 // Configuration
-const mongoURI = 'mongodb://localhost:27017/'+'bar';
+const mongoURI = process.env.MONGOB_URI || 'mongodb://localhost:27017/'+'bar';
 const db = mongoose.connection;
 
 //DEPRECATION WARNING:
