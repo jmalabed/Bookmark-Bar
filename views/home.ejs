@@ -40,7 +40,6 @@
       <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
       <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
       <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-      <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
     </ul>
     </div>
   </div>
@@ -50,8 +49,6 @@
       <form action="/user/logout?_method=DELETE" method="POST">
         <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
       </form>
-
-
     <% } else { %>
       <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
       <script type="text/javascript">
@@ -138,17 +135,5 @@
   </div>
 </footer>
 </div>
-<!-- script to change color/opacity of nav bar on scroll -->
-<script>
-var nav = document.querySelector('nav');
-window.addEventListener('scroll', function () {
-  if (window.pageYOffset > 100) {
-    nav.classList.add('bg-secondary', 'shadow');
-    } else {
-    nav.classList.remove('bg-secondary', 'shadow');
-    }
-  });
-</script>
-
 </body>
 </html>
