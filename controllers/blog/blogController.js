@@ -5,7 +5,7 @@ const Topic = require('../../models/topics.js');
 const Resource = require('../../models/resource.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js')
-const sessions = express.Router()
+
 
 const isAuthenticated = (req,res,next)=>{
   // console.log(req.session.currentUser);
