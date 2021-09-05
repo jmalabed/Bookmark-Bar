@@ -142,6 +142,23 @@ router.put('/:topicId/:resourceId/like',(req,res)=>{
   })
 })
 
+// Update route for comments
+router.put('/:topicId/:resourceId/comment',(req,res)=>{
+  rId = req.params.resourceId;
+  newComment = req.body.comments
+  // req.body.comments.push(req.body)
+  console.log(req.body);
+  Resource.findByIdAndUpdate(rId,{$push: {comments:req.body.comments}},(err,foundResource)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('updated resource');
+      console.log(foundResource);
+      res.redirect('/topics/'+req.params.topicId)
+    }
+  })
+})
+
 // delete route
 router.delete('/:id',(req,res)=>{
   id = req.params.id
