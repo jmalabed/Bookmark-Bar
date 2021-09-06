@@ -23,8 +23,9 @@
   <div class='container'>
     <div class='navbar-header'>
     <!-- navbar brand will always go on the left -->
-    <a href='/' class='navbar-brand'>BookmarksBar
-    <img src='https://media.discordapp.net/attachments/880157806609727510/882679709157191730/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon_jmEdit.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'></a>
+      <a href='/' class='navbar-brand'>BookmarksBar
+        <img src='https://images.vexels.com/media/users/3/156834/isolated/preview/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'>
+      </a>
     </div>
     <button
     type='button'
@@ -32,19 +33,20 @@
     data-bs-toggle='collapse'
     data-bs-target='#toggleMenu'
     aria-controls='toggleMenu'
-    aria-expanded='false'
+    aria-expanded='true'
     aria-label='Toggle navigation'>
-    <span class='navbar-toggler-icon'></span>
+      <span class='navbar-toggler-icon'></span>
     </button>
     <div class='collapse navbar-collapse' id='toggleMenu'>
-    <ul class='navbar-nav ms-auto text-center'>
-      <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
-      <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
-      <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-    </ul>
+      <ul class='navbar-nav ms-auto text-center'>
+        <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
+        <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
+        <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
+        <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+      </ul>
     </div>
   </div>
-  <div class="float-right mr-5">
+  <div class="float-right mr-4">
     <% if (user) { %>
       <p>Welcome, <%=user.username%>! </p>
       <form action="/user/logout?_method=DELETE" method="POST">
@@ -66,7 +68,7 @@
     <form action="/topics" method="post">
       <p>Topic Name: <input type="text" name="name" value=""></p>
       <p>Topic Image URL: <input type="text" name="img"></p>
-      <input type="submit" id='add-btn' value="add">
+      <input type="submit" id='add-btn' value="Add Topic">
     </form>
     <a href='/topics'>Go Back</a>
 </div>
