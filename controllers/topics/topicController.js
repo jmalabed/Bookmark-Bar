@@ -18,6 +18,14 @@ const isAuthenticated = (req,res,next)=>{
   }
 }
 
+
+//testing ejs and formatting
+
+router.get('/format-test',(req,res)=>{
+  res.render("format-test.ejs")
+})
+
+
 //new route topics
 router.get('/newT',isAuthenticated, (req,res)=> {
   res.render('topics/newT.ejs',{user:req.session.currentUser})
