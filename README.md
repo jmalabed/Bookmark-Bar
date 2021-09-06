@@ -44,8 +44,8 @@ This project is completed with:
  - A user will be able to find context behind resources through a descriptive blog post in which the code from the particular resource has been implemented.
 
 
-## Link to Page UPDATE
-- [page](url)
+## Link to Page
+- [The BookmarksBar](https://damp-gorge-54237.herokuapp.com/)
 ## Site Graphics
 ### Sitemap
 
@@ -58,7 +58,7 @@ This project is completed with:
 
 #### Full Site Wireframes
 
-![Link to Wireframes](https://github.com/jmalabed/project1/blob/submaster/SiteWireframeREADME.md)
+[Link to Wireframes](https://github.com/jmalabed/project1/blob/submaster/SiteWireframeREADME.md)
 
 ### Entity Relationship Diagram
 
