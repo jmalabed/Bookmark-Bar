@@ -13,9 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/jmalabed/project1.git"
   },
-  "engines":{
-    "node":"16.6.1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -33,7 +30,7 @@
     "faker": "^5.5.3",
     "halfmoon": "^1.1.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.13.8",
+    "mongoose": "^5.13.9",
     "session": "^0.1.0"
   }
 }
