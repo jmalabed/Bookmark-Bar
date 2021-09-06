@@ -5,7 +5,7 @@ const resourceData = require('./data/resourceData.js')
 const blogData = require('./data/blogData.js')
 
 async function seedDB(){
-  const uri = "mongodb+srv://jarJared:MAoz35TUV418dcZ0@cluster0.xuy8n.mongodb.net/bar?retryWrites=true&w=majority"
+  const uri = "mongodb+srv://jared:WjHAqMJ1ladAdEyo@cluster0.fcmi1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
   })
