@@ -33,9 +33,7 @@ router.get('/login/create',(req,res)=>{
 
 // create new user post route
 router.post('/auth/registration',(req,res)=>{
-  // console.log(req.body);
   const passwordHash = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10))
-  // console.log(passwordHash);
   const userDbEntry = {
     username: req.body.username,
     password: passwordHash,
@@ -47,7 +45,6 @@ router.post('/auth/registration',(req,res)=>{
     } else {
       // console.log(createdUser);
       req.session.currentUser = createdUser
-      console.log(req.session.currentUser);
       res.redirect('/user')
     }
   })
@@ -56,19 +53,14 @@ router.post('/auth/registration',(req,res)=>{
 
 // Login route, compare the entered req.body with the database.
 router.post('/auth/login',(req,res)=>{
-  console.log("testing");
   User.findOne({username: req.body.username}, (err,foundUser)=>{
-    console.log(foundUser);
     if (err) {
       console.log(err);
     } else {
       // First, check if username matches
-      // console.log('testing1');
       if (!foundUser) {
-        // console.log('not found');
         res.redirect('/user')
       } else {
-        // console.log('peering in');
         // Now, check if the hashed password matches the req.body.password that was submitted.
         if (bcrypt.compareSync(req.body.password, foundUser.password)) {
           req.session.currentUser = foundUser

@@ -69,15 +69,15 @@
 
 <div class='container my-5 d-grid gap-5 mt-3'>
   <div class='row justify-content-center mt-2'>
-    <div class='col-lg-9'
+    <div class='col-lg-9'>
+    <form action="/blog" method="post">
       <div class='form-group'>
-        <form action="/blog" method="post">
-        <p>user:<input type="text" id='userInput' name="user"</p>
-        <p>Header:<input type='text' id='headerInput' name='header'/></p> <br/>
-        <p>img:<input type='text' id='imgInput' name='img'/></p> <br/>
-        <p><textarea class='form-control'name="description" rows="8" cols="80" placeholder="inner thoughts"></textarea></p>
-        <input type="submit" id='add-btn' value="post">
-        </form>
+        <input type="hidden" name="user" value="<%= user.username %>"/>
+        <label for='header'>Header:</label>
+        <input type='text' id='header' name='header'/> <br/>
+        <label for='description'>Description:</label>
+        <textarea class='form-control'name="description" id="description" rows="8" cols="80" placeholder="Blog content..."></textarea>
+        <input type="submit" id='add-btn' value="Create new blog post">
       </div>
 </div>
 </div>
