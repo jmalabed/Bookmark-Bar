@@ -18,6 +18,14 @@ const isAuthenticated = (req,res,next)=>{
   }
 }
 
+
+//testing ejs and formatting
+
+router.get('/format-test',(req,res)=>{
+  res.render("format-test.ejs")
+})
+
+
 //new route topics
 router.get('/newT',isAuthenticated, (req,res)=> {
   res.render('topics/newT.ejs',{user:req.session.currentUser})
@@ -139,6 +147,23 @@ router.put('/:topicId/:resourceId/like',(req,res)=>{
     // console.log(foundResource);
     // res.send('testing in progress')
     res.redirect('/topics/'+req.params.topicId)
+  })
+})
+
+// Update route for comments
+router.put('/:topicId/:resourceId/comment',(req,res)=>{
+  rId = req.params.resourceId;
+  newComment = req.body.comments
+  // req.body.comments.push(req.body)
+  console.log(req.body);
+  Resource.findByIdAndUpdate(rId,{$push: {comments:req.body.comments}},(err,foundResource)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('updated resource');
+      console.log(foundResource);
+      res.redirect('/topics/'+req.params.topicId)
+    }
   })
 })
 
