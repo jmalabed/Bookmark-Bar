@@ -84,7 +84,23 @@
         <div class='col-lg-7 mb-5'>
           <p> <%=blog.description %> </p>
           <a href='/blog/<%=blog._id%>/edit'>edit</a>
-          <input type="text" class="form-control" placeholder="Post a comment"/>
+
+          <!-- Comment -->
+          <form  action="/blogs?_method=PUT" method="post">
+           <label for='comments'>Comments:</label>
+           <% blog.comments.forEach((comment,idx) => { %>
+             <p><%= idx+1 %>. <%=blog.comments[idx]%> </p>
+           <% }) %>
+           <textarea class='form-control'name="comments" rows="1" cols="30" placeholder="text here"></textarea>
+           <input type="submit" value="Add Comment!">
+          </form>
+          <!--  -->
+
+
+
+
+
+
         </div>
       </div>
     </div>

@@ -10,7 +10,6 @@ const resourceData = require('../../data/resourceData.js')
 
 
 const isAuthenticated = (req,res,next)=>{
-  // console.log(req.session.currentUser);
   if (req.session.currentUser) {
     return next()
   } else {
@@ -38,7 +37,6 @@ router.get('/',(req,res)=>{
     if (err) {
       console.log(err);
     } else {
-        // console.log(allTopics);
         res.render('topics/index.ejs', {
           topics:allTopics,
           user:req.session.currentUser})
@@ -120,15 +118,11 @@ router.post('/',(req,res)=>{
 })
 
 router.post('/:id', (req,res)=>{
-  console.log('testing testing!');
-  console.log(req.body);
   id = req.params.id;
   Resource.create([req.body],(err,newResource)=>{
-    console.log(newResource);
     if (err) {
       console.log(err);
     } else {
-      console.log('youre close');
         res.redirect("/topics/"+req.params.id)
       }
     }
@@ -140,7 +134,6 @@ router.put('/:tId/:rId', (req,res)=>{
 const resourceId = req.params.rId
 const topicId = req.params.tId
 const updatedResourceData = req.body
-console.log(updatedResourceData);
   Resource.findByIdAndUpdate(resourceId,updatedResourceData, (err,updatedResource) => {
       res.redirect('/topics/'+topicId)
   })
@@ -149,12 +142,8 @@ console.log(updatedResourceData);
 // Update route for likes
 router.put('/:topicId/:resourceId/like',(req,res)=>{
   rId = req.params.resourceId
-  console.log('like');
-  // console.log(req.body);
   req.body.likes++
-  console.log(req.body.likes );
   Resource.findByIdAndUpdate(rId,req.body,(err,foundResource)=>{
-    // console.log(foundResource);
     // res.send('testing in progress')
     res.redirect('/topics/'+req.params.topicId)
   })
@@ -165,13 +154,10 @@ router.put('/:topicId/:resourceId/comment',(req,res)=>{
   rId = req.params.resourceId;
   newComment = req.body.comments
   // req.body.comments.push(req.body)
-  console.log(req.body);
   Resource.findByIdAndUpdate(rId,{$push: {comments:req.body.comments}},(err,foundResource)=>{
     if (err) {
       console.log(err);
     } else {
-      console.log('updated resource');
-      console.log(foundResource);
       res.redirect('/topics/'+req.params.topicId)
     }
   })
