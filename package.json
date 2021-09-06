@@ -2,7 +2,7 @@
   "name": "project1",
   "version": "1.0.0",
   "engines": {
-    "node": "14.17.6"
+    "node": "16.6.1"
   },
   "description": "# General Assembly Project 1: The Bookmark Bar ## User Stories - When navigating to the index, a user will be able to navigate to the desired topic of their choice. - user utilizes wiki-page style navigation - user will be able to contribute and edit resources on topic page - A user will be able to add likes on helpful resources - A user will be able to update and delete resources from their respective lists",
   "main": "server.js",
@@ -30,7 +30,7 @@
     "faker": "^5.5.3",
     "halfmoon": "^1.1.1",
     "method-override": "^3.0.0",
-    "mongoose": "5.13.8",
+    "mongoose": "^5.13.8",
     "session": "^0.1.0"
   }
 }
