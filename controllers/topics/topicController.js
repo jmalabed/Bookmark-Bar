@@ -178,24 +178,24 @@ router.put('/:topicId/:resourceId/comment',(req,res)=>{
 })
 
 // delete route
-// router.delete('/:id',(req,res)=>{
-//   id = req.params.id
-//   Topic.findByIdAndRemove(id, (err,removeTopic)=>{
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.redirect('/topics')
-//     }
-//   })
-// })
+router.delete('/:id',(req,res)=>{
+  id = req.params.id
+  Topic.findByIdAndRemove(id, (err,removeTopic)=>{
+    if (err) {
+      res.send(err);
+    } else {
+      res.redirect('/topics')
+    }
+  })
+})
 
-router.delete('/:id', isAuthenticated, (req,res)=>{
+router.delete('/:id',(req,res)=>{
   id = req.params.id
   Resource.findByIdAndRemove(id, (err,removeResource)=>{
     if (err) {
       res.send(err);
     } else {
-      res.redirect('/topics/'+id)
+      res.redirect('/topics')
     }
   })
 })
