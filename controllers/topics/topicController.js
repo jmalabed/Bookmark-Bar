@@ -100,13 +100,23 @@ router.get('/:topicId/:resourceId/edit',isAuthenticated, (req, res)=>{
 
 // post route
 router.post('/',(req,res)=>{
-  Topic.create(req.body,(err,newTopic)=>{
-    if (err) {
-      console.log(err);
+  Topic.find({"name":req.body.name},(err,foundTopic)=>{
+    if (foundTopic.name === req.body.name) {
+      Topic.create(req.body,(err,newTopic)=>{
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/topics')
+        }
+      })
     } else {
-      res.redirect('/topics')
+      res.send(`
+        <h1>This topic already exists</h1>
+        <p><a href = "/topics">Return to topics page</a>
+        `)
     }
   })
+
 })
 
 router.post('/:id', (req,res)=>{

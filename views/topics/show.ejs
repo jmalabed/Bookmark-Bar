@@ -83,8 +83,8 @@
            <p><%= idx+1 %>. <%=resource.comments[idx]%> </p>
          <% }) %>
          <p> <%=resource.comment%> </p>
-         <textarea class='form-control'name="comments" rows="4" cols="50" placeholder="text here"></textarea>
-         <input type="submit" value="COMMENT">
+         <textarea class='form-control'name="comments" rows="1" cols="30" placeholder="text here"></textarea>
+         <input type="submit" value="Add Comment!">
        </form>
        <!--  -->
         <a href='/topics/<%=topic._id%>/<%=resource._id%>/edit'>edit</a>
