@@ -7,7 +7,6 @@ const User = require('../../models/user.js');
 const topicData = require('../../data/topicData.js');
 const resourceData = require('../../data/resourceData.js');
 const bcrypt = require('bcrypt');
-const sessions = express.Router()
 const salt = bcrypt.genSaltSync(10);
 const hashedPassword = bcrypt.hashSync("yourPassword",salt);
 
@@ -24,7 +23,7 @@ const isAuthenticated = (req,res,next)=>{
 
 // user login
 router.get('/',(req,res)=>{
-  res.render('user/user.ejs',{currentUser:req.session.currentUser})
+  res.render('user/user.ejs',{user:req.session.currentUser})
 })
 
 router.get('/login/create',(req,res)=>{
@@ -57,8 +56,8 @@ router.post('/auth/registration',(req,res)=>{
 
 // Login route, compare the entered req.body with the database.
 router.post('/auth/login',(req,res)=>{
-  // console.log("testing");
-  User.findOne({ username: req.body.username}, (err,foundUser)=>{
+  console.log("testing");
+  User.findOne({username: req.body.username}, (err,foundUser)=>{
     console.log(foundUser);
     if (err) {
       console.log(err);
@@ -66,7 +65,6 @@ router.post('/auth/login',(req,res)=>{
       // First, check if username matches
       // console.log('testing1');
       if (!foundUser) {
-        alert('user not found')
         // console.log('not found');
         res.redirect('/user')
       } else {

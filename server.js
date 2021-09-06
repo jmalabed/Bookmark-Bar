@@ -7,14 +7,15 @@ const app = express()
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require('dotenv').config()
-const port = process.env.PORT
+const PORT = process.env.PORT||3000
 const session=require('express-session')
+
 // const Resource = require('./models/resource.js');
 // const Topic = require('./models/topics.js');
 // const topicData = require('./data/topicData.js')
 // const resourceData = require('./data/resourceData.js')
 // Configuration
-const mongoURI = process.env.MONGOB_URI || 'mongodb://localhost:27017/'+'bar';
+const MONGODB_URI = process.env.MONGODB_URI||'mongodb://localhost:27017/'+'bar';
 const db = mongoose.connection;
 
 //DEPRECATION WARNING:
@@ -24,11 +25,13 @@ const connectionOptions = {
 }
 
 // Connect to Mongo
-mongoose.connect( mongoURI );
+mongoose.connect(MONGODB_URI,connectionOptions,()=>{
+  console.log('completed connection');
+});
 
 // Connection Error/Success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', mongoURI));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on( 'open' , ()=>{
@@ -66,20 +69,12 @@ db.on( 'open' , ()=>{
 // =============================
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
+app.use(express.json());
 app.use((req, res, next) => {
   // console.log('run all routes')
   next();
 })
-// =============================
-//         ROUTING
-// =============================
-app.get('/', (req, res)=> {
-  res.render('home.ejs')
-});
 
-app.get('/about', (req, res)=>{
-  res.render('about.ejs')
-});
 
 
 app.use(express.static(__dirname + '/public'));
@@ -100,8 +95,27 @@ const userController = require('./controllers/user/userController');
 app.use('/user', userController);
 
 // =============================
+//         ROUTING
+// =============================
+app.get('/', (req, res)=> {
+  res.render('home.ejs',{
+    user:req.session.currentUser
+  })
+});
+
+app.get('/about', (req, res)=>{
+  res.render('about.ejs',{
+    user:req.session.currentUser
+  })
+});
+
+
+
+
+
+// =============================
 //           LISTEN
 
-app.listen(port, ()=>{
-  console.log("listening on port", port);
+app.listen(PORT, ()=>{
+  console.log("listening on port", PORT);
 })

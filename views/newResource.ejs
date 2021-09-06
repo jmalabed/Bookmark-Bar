@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link type='text/css' href="/style.css" rel="stylesheet"/>
+    <title>Create New Resource</title>
+  </head>
+  <body>
+    <h1>Create a New Resource</h1>
+    <form action="/bar/<%=topic._id%>" method="post">
+      <p>Resource Name: <input type="text" name="name" value=""></p>
+      <p>Resource URL: <input type="text" name="url"></p>
+      <input type="hidden" name="topicId" value="<%=topic.name%>">
+      <p><textarea name="description" rows="8" cols="80" placeholder="Small description of resource"></textarea></p>
+      <input type="submit" value="CREATE NEW">
+    </form>
+  </body>
+  <div class="">
+    <footer class='border-top pt-5 padding'>
+      <div class='container'>
+        <div class='row pt-5 padding'>
+          <!-- three equal columns href:https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+          <!-- .col-sm screen width is >=768px -->
+          <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
+          <div class="col-sm-4">
+          <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
+            <div class='pt-5 d-flex justify-content-center'>
+              <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
+              <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+              <ul class='nav flex-column'>
+                <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
+                <!-- Badges in footer for LinkedIn profiles, Jared, Ari, Rio -->
+                <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+                <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+                <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class='d-flex justify-content-center'>
+            <a href='https://generalassemb.ly/'><img src="https://media.discordapp.net/attachments/880157806609727510/882670853463109682/GALogoForGreenhouse_-jmEdit.png" width=300vw></a>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class=' d-flex justify-content-center' style='padding-top:48px'>
+              <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' width='70vw'class='justify-content-end' ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</html>

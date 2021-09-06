@@ -5,8 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
   <!-- Main CSS -->
   <link type='text/css' href="/style.css" rel="stylesheet"/>
   <!-- Google Fonts API -->
@@ -41,11 +42,21 @@
       <li class='nav-item'><a class='nav-link' href="/topics">topics</a></li>
       <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
       <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-      <li class='nav-item'><a class='nav-link active' href='/user'>login</a></li>
-      <li class='nav-item'><form action="user/logout?_method=DELETE" method="post">
-      </li>
     </ul>
     </div>
+  </div>
+  <div class="float-right mr-5">
+    <% if (user) { %>
+      <p>Welcome, <%=user.username%>! </p>
+      <form action="/user/logout?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
+      </form>
+    <% } else { %>
+      <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
+      <script type="text/javascript">
+        const welcomeMsg = document.getElementById('welcomeMsg')
+      </script>
+    <% }%>
   </div>
 </nav>
 <!-- LOGIN Form -->
@@ -82,4 +93,44 @@
   </div>
 </section>
 </body>
+<!-- FOOTER -->
+<!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
+<!-- https://stackoverflow.com/questions/48971732/unable-to-undertstand-usage-of-spacer-in-bootstrap-4/51320503 -->
+<!-- padding top set $spaceer * 3  -->
+<!--  $spacer is s sass variable. default value set at 1rem:16px -->
+<div class="">
+  <footer class='border-top pt-5 padding'>
+    <div class='container'>
+      <div class='row pt-5 padding'>
+        <!-- three equal columns href:https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+        <!-- .col-sm screen width is >=768px -->
+        <!-- width equal to 4 columns for Bootsrap Grid System allows up to 12 columns across the page. -->
+        <div class="col-sm-4">
+        <!-- https://getbootstrap.com/docs/4.0/utilities/flex/ -->
+          <div class='pt-5 d-flex justify-content-center'>
+            <img class='topic-logo'src='https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg'>
+            <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+            <ul class='nav flex-column'>
+              <!-- https://stackoverflow.com/questions/56346774/why-cant-we-change-the-color-of-badge-class-in-bootstrap-4-using-css -->
+              <!-- Badges in footer for LinkedIn profiles, Jared, Ari, Rio -->
+              <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/jaredmalabed/'>Jared</a></li>
+              <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/ari-codes/'>Ari</a></li>
+              <li class='nav-item'><a class='badge badge-primary' href='https://www.linkedin.com/in/piraiojeda/'>Rio</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class='d-flex justify-content-center'>
+          <a href='https://generalassemb.ly/'><img src="https://media.discordapp.net/attachments/880157806609727510/882670853463109682/GALogoForGreenhouse_-jmEdit.png" width=300vw></a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class=' d-flex justify-content-center' style='padding-top:48px'>
+            <a href='https://github.com/jmalabed/project1/tree/main'> <img src='https://image.flaticon.com/icons/png/512/25/25231.png' width='70vw'class='justify-content-end' ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
 </html>

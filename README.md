@@ -77,9 +77,25 @@ This project is completed with:
 
 
 ## Code Snippets
+### Login Logout Button - J
+
+```
+<div class="float-right mr-5">
+  <% if (user) { %>
+    <p>Welcome, <%=user.username%>! </p>
+    <form action="/user/logout?_method=DELETE" method="POST">
+      <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
+    </form>
 
 
-
+  <% } else { %>
+    <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
+    <script type="text/javascript">
+      const welcomeMsg = document.getElementById('welcomeMsg')
+    </script>
+  <% }%>
+</div>
+```
 
 ## Future Work
 #### Account Setup
@@ -91,3 +107,4 @@ This project is completed with:
 
 
 ## Acknowledgements
+-Bootstrap
