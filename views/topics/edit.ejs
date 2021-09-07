@@ -84,7 +84,7 @@
     <input type="hidden" name="topicId" value="<%=resource.topicId%>"/>
     <input type="submit" id='save-btn' value="save">
   </form>
-  <form action="/topics/resource/<%=resource._id%>?_method=DELETE" method="post">
+  <form action="/topics/<%=resource._id%>?_method=DELETE" method="post">
     <input type="submit" id='delete-btn' value="delete"/>
   </form>
 </div>
