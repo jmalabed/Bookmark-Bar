@@ -48,7 +48,6 @@
         <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
         <li class='nav-item'>
           <% if (user) { %>
-            <p>Welcome, <%=user.username%>! </p>
             <form action="/user/logout?_method=DELETE" method="POST">
               <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
             </form>
@@ -58,7 +57,11 @@
               const welcomeMsg = document.getElementById('welcomeMsg')
             </script>
           <% }%>
-         </li>
+        </li>
+        <li class='nav-item'> <% if (user) { %>
+        <p> Welcome, <%=user.username%>! </p>
+        <% }%>
+        </li>
       </ul>
     </div>
   </div>
