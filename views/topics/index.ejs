@@ -58,8 +58,9 @@
             </script>
           <% }%>
         </li>
+        <li class='nav-item'> <p id='hidden'> ... </p></li>
         <li class='nav-item'> <% if (user) { %>
-        <p> Welcome, <%=user.username%>! </p>
+        <p id='welcomeMsg'> Welcome, <%=user.username%>! </p>
         <% }%>
         </li>
       </ul>
