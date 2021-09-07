@@ -101,6 +101,20 @@ router.put('/:blogId/like',isAuthenticated,(req,res)=>{
   })
 })
 
+//UPDATE ROUTE - COMMENTS
+router.put('/:blogId/comment',(req,res)=>{
+  bId = req.params.blogId;
+  newComment = req.body.comments
+  // req.body.comments.push(req.body)
+  Blog.findByIdAndUpdate(bId,{$push: {comments:req.body.comments}},(err,foundBlog)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/blog/'+req.params.blogId)
+    }
+  })
+})
+
 //PUT
 router.put('/:id',isAuthenticated,(req, res)=>{
 const id = req.params.id

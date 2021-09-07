@@ -93,7 +93,7 @@
           <a href='/blog/<%=blog._id%>/edit'>edit</a>
 
           <!-- Comment -->
-          <form  action="/blogs?_method=PUT" method="post">
+          <form  action="/blog/<%=blog._id%>/comment?_method=PUT" method="post">
            <label for='comments'>Comments:</label>
            <% blog.comments.forEach((comment,idx) => { %>
              <p><%= idx+1 %>. <%=blog.comments[idx]%> </p>
