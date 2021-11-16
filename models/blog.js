@@ -9,6 +9,7 @@ const blogSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  img: String,
   header: {
     type: String,
     required: true

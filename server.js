@@ -24,9 +24,6 @@ const connectionOptions = {
     useUnifiedTopology: true
 }
 
-
-
-
 // Connect to Mongo
 mongoose.connect(MONGODB_URI,connectionOptions,()=>{
   console.log('completed connection');

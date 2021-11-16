@@ -166,7 +166,7 @@ router.put('/:topicId/:resourceId/comment',(req,res)=>{
 // delete route
 router.delete('/:id',(req,res)=>{
   id = req.params.id
-  Topic.findByIdAndRemove(id, (err,removeTopic)=>{
+  Resource.findByIdAndRemove(id, (err,removeResource)=>{
     if (err) {
       res.send(err);
     } else {
@@ -177,7 +177,7 @@ router.delete('/:id',(req,res)=>{
 
 router.delete('/:id',(req,res)=>{
   id = req.params.id
-  Resource.findByIdAndRemove(id, (err,removeResource)=>{
+  Topic.findByIdAndRemove(id, (err,removeTopic)=>{
     if (err) {
       res.send(err);
     } else {
@@ -185,6 +185,7 @@ router.delete('/:id',(req,res)=>{
     }
   })
 })
+
 
 
 module.exports = router

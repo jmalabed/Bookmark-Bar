@@ -54,9 +54,11 @@ const id = req.params.id
 //POST
 router.post('/',isAuthenticated,(req,res)=>{
   Blog.create(req.body,(err,newBlog)=>{
+    console.log(req.body)
     if (err) {
-      res.send(err);
+      console.log(err);
     } else {
+      console.log('checked')
       res.redirect('/blog')
     }
   })
@@ -96,6 +98,20 @@ router.put('/:blogId/like',isAuthenticated,(req,res)=>{
   req.body.likes++
   Blog.findByIdAndUpdate(bId,req.body,(err,foundBlog)=>{
     res.redirect('/blog')
+  })
+})
+
+//UPDATE ROUTE - COMMENTS
+router.put('/:blogId/comment',(req,res)=>{
+  bId = req.params.blogId;
+  newComment = req.body.comments
+  // req.body.comments.push(req.body)
+  Blog.findByIdAndUpdate(bId,{$push: {comments:req.body.comments}},(err,foundBlog)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/blog/'+req.params.blogId)
+    }
   })
 })
 

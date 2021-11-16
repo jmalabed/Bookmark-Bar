@@ -24,7 +24,7 @@
     <div class='navbar-header'>
     <!-- navbar brand will always go on the left -->
       <a href='/' class='navbar-brand'>BookmarksBar
-        <img src='https://images.vexels.com/media/users/3/156834/isolated/preview/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'>
+        <img src='https://media.discordapp.net/attachments/880157806609727510/882679709157191730/7001ac7e95729ee662f2af03243f9af2-martini-cocktail-flat-icon_jmEdit.png' alt='BBlogo' width='30' height='30' class='d-inline-block align-top' style='background-color:inherit'>
       </a>
     </div>
     <button
@@ -42,22 +42,25 @@
         <li class='nav-item'><a class='nav-link active' href="/topics">topics</a></li>
         <li class='nav-item'><a class='nav-link' href='/blog'>blog</a></li>
         <li class='nav-item'><a class='nav-link' href='/about'>about</a></li>
-        <li class='nav-item'><a class='nav-link' href='/user'>login</a></li>
+        <li class='nav-item'>
+          <% if (user) { %>
+            <form action="/user/logout?_method=DELETE" method="POST">
+              <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
+            </form>
+          <% } else { %>
+            <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
+            <script type="text/javascript">
+              const welcomeMsg = document.getElementById('welcomeMsg')
+            </script>
+          <% }%>
+        </li>
+        <li class='nav-item'> <p id='hidden'> ... </p></li>
+        <li class='nav-item'> <% if (user) { %>
+        <p id='welcomeMsg'> Welcome, <%=user.username%>! </p>
+        <% }%>
+        </li>
       </ul>
     </div>
-  </div>
-  <div class="float-right mr-4">
-    <% if (user) { %>
-      <p>Welcome, <%=user.username%>! </p>
-      <form action="/user/logout?_method=DELETE" method="POST">
-        <input type="submit" class="btn btn-danger" name="" value="LOGOUT">
-      </form>
-    <% } else { %>
-      <a href="/user" id="loginLink"><button type="button" name="login"  id="login" class="btn btn-primary">LOGIN</button></a>
-      <script type="text/javascript">
-        const welcomeMsg = document.getElementById('welcomeMsg')
-      </script>
-    <% }%>
   </div>
 </nav>
 <!-- MAIN CONTENT -->
